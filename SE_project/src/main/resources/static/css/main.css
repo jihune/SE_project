@@ -9,6 +9,7 @@
 	text-align:center;
 }
 .start_logo{
+	margin-top:5%;
 	width:50%;
 	heigth:60%;
 	min-height:400px;
@@ -24,4 +25,20 @@
 	color : #ffa500;
 	border-color : #ffa500;
 	display: inline block;
+}
+.find_text{
+	color:#555;
+	margin-top:1%;
+	text-decoration:none;
+	padding: 0 2%;
+}
+.find_text:hover{
+	color:#000;
+}
+.sns_login{
+	width:50%;
+	height:10%;
+	border:#ffffff;
+	display : inline-block;
+	padding:3% 0;
 }
