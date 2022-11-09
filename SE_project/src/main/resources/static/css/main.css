@@ -11,7 +11,6 @@
 .start_logo{
 	margin-top:5%;
 	width:50%;
-	heigth:60%;
 	min-height:400px;
 	display: inline block;
 }
@@ -25,6 +24,7 @@
 	color : #ffa500;
 	border-color : #ffa500;
 	display: inline block;
+	font-size:20px;
 	-webkit-transition: background 0.5s, -webkit-transform 1s;
 	transition: background 0.5s transform 1s;
 }
