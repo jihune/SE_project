@@ -25,6 +25,12 @@
 	color : #ffa500;
 	border-color : #ffa500;
 	display: inline block;
+	-webkit-transition: background 0.5s, -webkit-transform 1s;
+	transition: background 0.5s transform 1s;
+}
+.btn_click:hover{
+	background:#555;
+	color:#fff;
 }
 .find_text{
 	color:#555;
