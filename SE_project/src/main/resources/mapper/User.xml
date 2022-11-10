@@ -5,6 +5,7 @@
 
 <!-- 회원 계정 기능 -->
 <!-- UserDTO 작성후 전체적으로 우리 개발할 사항에 맞게 수정 -->
+<!-- 현재는 UserDTO와 같은 파일을 최우선으로 작성할 필요 있음 -->
 <mapper namespace="com.se.kmbss.mapper.UserMapper">
 
     <insert id="join" parameterType="com.shoping.dbckd.model.CustomerDTO">
