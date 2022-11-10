@@ -1,0 +1,46 @@
+.login_form{
+	display:inline-block;
+}
+.login_table{
+	display:inline-block;
+}
+.login_text{
+	padding:5%;
+}
+.input_tag{
+	width: 40%;
+	height : 10%;
+	min-width: 200px;
+	min-height:30px;
+	border-radius: 20px;
+	margin-top : 2%;
+	display: inline-block;
+}
+.btn_click{
+	width:20%;
+	height:5%;
+	padding: 1% 2%;
+	border-radius : 20px;
+	margin-top : 20px;
+	background : #ffffff;
+	color : #ffa500;
+	border-color : #ffa500;
+	display: inline block;
+	font-size:20px;
+	-webkit-transition: background 0.5s, -webkit-transform 1s;
+	transition: background 0.5s transform 1s;
+}
+.btn_click:hover{
+	background:#555;
+	color:#fff;
+}
+.find_text{
+	color:#555;
+	margin-top:1%;
+	text-decoration:none;
+	padding: 1% 2%;
+	font-size:25px;
+}
+.find_text:hover{
+	color:#000;
+}
