@@ -22,10 +22,10 @@ public class MainController {
         return "sign_up.html";
     }
 
-	@RequestMapping(value = "/login")
+	@RequestMapping(value = "/sign_in")
     public String login(){
 
-        return "login.html";
+        return "sign_in.html";
     }
 
 }
