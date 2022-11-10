@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼의 위치를 적는 곳. -->
+<mapper namespace="com.se.kmbss.mapper.MainMapper">
+
+        <insert id="save" parameterType="java.util.Map">
+                INSERT INTO image_test (image) VALUES (#{bytes, jdbcType=BLOB, javaType=[B});
+        </insert>
+
+        <!-- UserDTO 만들고 수정
+        <select id="test" parameterType="Integer" resultType="CustomerDTO">
+                select * from customer where iden = #{iden}
+        </select> -->
+
+</mapper>

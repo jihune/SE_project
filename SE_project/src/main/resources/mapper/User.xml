@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원 계정 기능 -->
+<!-- UserDTO 작성후 전체적으로 우리 개발할 사항에 맞게 수정 -->
+<mapper namespace="com.se.kmbss.mapper.UserMapper">
+
+    <insert id="join" parameterType="com.shoping.dbckd.model.CustomerDTO">
+        INSERT INTO customer (id, password, email, name, nickname, phone_number, birthdate, kakao_id, seq, is_online, sign_up_type)
+        VALUES(#{id}, #{password}, #{email}, #{name}, #{nickname}, #{phone_number}, #{birthdate}, #{kakao_id}, #{seq}, #{is_online}, #{sign_up_type})
+    </insert>
+
+    <select id="login" resultType="com.shoping.dbckd.model.CustomerDTO">
+        SELECT iden, id, nick, name, address, phoneCall, generalCall, email, birth, joinDate, smsReceive, emailReceive FROM customer WHERE id = #{id} and pw = #{pw}
+    </select>
+
+    <update id="chageMyInfo" parameterType="com.shoping.dbckd.model.CustomerDTO">
+        UPDATE customer
+        SET
+        pw = #{pw},
+        nick = #{nick},
+        address = #{address},
+        phoneCall = #{phoneCall},
+        generalCall = #{generalCall},
+        email = #{email},
+        birth = #{birth},
+        smsReceive = #{smsReceive},
+        emailReceive = #{emailReceive}
+        WHERE iden = #{iden};
+    </update>
+
+    <select id="dummy" resultType="com.shoping.dbckd.model.CustomerDTO">
+        select * from customer where iden=13;
+    </select>
+
+    <!-- ID 중복 확인 --> 
+    <select id="checkID" parameterType="com.shoping.dbckd.model.CustomerDTO" resultType="String">
+        SELECT iden FROM customer WHERE id = #{id};
+    </select>
+
+    <!-- 별명 중복 확인 --> 
+    <select id="checkNick" parameterType="com.shoping.dbckd.model.CustomerDTO" resultType="String">
+        SELECT iden FROM customer WHERE nick = #{nick};
+    </select>
+
+    <!-- 이메일 중복 확인 --> 
+    <select id="checkEmail" parameterType="com.shoping.dbckd.model.CustomerDTO" resultType="String">
+        SELECT iden FROM customer WHERE email = #{email};
+    </select>
+
+    <!-- ID 찾기 --> 
+    <select id="findMyID" parameterType="com.shoping.dbckd.model.CustomerDTO" resultType="com.shoping.dbckd.model.CustomerDTO">
+        SELECT id FROM customer WHERE name = #{name} and email = #{email};
+    </select>
+
+    <!-- 비밀번호 변경 -->
+    <update id="chageMyPassword" parameterType="com.shoping.dbckd.model.CustomerDTO">
+        UPDATE customer set pw = #{pw} WHERE id = #{id} and name = #{name} and email = #{email};
+    </update>
+
+
+</mapper>
