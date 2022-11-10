@@ -1,46 +1,56 @@
-.login_form{
-	display:inline-block;
-}
-.login_table{
-	display:inline-block;
-}
-.login_text{
-	padding:5%;
-}
-.input_tag{
-	width: 40%;
-	height : 10%;
-	min-width: 200px;
-	min-height:30px;
-	border-radius: 20px;
-	margin-top : 2%;
+h3{
+	margin-top:80px;
+	margin: 0 0 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1;
+  }
+  
+  .login{
+	width:360px;
+	margin:0 auto;
+  }
+  .areaOne{float:left;}
+  
+  .bottomLink{
+	height:42px;
+	width:100%;
+	border:1px solid gray;
+	border-radius: 10px;
+	background-color: #fff;
+	color:#444;
+	vertical-align: middle;
+	text-decoration: none;
+  }
+  
+  .login ul{
+	width: 100%;
+	text-align: right; 
+	margin-bottom: 60px;
+	padding:0;
+  }
+  .login li{
 	display: inline-block;
-}
-.btn_click{
-	width:20%;
-	height:5%;
-	padding: 1% 2%;
-	border-radius : 20px;
-	margin-top : 20px;
-	background : #ffffff;
-	color : #ffa500;
-	border-color : #ffa500;
-	display: inline block;
-	font-size:20px;
+	height: 12px; line-height: 12px;
+  }
+  .login li:last-child{
+	border-left: 1px solid #333;
+	padding-left: 10px; 
+	margin-left: 4px; 
+  }
+  .jump{padding-top:75px;}
+  .hrefText{
+	text-decoration: none;
+	color:#333;
+  }
+  .hrefText:hover{
+	color:#333;
+	cursor:pointer;
+  }
+  .sign_up_btn{
+	width:100%;
 	-webkit-transition: background 0.5s, -webkit-transform 1s;
 	transition: background 0.5s transform 1s;
-}
-.btn_click:hover{
-	background:#555;
-	color:#fff;
-}
-.find_text{
-	color:#555;
-	margin-top:1%;
-	text-decoration:none;
-	padding: 1% 2%;
-	font-size:25px;
-}
-.find_text:hover{
-	color:#000;
-}
+	margin-top : 5%;
+  }
