@@ -1,4 +1,4 @@
-package com.example.common941211;
+package com.se.kmbss;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
