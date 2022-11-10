@@ -1,4 +1,5 @@
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,7 @@
                             위치정보 이용약관(선택), 프로모션 안내
                             메일 수신(선택)에 모두 동의합니다.</li>
                         <li class="checkAllBtn">
-                            <input type="checkbox" name="chkAll" id="chk" class="chkAll">
+                            <input type="checkbox" name="cbox" id="cboxAll" class="chkAll" oncllick="checkall()">
                         </li>
                     </ul>
                 </li>
@@ -32,7 +33,7 @@
                     <ul class="clearfix">
                         <li>이용약관 동의(필수)</li>
                         <li class="checkBtn">
-                            <input type="checkbox" name="chk">
+                            <input type="checkbox" name="cbox" id="checkbox1">
                         </li>
                     </ul>
                     <textarea name="" id="">여러분을 환영합니다.
@@ -43,7 +44,7 @@
                     <ul class="clearfix">
                         <li>개인정보 수집 및 이용에 대한 안내(필수)</li>
                         <li class="checkBtn">
-                            <input type="checkbox" name="chk">
+                            <input type="checkbox" name="cbox" id="checkbox2">
                         </li>
                     </ul>
 
@@ -55,7 +56,7 @@
                     <ul class="clearfix">
                         <li>위치정보 이용약관 동의(선택)</li>
                         <li class="checkBtn">
-                            <input type="checkbox" name="chk">
+                            <input type="checkbox" name="cbox" id="checkbox3">
                         </li>
                     </ul>
 
@@ -65,9 +66,9 @@
                 </li>
                 <li class="checkBox check04">
                     <ul class="clearfix">
-                        <li>이벤트 등 프로모션 알림 메일 수신(선택</li>
+                        <li>이벤트 등 프로모션 알림 메일 수신(선택)</li>
                         <li class="checkBtn">
-                            <input type="checkbox" name="chk">
+                            <input type="checkbox" name="cbox" id="checkbox4">
                         </li>
                     </ul>
 
@@ -75,51 +76,50 @@
             </ul>
             <ul class="footBtwrap clearfix">
                 <li><button class="fpmgBt1">비동의</button></li>
-                <li><button class="fpmgBt2" onclidk="agree()">동의</button></li>
+                <li><button class="fpmgBt2" id="agree_thing" onclidk="agree()">동의</button></li>
             </ul>
         </form>
 
     </div>
     <script>
-        window.onload = function () {
-            const checkAll = document.getElementById('chkAll');
-            const chks = document.querySelectorAll('.chk');
-            const chkBoxLength = chks.length;
-
-            checkAll.addEventListener('click', function (event) {
-                if (event.target.checked) {
-                    chks.forEach(function (value) {
-                        value.checked = true;
-                    })
-                } else {
-                    chks.forEach(function (value) {
-                        value.checked = false;
-                    })
-                }
-            });
-            for (chk of chks) {
-                chk.addEventListener('click', function () {
-                    let count = 0;
-                    chks.forEach(function (value) {
-                        if (value.checked == true) {
-                            count++;
-                        }
-                    })
-                    if (count !== chkBoxLength) {
-                        checkAll.checked = false;
-                    } else {
-                        checkAll.checked = true;
-                    }
-                })
+        function checkAll() {
+            if ($("#cboxAll").is(':checked')) {
+                $("input[name=cbox]").prop("checked", true);
+            } else {
+                $("input[name=cbox]").prop("checked", false);
             }
         }
-        function agree(){
-            $("#agree").hide();
-            $("#wrap").show();
-        }
+        // function selectAll(selectAll) {
+        //     const checkboxes
+        //         = document.getElementsByName('cbox');
+
+        //     checkboxes.forEach((checkbox) => {
+        //         checkbox.checked = selectAll.checked;
+        //     })
+        // }
+        $(document).on("click", "input:checkbox[name=cbox]", function (e) {
+
+            var chks = document.getElementsByName("cbox");
+            var chksChecked = 0;
+
+            for (var i = 0; i < chks.length; i++) {
+                var cbox = chks[i];
+
+                if (cbox.checked) {
+                    chksChecked++;
+                }
+            }
+
+            if (chks.length == chksChecked) {
+                $("#cboxAll").prop("checked", true);
+            } else {
+                $("#cboxAll").prop("checked", false);
+            }
+
+        });
     </script>
 
-    <div id="wrap" sytle="display : none">
+    <div id="wrap" style="display:none">
         <form action="sign_up" method="post" id="sign_up" onsubmit="return checkz()">
             <fieldset>
                 <legend class="title">필수입력정보<span class="startitle">*:별표는 필수 입력정보입니다.</span></legend>
@@ -193,6 +193,10 @@
         </form>
     </div>
     <script>
+        $("#agree_thing").click(function () {
+            $('#agree').hide();
+            $('#wrap').show();
+        });
         var blank_pattern = /\s/;
         var getidCheck = RegExp(/^[a-zA-Z0-9]{4,16}$/);
         var getMail = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);

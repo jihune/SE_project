@@ -1,6 +1,7 @@
 #wrap{
     width: 800px;
     margin: 0 auto;
+    /* display:none; */
 }
 #wrap .title{
     font-size: 20px;
