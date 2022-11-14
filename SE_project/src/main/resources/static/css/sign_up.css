@@ -1,7 +1,8 @@
 #wrap{
-    width: 800px;
+    width:100%;
+    max-width: 640px;
     margin: 0 auto;
-    /* display:none; */
+    display:none;
 }
 #wrap .title{
     font-size: 20px;

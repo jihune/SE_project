@@ -2,11 +2,11 @@
 body{background-color: #f7f7f7;}
 ul>li{list-style: none}
 a{text-decoration: none;}
-.clearfix::after{content: "";display: block;clear: both;}
+.clearfix::after{content: "";clear: both;}
 
 .agree{
-    width:device-width;
-    min-width:480px;
+    width:100%;
+    max-width:640px;
     display:block;
 }
 #joinForm{width: 100%;margin: 0 auto;}
