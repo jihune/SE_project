@@ -2,7 +2,7 @@
     width:100%;
     max-width: 640px;
     margin: 0 auto;
-    display:none;
+    /* display:none; */
 }
 #wrap .title{
     font-size: 20px;
@@ -23,10 +23,10 @@
     border-bottom:1px solid #ddd;
 }
 
-.table_box th{text-align: center; width:300px;}
-.table_box td{width:720px;}
+.table_box th{text-align: center; width:20%;}
+.table_box td{width:80%;}
 .table_box .textform{
-    width:420px;
+    width:100%;
     height:42px;
     border:1px solid #ddd;
     border-radius: 5px;
@@ -34,7 +34,7 @@
     box-sizing: border-box;
 }
 .table_box .callform{
-    width:140px;
+    width:32%;
     height:42px;
     border:1px solid #ddd;
     border-radius: 5px;
@@ -45,6 +45,8 @@
     background-color: #ddd;
     border-radius: 5px;
     color:#444;
+    width:35%;
+    margin-top:1%;
 }
 .table_box .btn:hover{
     background-color: #ddd;
