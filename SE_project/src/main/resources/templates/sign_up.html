@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-    <div id="agree">
+    <!-- <div id="agree">
         <form action="" id="joinForm">
             <ul class="join_box">
                 <li class="checkBox check01">
@@ -71,7 +72,7 @@
                 <li><button class="fpmgBt2" id="agree_thing" onclidk="agree()">동의</button></li>
             </ul>
         </form>
-    </div>
+    </div> -->
     <div id="wrap">
         <form action="sign_up" method="post" id="sign_up" onsubmit="return checkz()">
             <fieldset>
@@ -138,7 +139,7 @@
                     </tr>
                 </table>
             </fieldset>
-            <br><br>
+            <br>
             <div class="btn_area">
                 <button type="reset">초기화하기</button>
                 <input type="submit" class="btn_join" id="submit" value="회원가입">
@@ -198,7 +199,7 @@
                 + document.getElementById("user_home_second").value
                 + document.getElementById("user_home_third").value
         })
-        
+
         function checkz() {
             var number = $("#user_pw").val().search(/[0-9]/g);
             var english = $("#user_pw").val().search(/[a-z]/ig);
