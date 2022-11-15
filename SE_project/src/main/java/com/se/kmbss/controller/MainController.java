@@ -31,4 +31,9 @@ public class MainController {
         return "sign_in";
     }
 
+    @RequestMapping(value = "/notice_board")
+    public String notice_board() {
+
+        return "notice_board";
+    }
 }
