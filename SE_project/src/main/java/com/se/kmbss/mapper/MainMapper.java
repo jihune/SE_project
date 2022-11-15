@@ -14,7 +14,7 @@ public interface MainMapper {
 
     List<Integer> getMember();
 
-    String loginRes(String id, String pw);
+    String loginRes(String id, String password);
 
     void save(Map<String, Object> map);
 

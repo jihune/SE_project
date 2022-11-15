@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/home") // localhost 링크
-    public String home() { // 함수이름
+    @RequestMapping(value = "/home") // 페이지 이름
+    public String home() { // 함수 이름
 
         return "index"; // html 소스
     }
