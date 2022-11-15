@@ -14,15 +14,15 @@ public interface MainMapper {
 
     List<Integer> getMember();
 
-	String loginRes(String id, String pw);
+    String loginRes(String id, String pw);
 
     void save(Map<String, Object> map);
 
-//    List<Integer> getMemberList();
+    // List<Integer> getMemberList();
 
-//    int createMember();
+    // int createMember();
 
-//    int updateMember();
+    // int updateMember();
 
-//    int deleteMember();
+    // int deleteMember();
 }

@@ -13,22 +13,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    
-    @RequestMapping(value = "/home")    // localhost 링크
-    public String home(){               // 함수이름
+    @RequestMapping(value = "/home") // localhost 링크
+    public String home() { // 함수이름
 
-        return "index.html";            // html 소스
+        return "index.html"; // html 소스
     }
 
-	@RequestMapping(value = "/sign_up")
-    public String sign_up(){
+    @RequestMapping(value = "/sign_up")
+    public String sign_up() {
 
         return "sign_up.html";
     }
 
-	@RequestMapping(value = "/sign_in")
-    public String sign_in(){
-        
+    @RequestMapping(value = "/sign_in")
+    public String sign_in() {
+
         return "sign_in.html";
     }
 
