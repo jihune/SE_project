@@ -1,0 +1,21 @@
+.all_notice{
+    max-width:640px;
+    width:100%;
+    margin : 0 auto;
+}
+.notice_header{
+    width:100%;
+    background: #778899;
+}
+.header_btn{width:100%;}
+.one_btn{
+    width:19%;
+    margin:0 auto;
+    display:inline-flex;
+    /* justify-content: middle; */
+}
+.find{
+    padding-top:2%;
+    margin: 0 auto;
+    display:inline-block;
+}
