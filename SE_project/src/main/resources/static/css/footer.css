@@ -1,19 +1,24 @@
-.footer{
+/* .footer{
     width:100%;
     max-width:640px;
     margin : 0 auto;
-}
+} */
 .footer_btn{
+    max-width:640px;
     width:100%;
     margin:0 auto;
+    position:fixed;
+    left: 0;
+    right: 0;
 }
 .btn_group{
     width:100%;
     margin:0 auto;
+    padding:0;
 }
 .footer_one_btn{
     width: 20.8%;
-    padding:2% 1%;
+    margin:2% 1.77%;
     border:1px;
     border-radius:20px;
     color: #000;
