@@ -43,4 +43,9 @@ public class MainController {
 
         return "notice_board";
     }
+    @RequestMapping(value = "/notice_detailpage")
+    public String notice_detailpage() {
+
+        return "notice_detailpage";
+    }
 }
