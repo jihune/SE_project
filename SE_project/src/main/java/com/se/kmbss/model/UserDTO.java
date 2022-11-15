@@ -11,10 +11,10 @@ import lombok.Data; // 아랫줄 @Data를 사용하기 위한 라이브러리
 
 @Data
 public class UserDTO {
-    private int sign_type;          // 이메일 가입시 0, 구글 1, 네이버 2, 카카오 3
     private int seq;                // 식별자(유저 고유번호)
+    private int sign_type;          // 이메일 가입시 0, 구글 1, 네이버 2, 카카오 3
     private String id;              // 아이디
-    private String password;              // 비밀번호
+    private String password;        // 비밀번호
     private String nick;            // 별명
     private String name;            // 이름(본명)
     private String phone_number;    // 휴대전화 번호
