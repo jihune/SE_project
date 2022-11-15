@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/notice_board.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <script  src="https://code.jquery.com/jquery-3.6.1.min.js"  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="  crossorigin="anonymous"></script>
 </head>
 <body>
@@ -22,7 +23,6 @@
             </div>
             <div class="find">
                 <select class="notice" name="h_area1" onChange="cat1_change(this.value,h_area2)">
-
                     <option value='1'>서울</option>
                     <option value='2'>부산</option>
                     <option value='3'>대구</option>
@@ -44,17 +44,26 @@
                     <option>-선택-</option>
                 </select>
                 <input class="search">
-                <button class=""></button>
+                <button class="find_btn"><img src="images/search.png" ></button>
                 <!-- 돋보기 btn 추가하기 -->
             </div>
         </div>
-        <div class="notice">
-
+        <div class="jump"></div>
+        <div class="notice_bonmoon">
+            <div class="recruite_user">
+                <button class="recruite_btn" onclick = "location.href = '#'">이거 고쳐서 글 나오게 바꿔</button>
+                <button class="recruite_btn" onclick = "location.href = '#'">이거 고쳐서 글 나오게 바꿔</button>
+                <button class="recruite_btn" onclick = "location.href = '#'">이거 고쳐서 글 나오게 바꿔</button>
+                <button class="recruite_btn" onclick = "location.href = '#'">이거 고쳐서 글 나오게 바꿔</button>
+                <button class="recruite_btn" onclick = "location.href = '#'">이거 고쳐서 글 나오게 바꿔</button>
+                <!-- 여기에 db 내에 있는 모든 table 내용 긁어서 하나씩 출력하게 해야한다. -->
+            </div>
         </div>
-        <div class="notice_footer">
+        <!-- <div class="notice_footer">
 
-        </div>
+        </div> -->
     </div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
     <script language=javascript>
 
         var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -124,4 +133,5 @@
         }
        }
        </script>
+
 </body>

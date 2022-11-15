@@ -1,0 +1,29 @@
+/* .footer{
+    width:100%;
+    max-width:640px;
+    margin : 0 auto;
+} */
+.footer_btn{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+    position:fixed;
+    left: 0;
+    right: 0;
+    z-index:10;
+    background:#ffffff;
+}
+.btn_group{
+    width:100%;
+    margin:0 auto;
+    padding:0;
+}
+.footer_one_btn{
+    width: 20.8%;
+    margin:2% 1.77%;
+    border:1px;
+    border-radius:20px;
+    color: #000;
+}
+.jump{padding-top:13%;}
+/* 오류 가능성 있음 */
