@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼의 위치를 적는 곳. -->
+<mapper namespace="com.se.kmbss.mapper.Notice_boardMapper">
+        <select id="board" resultType="String">
+                select board_seq from board where board_seq=00001
+        </select>
+</mapper>
