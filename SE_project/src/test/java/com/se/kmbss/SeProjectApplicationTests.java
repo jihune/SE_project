@@ -8,6 +8,7 @@ class SeProjectApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//mapper 불러오고, 검증하기
 	}
 
 }
