@@ -5,6 +5,6 @@
 
 <!-- 스터디 그룹 기능 -->
 <!-- 커뮤니티 기능 만들 때 작성 -->
-<mapper namespace="com.se.kmbss.mapper.GroupMapper">
+<mapper namespace="com.se.kmbss.mapper.StudyGroupMapper">
 
 </mapper>
