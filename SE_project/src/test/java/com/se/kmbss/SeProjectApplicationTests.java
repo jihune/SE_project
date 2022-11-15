@@ -1,14 +1,19 @@
 package com.se.kmbss;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import com.se.kmbss.mapper.Notice_boardMapper;
 
 @SpringBootTest
 class SeProjectApplicationTests {
-
+	@Autowired
+	Notice_boardMapper nb;
 	@Test
 	void contextLoads() {
-		//mapper 불러오고, 검증하기
+		System.out.println("result : "+nb.board());
 	}
+
 
 }
