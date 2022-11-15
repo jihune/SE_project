@@ -2,15 +2,18 @@
     max-width:640px;
     width:100%;
     margin : 0 auto;
-    
+    height:100%;
 }
 .all_notice .notice_header{
+    max-width:640px;
     width:100%;
     background: #778899;
     z-index:10;
-    /* position:fixed;
-    left: 50%;
-    transform: translateX( -50% ); */
+    position:fixed;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+    height:9%;
 }
 .header_btn{
     width:100%;
@@ -54,6 +57,7 @@
 .find_btn img{
     max-width: 100%;
 }
+
 /* 여기까지 notice header 부분 */
 
 .notice_bonmoon{

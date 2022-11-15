@@ -10,6 +10,8 @@
     position:fixed;
     left: 0;
     right: 0;
+    z-index:10;
+    background:#ffffff;
 }
 .btn_group{
     width:100%;
@@ -23,3 +25,5 @@
     border-radius:20px;
     color: #000;
 }
+.jump{padding-top:13%;}
+/* 오류 가능성 있음 */
