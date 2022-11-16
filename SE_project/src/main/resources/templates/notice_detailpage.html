@@ -25,27 +25,31 @@
 				<tbody>
 					<tr>
 						<th scope="row">글 번호</th>
-						<td th:text="${board.boardIdx}"></td>
+						<!-- <td th:text="${board.boardIdx}"></td> -->
+						<td>0</td>
 						<th scope="row">조회수</th>
-						<td th:text="${board.hitCnt}"></td>
+						<!-- <td th:text="${board.hitCnt}"></td> -->
+						<td>0</td>
 					</tr>
 					<tr>
 						<th scope="row">작성자</th>
-						<td th:text="${board.creatorId}"></td>
+						<!-- <td th:text="${board.creatorId}"></td> -->
+						<td>0</td>
 						<th scope="row">작성일</th>
-						<td th:text="${#temporals.format(board.createdDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+						<!-- <td th:text="${#temporals.format(board.createdDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td> -->
+						<td>0</td>
 					</tr>
 					<tr>
 						<th scope="row">제목</th>
 						<td colspan="3">
-							<input type="text" id="title" name="title" 
-								th:value="${board.title }"/>
+							<!-- <input type="text" id="title" name="title" th:value="${board.title }"/> -->
+							<input type="text" id="title" name="title">
 						</td>
 					</tr>
 					<tr>
 						<td colspan="4" class="view_text">
-							<textarea title="내용" id="contents" name="contents" 
-								th:text="${board.contents }"></textarea>
+							<!-- <textarea title="내용" id="contents" name="contents" th:text="${board.contents }"></textarea> -->
+							<textarea title="내용" id="contents" name="contents">0</textarea>
 						</td>
 					</tr>
 				</tbody>
