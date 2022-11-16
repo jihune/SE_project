@@ -19,6 +19,7 @@ public class UserDTO {
     private Date birth;             // 생년월일
     
     // 추가할 지 고민되는 것
+    
     // private Date joinDate; 가입날짜
 
     // 생년월일은 별도의 함수로 Set

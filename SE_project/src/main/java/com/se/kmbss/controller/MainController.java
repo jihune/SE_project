@@ -13,11 +13,11 @@ import com.se.kmbss.model.UserDTO;
 import com.se.kmbss.service.MainService;
 import com.se.kmbss.service.UserService;
 
-// 각 html 페이지를 연결해 주는 곳이다.
-// 사용자가 사용하는 페이지를 다루는 UserController 추가예정
-// 추후 Mapper와 작성해서 DB와 연결
-
-// 현재는 간단한 링크 이동만 가능, 뒤로가기나 여러 페이지로 연결 등 html 완성되면 매끄럽게 다듬어야 함
+/**
+ * 기본적인 html 페이지를 연결해 주는 곳이다.
+ * UserController 추가예정
+ * 추후 Mapper 통해서 쿼리문 사용 DB와 연결
+ */
 
 @Controller
 public class MainController {
@@ -31,9 +31,9 @@ public class MainController {
     @Autowired
 	UserService userService;
 
-    @Autowired
-    Notice_boardMapper nb;
-    
+	@Autowired
+	Notice_boardMapper nb;
+
 	@GetMapping
 	public String index(Model model) {
 		return "index";

@@ -1,8 +1,5 @@
 package com.se.kmbss.mapper;
 
-import java.util.List;
-import java.util.Map;
-
 import org.apache.ibatis.annotations.Mapper;
 
 // 데이터베이스에서 가져올 기능을 정의하는 곳이다.
@@ -12,17 +9,4 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface MainMapper {
 
-    List<Integer> getMember();
-
-    String loginRes(String id, String password);
-
-    void save(Map<String, Object> map);
-
-    // List<Integer> getMemberList();
-
-    // int createMember();
-
-    // int updateMember();
-
-    // int deleteMember();
 }
