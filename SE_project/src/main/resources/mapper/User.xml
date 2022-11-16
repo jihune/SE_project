@@ -7,7 +7,7 @@
 <mapper namespace="com.se.kmbss.mapper.UserMapper">
 
     <insert id="join" parameterType="com.se.kmbss.model.UserDTO">
-        INSERT INTO user (sign_type, id, password, nick, name, phone_number, email, birth)
+        INSERT INTO USER_VALUE (sign_type, id, password, nick, name, phone_number, email, birth)
         VALUES(#{sign_type}, #{id}, #{password}, #{nick}, #{name}, #{phone_number}, #{email}, #{birth})
     </insert>
 
@@ -17,39 +17,39 @@
 
     <!-- 사용자가 바꿀 수 있는 정보만 SET 아래 입력하여 반영 -->
     <update id="chageMyInfo" parameterType="com.se.kmbss.model.UserDTO">
-        UPDATE user
+        UPDATE USER_VALUE
         SET
         password = #{password},
         nick = #{nick},
         phone_number = #{phone_number},
         email = #{email},
         birth = #{birth},
-        WHERE seq = #{seq};
+        WHERE seq = #{seq}
     </update>
 
     <!-- ID 중복 확인 -->
-    <select id="checkID" parameterType="com.se.kmbss.model.UserDTO" resultType="String">
-        SELECT seq FROM user WHERE id = #{id};
+    <select id="checkId" parameterType="com.se.kmbss.model.UserDTO" resultType="String">
+        SELECT seq FROM USER_VALUE WHERE id = #{id}
     </select>
 
     <!-- 별명 중복 확인 -->
     <select id="checkNick" parameterType="com.se.kmbss.model.UserDTO" resultType="String">
-        SELECT seq FROM user WHERE nick = #{nick};
+        SELECT seq FROM USER_VALUE WHERE nick = #{nick}
     </select>
 
     <!-- 이메일 중복 확인 -->
     <select id="checkEmail" parameterType="com.se.kmbss.model.UserDTO" resultType="String">
-        SELECT seq FROM user WHERE email = #{email};
+        SELECT seq FROM USER_VALUE WHERE email = #{email}
     </select>
 
     <!-- ID 찾기 -->
     <select id="findMyID" parameterType="com.se.kmbss.model.UserDTO" resultType="com.se.kmbss.model.UserDTO">
-        SELECT id FROM user WHERE name = #{name} and phone_number = #{phone_number};
+        SELECT id FROM USER_VALUE WHERE name = #{name} and phone_number = #{phone_number}
     </select>
 
     <!-- 비밀번호 변경 -->
     <update id="chageMyPassword" parameterType="com.se.kmbss.model.UserDTO">
-        UPDATE user set password = #{password} WHERE id = #{id} and name = #{name} and phone_number = #{phone_number};
+        UPDATE USER_VALUE set password = #{password} WHERE id = #{id} and name = #{name} and phone_number = #{phone_number}
     </update>
 
 
