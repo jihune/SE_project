@@ -5,7 +5,7 @@
 
 <!-- 맵퍼의 위치를 적는 곳. -->
 <mapper namespace="com.se.kmbss.mapper.Notice_boardMapper">
-        <select id="board" resultType="String">
-                select board_seq from board where board_seq=00001
+        <select id="board" resultType="com.se.kmbss.domain.BoardDomain">
+                select * from board 
         </select>
 </mapper>

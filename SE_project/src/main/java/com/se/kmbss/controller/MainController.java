@@ -21,8 +21,7 @@ public class MainController {
     Notice_boardMapper nb;
     
     @RequestMapping(value = "/home") // 페이지 이름
-    public String home(/*Model model*/) { // 함수 이름
-        //model.addAttribute("board",nb.board());
+    public String home() { // 함수 이름
         return "index"; // html 소스
     }
 
@@ -40,7 +39,7 @@ public class MainController {
 
     @RequestMapping(value = "/notice_board")
     public String notice_board() {
-
         return "notice_board";
     }
+    
 }
