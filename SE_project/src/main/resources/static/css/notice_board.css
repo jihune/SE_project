@@ -74,5 +74,17 @@
     background:#b0c4de;
     color: #000;
 }
-
+.go_middle{
+    margin:0 auto;
+    width:100%;
+    padding-top:5%;
+    padding-bottom:5%;
+}
+.write_button{
+    border:1px;
+    border-radius: 20px;;
+    margin: 2% 0;
+    padding: 1% 5%;
+    float:right;
+}
 /* 여기까지 게시판 중간 부분..? */

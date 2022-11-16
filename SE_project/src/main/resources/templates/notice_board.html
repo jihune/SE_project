@@ -59,9 +59,24 @@
                 <!-- 여기에 db 내에 있는 모든 table 내용 긁어서 하나씩 출력하게 해야한다. -->
             </div>
         </div>
-        <!-- <div class="notice_footer">
-
-        </div> -->
+        <div class="">
+            <button type="button" class="write_button">글 쓰기</button>
+        </div>
+        <ul class="pagination go_middle justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>   
     </div>
     <div th:insert="~{fragment/footer :: footer}"></div>
     <script language=javascript>
