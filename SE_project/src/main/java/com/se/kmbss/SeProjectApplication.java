@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class SeProjectApplication {
-//fafaf
+
 	public static void main(String[] args) {
 		SpringApplication.run(SeProjectApplication.class, args);
 	}
