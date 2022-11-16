@@ -4,10 +4,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import lombok.Data; // 아랫줄 @Data를 사용하기 위한 라이브러리
-
-// @Data를 쓴 아래 클래스는 기본적으로 DB때 배운 @Getter, @Setter, @ToString, @EqualsAndHashCode와 @RequiredArgsConstructor 를 사용가능
-// 자세한 설명 https://zi-c.tistory.com/19
+import lombok.Data; 
 
 @Data
 public class UserDTO {
@@ -20,6 +17,9 @@ public class UserDTO {
     private String phone_number;    // 휴대전화 번호
     private String email;           // 이메일
     private Date birth;             // 생년월일
+    
+    // 추가할 지 고민되는 것
+    // private Date joinDate; 가입날짜
 
     // 생년월일은 별도의 함수로 Set
     public void setBirth(String date) {

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>니가 공부하는 그 스터디 | 세부내용</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/notice_detailpage.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <script  src="https://code.jquery.com/jquery-3.6.1.min.js"  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="  crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+		<h2>게시글 상세 화면</h2>
+	    	<table class="board_detail">
+				<colgroup>
+					<col width="15%"/>
+					<col width="35%"/>
+					<col width="15%"/>
+					<col width="35%"/>
+				</colgroup>
+				<caption>게시글 상세내용</caption>
+				<tbody>
+					<tr>
+						<th scope="row">글 번호</th>
+						<!-- <td th:text="${board.boardIdx}"></td> -->
+						<td>0</td>
+						<th scope="row">조회수</th>
+						<!-- <td th:text="${board.hitCnt}"></td> -->
+						<td>0</td>
+					</tr>
+					<tr>
+						<th scope="row">작성자</th>
+						<!-- <td th:text="${board.creatorId}"></td> -->
+						<td>0</td>
+						<th scope="row">작성일</th>
+						<!-- <td th:text="${#temporals.format(board.createdDatetime, 'yyyy-MM-dd HH:mm:ss')}"></td> -->
+						<td>0</td>
+					</tr>
+					<tr>
+						<th scope="row">제목</th>
+						<td colspan="3">
+							<!-- <input type="text" id="title" name="title" th:value="${board.title }"/> -->
+							<input type="text" id="title" name="title">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4" class="view_text">
+							<!-- <textarea title="내용" id="contents" name="contents" th:text="${board.contents }"></textarea> -->
+							<textarea title="내용" id="contents" name="contents">0</textarea>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+	</div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
+</body>

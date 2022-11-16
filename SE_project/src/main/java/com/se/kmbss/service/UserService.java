@@ -4,40 +4,62 @@ import org.springframework.stereotype.Service;
 
 import com.se.kmbss.model.UserDTO;
 
-/**
- * 회원가입 전 유효성 검사를 직접 거치고, 회원가입 시 유효성검사를 한번 더 거친다.
- */
 @Service
 public interface UserService {
 
+    /**
+     * Integer join(UserDTO)
+     * DB에 user정보를 Insert 합니다.
+     * @param user DB에 추가할 계정입니다.
+     * @return 생성된 seq 값을 반환.
+     */
     public Integer join(UserDTO user);
 
+     /**
+     * signIn(UserDTO)
+     * 로그인
+     * @param user 사용자가 입력한 id, password 정보입니다.
+     * @return 로그인 된 사용자의 정보를 반환.
+     */
+    public UserDTO signIn(UserDTO user);
+
     /**
-     * 기존에 가입한 계정이 있는지 확인합니다.
-     * @param user 가입할 계정입니다.
-     * @return 가입 가능한 계정이라면 true, 이미있는 계정이 존재하는 등 불가하면 false을 반환.
+     * isUniqueID(UserDTO)
+     * DB와 비교하여 ID 중복을 확인합니다.
+     * @param user 사용자가 입력한 id 정보입니다.
+     * @return 사용 가능한 ID면 true, 이미 가입되어 있는 ID가 존재하면 false을 반환.
      */
     public boolean isUniqueId(UserDTO user);
 
     /**
-     * @serial
-     * 닉네임 중복을 확인합니다.
-     * @param user 가입할 계정입니다.
-     * @return 유일한 닉네임이라면 true를 반환합니다.
+     * isOverlapNick(UserDTO)
+     * DB와 비교하여 닉네임 중복을 확인합니다.
+     * @param user 사용자가 입력한 nickname 정보입니다.
+     * @return 사용 가능한 닉네임이면 true, 이미 가입되어 있는 닉네임이 존재하면 false을 반환.
      */
     public boolean isOverlapNick(UserDTO user);
 
     /**
-     * @serial
-     * 로그인
-     * @param user id, pw를 입력합니다.
-     * @return 로그인 된 사용자의 정보를 반환.
+     * isOverlapEmail(UserDTO)
+     * 이메일 중복을 확인합니다.
+     * @param user 사용자가 입력한 email 정보입니다.
+     * @return 사용 가능한 Email이면 true, 이미 가입되어 있는 Email이 존재하면 false을 반환.
      */
-    public UserDTO login(UserDTO user);
-
     public boolean isOverlapEmail(UserDTO user);
 
+    /**
+     * findMyId(UserDTO)
+     * 사용자 ID 찾기
+     * @param user 사용자가 입력한 부분적인 user 정보입니다.
+     * @return 부분적인 user 정보와 일치하는 DB 상의 가입된 사용자가 있다면 id를 반환.
+     */
     public String findMyId(UserDTO user);
 
+     /**
+     * changeMyInfo(UserDTO)
+     * 사용자 정보를 DB상에서 수정
+     * @param user 사용자가 입력한 변경할 부분적인 user 정보입니다.
+     * @return 정보가 변경된 사용자의 seq 값을 반환.
+     */
     public Integer changeMyInfo(UserDTO user);
 }

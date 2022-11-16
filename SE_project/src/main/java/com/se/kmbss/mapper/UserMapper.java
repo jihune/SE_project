@@ -17,7 +17,7 @@ public interface UserMapper {
 
     public List<UserDTO> checkNick(UserDTO user);
 
-    public UserDTO login(UserDTO user);
+    public UserDTO signIn(UserDTO user);
 
     public UserDTO dummy();
 
