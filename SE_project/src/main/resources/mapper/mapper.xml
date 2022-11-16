@@ -6,13 +6,6 @@
 <!-- 맵퍼의 위치를 적는 곳. -->
 <mapper namespace="com.se.kmbss.mapper.MainMapper">
 
-        <insert id="save" parameterType="java.util.Map">
-                INSERT INTO image_test (image) VALUES (#{bytes, jdbcType=BLOB, javaType=[B});
-        </insert>
-
-        <!-- UserDTO 만들고 수정 -->
-        <!-- <select id="test" parameterType="Integer" resultType="CustomerDTO">
-                select * from customer where iden = #{iden}
-        </select> -->
+    <!-- 쿼리문 작성 -->
 
 </mapper>

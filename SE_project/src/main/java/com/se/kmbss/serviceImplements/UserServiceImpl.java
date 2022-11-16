@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO signIn(UserDTO user){
+        return user_mapper.signIn(user);
+    }
+
+    @Override
     public boolean isUniqueId(UserDTO user) {
         if(user_mapper.checkId(user).size() == 0){
             return true;
@@ -34,11 +39,6 @@ public class UserServiceImpl implements UserService {
         } else {
             return false;
         }
-    }
-
-    @Override
-    public UserDTO login(UserDTO user){
-        return user_mapper.login(user);
     }
 
     @Override

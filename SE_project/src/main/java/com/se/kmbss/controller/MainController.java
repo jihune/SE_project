@@ -2,10 +2,11 @@ package com.se.kmbss.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.mapper.Notice_boardMapper;
+import com.se.kmbss.service.MainService;
 
 // 각 html 페이지를 연결해 주는 곳이다.
 // 사용자가 사용하는 페이지를 다루는 UserController 추가예정
@@ -17,11 +18,17 @@ import com.se.kmbss.mapper.Notice_boardMapper;
 @Controller
 public class MainController {
 
+	@Autowired
+	MainService service;
+
+	@Autowired
+	MainMapper mapper;
+
     @Autowired
     Notice_boardMapper nb;
     
-    @RequestMapping(value = "/home") // 페이지 이름
-    public String home(/*Model model*/) { // 함수 이름
+    @RequestMapping(value = "/home")
+    public String home(/*Model model*/) { 
         //model.addAttribute("board",nb.board());
         return "index"; // html 소스
     }

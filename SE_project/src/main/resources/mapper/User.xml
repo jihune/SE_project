@@ -7,15 +7,15 @@
 <mapper namespace="com.se.kmbss.mapper.UserMapper">
 
     <insert id="join" parameterType="com.se.kmbss.model.UserDTO">
-        INSERT INTO customer (sign_type, seq, id, password, nick, name, phone_number, email, birth)
+        INSERT INTO user (sign_type, id, password, nick, name, phone_number, email, birth)
         VALUES(#{sign_type}, #{id}, #{password}, #{nick}, #{name}, #{phone_number}, #{email}, #{birth})
     </insert>
 
-    <select id="login" resultType="com.se.kmbss.model.UserDTO">
-        SELECT seq, id, nick, name, address, phone_number, email, birth, joinDate FROM customer WHERE id = #{id} and password = #{password}
+    <select id="signIn" resultType="com.se.kmbss.model.UserDTO">
+        SELECT seq, sign_type, id, password, nick, name, phone_number, email, birth FROM user WHERE id = #{id} and password = #{password}
     </select>
 
-    <!-- 사용자가 바꿀 수 있는 정보만 SET 아래 입력하여 번ㅇ영ㄱ -->
+    <!-- 사용자가 바꿀 수 있는 정보만 SET 아래 입력하여 반영 -->
     <update id="chageMyInfo" parameterType="com.se.kmbss.model.UserDTO">
         UPDATE customer
         SET
