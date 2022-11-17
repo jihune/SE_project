@@ -106,4 +106,9 @@ public class MainController {
 	public String find_pw() {
 		return "find_pw";
 	}
+	@GetMapping("my_boards")
+	public String my_boards() {
+		return "my_boards";
+	}
+	
 }

@@ -1,0 +1,28 @@
+.contents{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    background: #fff;
+    height:100%;
+    text-align:center;
+}
+
+.title{
+    font-size: 32px;
+    font-family: "굴림";
+    left: 15%;
+    float: left;
+    text-align: center;
+    padding: 2% 0 1% 0;
+    width: 100%;
+    margin:0;
+}
+
+.board_thing{
+    width:80%;
+    background-color: #f1f1ef;
+    margin:3% 0;
+    border:1px;
+    border-radius: 20px;
+    padding:3% 0;
+}
