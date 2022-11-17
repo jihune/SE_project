@@ -1,8 +1,8 @@
 package com.se.kmbss.model;
 
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+// import java.text.ParseException;
+// import java.text.SimpleDateFormat;
 
 import lombok.Data; 
 
@@ -26,6 +26,10 @@ public class StudyUserVO {
     // private Date joinDate; 가입날짜
 
     // 생년월일은 별도의 함수로 Set
+    
+    /**
+     * 추후 사용할 수도 있는 setBirth 함수
+     * @param date
     public void setBirth(String date) {
 
         if (date.equals("")) {
@@ -41,4 +45,5 @@ public class StudyUserVO {
         }
         this.su_birth = new java.sql.Date(date2.getTime());
     }
+     */
 }
