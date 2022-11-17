@@ -7,11 +7,13 @@
 <mapper namespace="com.se.kmbss.mapper.StudyUserMapper">
 
     <insert id="signUp" parameterType="com.se.kmbss.model.StudyUserVO">
+    
         <selectKey keyProperty="su_idn" resultType="int" order="BEFORE">
-            select SEQ_ID.nextval FROM DUAL
+            select SEQ_SU_ID.nextval FROM DUAL
         </selectKey>
-        INSERT INTO USER_VALUE (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth)
-        VALUES('1', #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email}, #{su_birth})
+
+        INSERT INTO StudyUser (SEQ_SU_ID, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth)
+        VALUES(#{su_idn}, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email}, #{su_birth})
     </insert>
 
     <select id="signIn" resultType="com.se.kmbss.model.StudyUserVO">

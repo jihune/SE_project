@@ -61,7 +61,6 @@ public class MainController {
 
 	@PostMapping("sign_up")
 	public String sign_up(StudyUserVO study_user) {
-		System.out.println(study_user);
 		su_service.signUp(study_user);
 		return "redirect:/sign_in";
 	}
