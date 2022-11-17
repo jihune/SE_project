@@ -18,5 +18,8 @@
         <input type="button" class="board_thing" value="히히" id="board_name" >
         <!-- 위에서 onclick 추가하고 넘어갈 페이지 불러서 넣어야 함. 예시는 onclick="location.href='/board/edit?boardNo=${b.boardNo}'" 요렇게 -->
     </div>
+    <div>
+        <button class="create_study" onclick="location.href='create_study'">스터디 생성</button>
+    </div>
     <div th:insert="~{fragment/footer :: footer}"></div>
 </body>

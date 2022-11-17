@@ -1,3 +1,9 @@
+body{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    text-align: center;
+}
 .contents{
     width:100%;
     max-width:640px;
@@ -25,4 +31,13 @@
     border:1px;
     border-radius: 20px;
     padding:3% 0;
+}
+
+.create_study{
+    width:30%;
+    background-color: #f1f1ef;
+    border:1px;
+    border-radius: 20px;
+    padding:1% 0;
+    margin:2% 0;
 }
