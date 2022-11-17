@@ -1,0 +1,22 @@
+.content{
+    max-width:640px;
+    text-align:center;
+    margin:0 auto;
+}
+.title{
+    width:100%;
+    font-size:32px;
+    font-family:"궁서체";
+    padding: 2% 0;
+}
+
+.summary_area{
+    min-height : 150px !important;
+}
+.agree_check{
+    float:left;
+    margin:0;
+    padding: 3% 0;
+    font-size: 16px;
+    text-align: left;
+}
