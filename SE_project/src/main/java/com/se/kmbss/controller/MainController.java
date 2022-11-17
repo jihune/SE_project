@@ -42,4 +42,14 @@ public class MainController {
 		return "my_boards";
 	}
 
+	@GetMapping("private_board")
+	public String private_board() {
+		return "private_board";
+	}
+
+	@GetMapping("create_study")
+	public String create_study() {
+		return "create_study";
+	}
+	
 }
