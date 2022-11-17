@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.mapper.Notice_boardMapper;
-import com.se.kmbss.model.UserDTO;
+import com.se.kmbss.model.StudyUserVO;
 import com.se.kmbss.service.MainService;
-import com.se.kmbss.service.UserService;
+import com.se.kmbss.service.StudyUserService;
 
 /**
  * 기본적인 html 페이지를 연결해 주는 곳이다.
- * UserController 추가예정
  * 추후 Mapper 통해서 쿼리문 사용 DB와 연결
  */
 
@@ -30,7 +29,7 @@ public class MainController {
 	MainMapper mapper;
 
     @Autowired
-	UserService userService;
+	StudyUserService su_service;
 
 	@Autowired
 	Notice_boardMapper nb;
@@ -61,18 +60,18 @@ public class MainController {
 	}
 
 	@PostMapping("sign_up")
-	public String sign_up(UserDTO user) {
-		System.out.println(user);
-		userService.join(user);
+	public String sign_up(StudyUserVO study_user) {
+		System.out.println(study_user);
+		su_service.signUp(study_user);
 		return "redirect:/sign_in";
 	}
 
     @ResponseBody
 	@GetMapping("idOverlapCheck")
-	public String idOverlapCheck(@RequestParam("id") String id){
-		UserDTO user = new UserDTO();
-		user.setId(id);
-		if(userService.isUniqueId(user)){
+	public String idOverlapCheck(@RequestParam("su_id") String su_id){
+		StudyUserVO study_user = new StudyUserVO();
+		study_user.setSu_id(su_id);
+		if(su_service.isOverlapId(study_user)){
 			return "SUCCESS";
 		}
 		return "FAIL";
@@ -80,10 +79,10 @@ public class MainController {
 
 	@ResponseBody
 	@GetMapping("nickOverlapCheck")
-	public String nickOverlapCheck(@RequestParam("nick") String nick){
-		UserDTO user = new UserDTO();
-		user.setNick(nick);
-		if(userService.isOverlapNick(user)){
+	public String nickOverlapCheck(@RequestParam("su_nick") String su_nick){
+		StudyUserVO study_user = new StudyUserVO();
+		study_user.setSu_nick(su_nick);
+		if(su_service.isOverlapNick(study_user)){
 			return "SUCCESS";
 		}
 		return "FAIL";
@@ -91,10 +90,10 @@ public class MainController {
 
 	@ResponseBody
 	@GetMapping("emailOverlapCheck")
-	public String emailOverlapCheck(@RequestParam("email") String email){
-		UserDTO user = new UserDTO();
-		user.setEmail(email);
-		if(userService.isOverlapEmail(user)){
+	public String emailOverlapCheck(@RequestParam("su_email") String su_email){
+		StudyUserVO study_user = new StudyUserVO();
+		study_user.setSu_email(su_email);
+		if(su_service.isOverlapEmail(study_user)){
 			return "SUCCESS";
 		}
 		return "FAIL";

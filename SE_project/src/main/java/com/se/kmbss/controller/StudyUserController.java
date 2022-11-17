@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/sign")
-public class UserController {
+public class StudyUserController {
 
 }
