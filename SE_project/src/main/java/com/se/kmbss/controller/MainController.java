@@ -98,4 +98,12 @@ public class MainController {
 		}
 		return "FAIL";
 	}
+	@GetMapping("find_id")
+	public String find_id() {
+		return "find_id";
+	}
+	@GetMapping("find_pw")
+	public String find_pw() {
+		return "find_pw";
+	}
 }

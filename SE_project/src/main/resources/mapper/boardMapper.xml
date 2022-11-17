@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼의 위치를 적는 곳. -->
+<mapper namespace="com.se.kmbss.mapper.boardMapper">
+   <!-- 게시판 글 작성 -->
+   <insert id="insert">
+	   INSERT INTO MP_BOARD(    BNO 
+	   					      , TITLE 
+	   					      , CONTENT 
+	   					      , WRITER  )
+	                 VALUES(    MP_BOARD_SEQ.NEXTVAL 
+	                 		  , #{title}
+	                 		  , #{content}
+	                 		  , #{writer}  )
+   
+   </insert>
+    <!-- 게시판 목록조회 -->
+   	<select id="list" resultType="com.se.kmbss.model.BoardVO">
+		SELECT   BNO
+			   , TITLE
+			   , WRITER
+			   , REGDATE
+		  FROM MP_BOARD
+		  ORDER BY BNO DESC
+	</select>
+	<!--게시물 조회-->
+	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
+		SELECT	BNO
+			  , TITLE
+			  , CONTENT
+			  , WRITER
+			  , REGDATE
+		 FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</select>
+
+	<!--게시물 수정-->
+    <update id="update" parameterType="kr.co.vo.BoardVO">
+		UPDATE MP_BOARD
+		   SET TITLE    =   #{title},
+		   	   CONTENT  =   #{content}
+		 WHERE BNO = #{bno} 
+	</update>
+
+	<!--게시물 삭제-->
+		<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</delete>
+</mapper>
