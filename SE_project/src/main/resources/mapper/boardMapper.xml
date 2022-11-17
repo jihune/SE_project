@@ -26,29 +26,4 @@
 		  FROM MP_BOARD
 		  ORDER BY BNO DESC
 	</select>
-	<!--게시물 조회-->
-	<select id="read" parameterType="int" resultType="kr.co.vo.BoardVO">
-		SELECT	BNO
-			  , TITLE
-			  , CONTENT
-			  , WRITER
-			  , REGDATE
-		 FROM MP_BOARD
-		 WHERE BNO = #{bno}
-	</select>
-
-	<!--게시물 수정-->
-    <update id="update" parameterType="kr.co.vo.BoardVO">
-		UPDATE MP_BOARD
-		   SET TITLE    =   #{title},
-		   	   CONTENT  =   #{content}
-		 WHERE BNO = #{bno} 
-	</update>
-
-	<!--게시물 삭제-->
-		<delete id="delete" parameterType="int">
-		DELETE 
-		  FROM MP_BOARD
-		 WHERE BNO = #{bno}
-	</delete>
 </mapper>

@@ -45,45 +45,4 @@ public class BoardController {
 		return "board/list";
 		
 	}
-
-	//게시판 조회
-	@RequestMapping(value = "/readView", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, Model model) throws Exception{
-		logger.info("read");
-		
-		model.addAttribute("read", service.read(boardVO.getBno()));
-		
-		return "board/readView";
-	}
-
-	// 게시판 수정뷰
-	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
-	public String updateView(BoardVO boardVO, Model model) throws Exception{
-		logger.info("updateView");
-		
-		model.addAttribute("update", service.read(boardVO.getBno()));
-		
-		return "board/updateView";
-	}
-	
-	// 게시판 수정
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(BoardVO boardVO) throws Exception{
-		logger.info("update");
-		
-		service.update(boardVO);
-		
-		return "redirect:/board/list";
-	}
-
-	// 게시판 삭제
-	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(BoardVO boardVO) throws Exception{
-		logger.info("delete");
-		
-		service.delete(boardVO.getBno());
-		
-		return "redirect:/board/list";
-	}
-		
 }
