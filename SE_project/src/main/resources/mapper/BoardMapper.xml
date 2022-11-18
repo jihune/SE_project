@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼의 위치를 적는 곳. -->
+<mapper namespace="com.se.kmbss.mapper.BoardMapper">
+        <select id="BoardColumns">
+                user_idn,
+                board_name,
+                board_content,
+                view_cnt,
+                delete_date,
+                upload_date,
+                modify_date
+        </select>
+
+        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest.java">
+                INSERT INTO BOARD(
+                        <include refid="BoardColumns" />
+                )VALUES(
+                        #{user_idn},
+                        #{board_name},
+                        #{board_content},
+                        #{view_cnt},
+                        0,
+                        null,
+                        sysdate(),
+                        null
+                )
+                </insert>
+</mapper>
