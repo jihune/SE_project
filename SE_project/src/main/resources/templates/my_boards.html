@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>니가 공부하는 그 스터디 | 메인화면</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/my_boards.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+</head>
+
+<body>
+    <h2 class="title">가입한 스터디</h2>
+    <div class="contents">
+        <input type="button" class="board_thing" value="히히" id="board_name" onclick="location.href='private_board'">
+        <input type="button" class="board_thing" value="히히" id="board_name" >
+        <!-- 위에서 onclick 추가하고 넘어갈 페이지 불러서 넣어야 함. 예시는 onclick="location.href='/board/edit?boardNo=${b.boardNo}'" 요렇게 -->
+    </div>
+    <div>
+        <button class="create_study" onclick="location.href='create_study'">스터디 생성</button>
+    </div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
+</body>

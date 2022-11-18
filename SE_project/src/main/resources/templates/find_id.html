@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>니가 공부하는 그 스터디 | ID 찾기</title>
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/find_id.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="find_box">        
+            <fieldset>
+                <h3>ID 찾기</h3>
+		        <fidelset>
+                <div class="href_line">
+                    <a href="find_id" class="href_text">ID 찾기</a>
+                    <font>|</font>
+                    <a href="find_pw" class="href_text">PW 찾기</a>
+                    <font>|</font>
+                    <a href="sign_in" class="href_text">로그인 페이지로</a>
+                </div>
+                <form action="find_my_id" method="post">
+                    <div class="mb-3 ">
+                        <label for="loginId" class="form-label">이름</label><br>
+                        <input type="text" name="name" class="input_box" id="userName" placeholder="이름을 입력해주세요">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">이메일</label><br>
+                        <input type="text" name="email" class="input_box" id="email" placeholder="EMAIL를 입력해주세요">
+                    </div>
+                    <button type="submit" class="find_btn">ID 찾기</button>
+                </form>
+            </fieldset>        
+    </div>
+    <div class="jump"></div>
+    <!-- <div th:insert="~{fragment/footer :: footer}"></div> -->
+</body>
+</html>

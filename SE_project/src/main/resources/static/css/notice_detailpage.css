@@ -30,3 +30,9 @@
 .right_close{
     float:right;
 }
+.eotrmf_float{float:left; margin:0;}
+.p_eotrmf{
+    float:left;
+    width:100%;
+    margin:0;
+}
