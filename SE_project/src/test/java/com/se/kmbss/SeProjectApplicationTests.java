@@ -11,21 +11,23 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.se.kmbss.mapper.BoardMapper;
+import com.se.kmbss.service.BoardService;
 
 @SpringBootTest
 class SeProjectApplicationTests {
 
 	@Autowired
 	BoardMapper BoardMapper;
+	@Autowired
+	BoardService BoardService;
 
 	@Test
 	void upload() {
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("3번의 제목");
-		params.setBoard_content("3번의 내용");
+		params.setBoard_name("보드 실험 제목");
+		params.setBoard_content("보드 실험 내용");
 		params.setBoard_location_city(10);
-		params.setBoard_location_sigungu(160);
-		params.setBoard_idn(3); 
+		params.setBoard_location_sigungu(160); 
 		BoardMapper.upload(params);
 		
 		List<BoardResponse> posts = BoardMapper.find_all();
@@ -57,5 +59,15 @@ class SeProjectApplicationTests {
 	@Test
 	void delete_by_id(){
 		BoardMapper.delete_by_id(3);
+	}
+
+	@Test
+	void uploadBoard(){
+		BoardRequest params = new BoardRequest();
+		params.setBoard_name("4번의 제목");
+		params.setBoard_content("4번의 내용");
+		params.setBoard_location_city(10);
+		params.setBoard_location_sigungu(160);
+		BoardService.uploadBoard(params);
 	}
 }

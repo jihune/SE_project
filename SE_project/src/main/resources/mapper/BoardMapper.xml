@@ -19,11 +19,11 @@
                 view_cnt
         </sql>
 
-        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest">
+        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest" useGeneratedKeys="false">
                 INSERT INTO BOARD(
                         <include refid="BoardColumns" />
                 )VALUES(
-                        #{board_idn},
+                        board_seq.nextval,
                         null,
                         sysdate,
                         null,
@@ -72,7 +72,7 @@
                 from
                         board
                 where
-                        board_delete_date = null
+                        board_delete_date is null
                 order by
                         board_upload_date desc
         </select>
