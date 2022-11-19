@@ -5,28 +5,75 @@
 
 <!-- 맵퍼의 위치를 적는 곳. -->
 <mapper namespace="com.se.kmbss.mapper.BoardMapper">
-        <select id="BoardColumns">
+        <sql id="BoardColumns">
+                board_idn,
                 user_idn,
-                board_name,
+                board_upload_date,
+                board_modify_date,
+                board_delete_date,
                 board_content,
-                view_cnt,
-                delete_date,
-                upload_date,
-                modify_date
-        </select>
+                board_location_city,
+                board_location_sigungu,
+                board_name,
+                board_category,
+                view_cnt
+        </sql>
 
-        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest.java">
+        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest">
                 INSERT INTO BOARD(
                         <include refid="BoardColumns" />
                 )VALUES(
-                        #{user_idn},
-                        #{board_name},
-                        #{board_content},
-                        #{view_cnt},
-                        0,
+                        #{board_idn},
                         null,
-                        sysdate(),
-                        null
+                        sysdate,
+                        null,
+                        null,
+                        #{board_content},
+                        #{board_location_city},
+                        #{board_location_sigungu},
+                        #{board_name},
+                        0,
+                        0
                 )
-                </insert>
+        </insert>
+
+        <select id="find_by_id" parameterType="int" resultType="com.se.kmbss.mapper.BoardResponse">
+                select
+                        <include refid="BoardColumns" />
+                from
+                        board
+                where
+                        board_idn=#{value}
+        </select>
+
+        <update id="modify" parameterType="com.se.kmbss.mapper.BoardRequest">
+                update  board 
+                set
+                        board_modify_date = sysdate,
+                        board_name = #{board_name},
+                        board_content = #{board_content},
+                        board_location_city = #{board_location_city},
+                        board_location_sigungu = #{board_location_sigungu}
+                where
+                        board_idn=#{board_idn}
+        </update>
+
+        <delete id="delete_by_id" parameterType="com.se.kmbss.mapper.BoardRequest">
+                update board 
+                set
+                        board_delete_date = sysdate
+                where
+                        board_idn=#{board_idn}
+        </delete>
+
+        <select id="find_all" resultType="com.se.kmbss.mapper.BoardResponse">
+                select
+                        <include refid="BoardColumns" />
+                from
+                        board
+                where
+                        board_delete_date = null
+                order by
+                        board_upload_date desc
+        </select>
 </mapper>

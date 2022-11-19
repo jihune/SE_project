@@ -16,7 +16,7 @@ public interface BoardMapper {
   
   void upload(BoardRequest params);
 
-  BoardResponse find_by_id(int user_idn);
+  BoardResponse find_by_id(int board_idn);
 
   void modify(BoardRequest params);
 

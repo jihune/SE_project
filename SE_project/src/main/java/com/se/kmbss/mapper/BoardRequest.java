@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Data
 public class BoardRequest {
+    private Integer board_idn;
     private Integer user_idn;
     private String board_content;
     private Integer board_location_city;
