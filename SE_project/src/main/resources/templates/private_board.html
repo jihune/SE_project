@@ -9,7 +9,45 @@
 		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="/css/private_board.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+	<script src="js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-    
+    <div class="contents">
+		<h2 class="title">그룹명</h2>
+		<div class="form-check form-check-reverse check_thing">
+			<input class="form-check-input" type="checkbox" value="" id="reverseCheck1" style="margin-top:3%;">
+			<label class="form-check-label text_thing" for="reverseCheck1">공지사항</label>
+		</div>
+		<div class="form-check form-check-reverse check_thing">
+			<input class="form-check-input" type="checkbox" value="" id="reverseCheck2" style="margin-top:3%;">
+			<label class="form-check-label text_thing" for="reverseCheck2">개인별 벌금 설정</label>
+		</div>
+		<div class="form-check form-check-reverse check_thing">
+			<input class="form-check-input " type="checkbox" value="" id="reverseCheck3" style="margin-top:3%;">
+			<label class="form-check-label text_thing" for="reverseCheck3">그룹정보/설정</label>
+		</div>
+
+		<div class="important_notice" id="notice">
+			<h3 class="notice_title">공지사항</h3>
+			<div class="card" style="width: 100%;">
+				<div class="card-body">
+				  <h5 class="card-title">공지사항 제목</h5>
+				  <p class="card-text">공지사항 내용 일부</p>
+				  <a href="#" class="btn btn-primary">세부내용 보기</a>
+				</div>
+			  </div>
+		</div>
+		<div class="persenal_penalty" id="penalty">
+			<h4 class="penalty_title">개인별 벌금설정</h4>
+			<button class="persenal_click" onclick = "location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+			<button class="persenal_click" onclick = "location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+			<button class="persenal_click" onclick = "location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+		</div>
+		<div class="group_set" id="group_set">
+
+		</div>
+	</div>
+	<script>
+
+	</script>
 </body>

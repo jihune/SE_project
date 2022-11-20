@@ -1,0 +1,41 @@
+.contents{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+}
+.title{
+    padding: 3% 0;
+    margin:0 auto;
+    font-size: 36px;
+}
+.check_thing{
+    text-align:center;
+}
+.text_thing{
+    padding:2% 0;
+    font-size: 22px;
+}
+.notice_title{
+    font-size:32px;
+    margin:0;
+    padding:2%;
+}
+.persenal_penalty{
+    width:100%;
+    margin:0 auto;
+    padding: 2%;
+}
+.penalty_title{
+    font-size:32px;
+    margin:0;
+    padding:2%;
+}
+.persenal_click{
+    border:1px;
+    border-radius:20px;
+    margin:0 auto;
+    width:50%;
+    padding:2% 1%;
+    margin-top:3%;
+}
