@@ -7,8 +7,8 @@
 <mapper namespace="com.se.kmbss.mapper.StudyUserMapper">
 
     <insert id="signUp" parameterType="com.se.kmbss.model.StudyUserVO">
-        INSERT INTO StudyUser (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email)
-        VALUES(su_seq.nextval, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email})
+        INSERT INTO StudyUser (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth)
+        VALUES(su_seq.nextval, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email}, #{su_birth})
     </insert>
 
     <select id="signIn" resultType="com.se.kmbss.model.StudyUserVO">
