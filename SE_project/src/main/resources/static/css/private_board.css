@@ -39,3 +39,11 @@
     padding:2% 1%;
     margin-top:3%;
 }
+.group_title{
+    font-size:32px;
+    margin:0;
+    padding:2%;
+}
+#notice{display:none;}
+#penalty{display:none;}
+#group_set{display:none;}
