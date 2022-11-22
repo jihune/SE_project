@@ -4,65 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>니가 공부하는 그 스터디 | 설정</title>
+    <title>니가 공부하는 그 스터디 | 잠금설정</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/setting.css">
+    <link rel="stylesheet" href="/css/lock_setting.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="  crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class='setting_title'>
+    <div class='lock_set_title'>
         <svg width="20" height="15" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 54 54" style="enable-background:new 0 0 54 54;" xml:space="preserve">
             <g>
                 <path d="M27,0C12.112,0,0,12.112,0,27s12.112,27,27,27s27-12.112,27-27S41.888,0,27,0z M27,52C13.215,52,2,40.785,2,27S13.215,2,27,2s25,11.215,25,25S40.785,52,27,52z"/>
                 <path d="M32.413,14.293c-0.391-0.391-1.023-0.391-1.414,0L19.501,25.791c-0.667,0.667-0.667,1.751,0,2.418l11.498,11.498C31.194,39.902,31.45,40,31.706,40s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L21.12,27l11.293-11.293C32.804,15.316,32.804,14.684,32.413,14.293z"/>
             </g>
         </svg>
-        <p>설정</p>
+        <p>잠금설정</p>
     </div>
-    <div class="setting_contents">
-        <div class="setting_nickname">
-            <p>닉네임 변경</p>
-            <div>
-                <p>맛있는 초밥</p>
-                <svg width="8" height="16" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 47.255 47.255" style="enable-background:new 0 0 47.255 47.255;" xml:space="preserve">
-                    <g>
-                        <path d="M12.314,47.255c-0.256,0-0.512-0.098-0.707-0.293c-0.391-0.391-0.391-1.023,0-1.414l21.92-21.92l-21.92-21.92c-0.391-0.391-0.391-1.023,0-1.414s1.023-0.391,1.414,0L35.648,22.92c0.391,0.391,0.391,1.023,0,1.414L13.021,46.962C12.825,47.157,12.57,47.255,12.314,47.255z"/>
-                    </g>
-                </svg>
+    <div class="lock_set_box">
+        <div class="lock_set_switch">
+            <p>앱 잠금</p>
+            <div class="switch">
+                <input id="notice_chk_lock" name="notice_chk_lock" type="checkbox" />
+                <label for="notice_chk_lock">
+                    <div class="bg_color">
+                        <div class="round"></div>
+                    </div>
+                </label>
+                <span class="switch_text">OFF</span>
+                <span class="switch_text">ON</span>
             </div>
         </div>
-        <div>
-            <p>비밀번호 변경</p>
+        <div class="lock_set_contents">
+            <a><p>비밀번호 설정</p></a>
         </div>
-        <div>
-            <p>잠금설정</p>
+        <div class="lock_set_contents">
+            <a><p>지문으로 설정</p></a>
         </div>
-        <div>
-            <p>알림설정</p>
-        </div>
-        <div>
-            <p>다크모드</p>
-        </div>
-        <div>
-            <p>스톱워치</p>
-        </div>
-        <div>
-            <p>인증 SMS 수정</p>
-        </div>
-    </div>
-    <div class="setting_contents">
-        <div>
-            <p>이용약관</p>
-        </div>
-        <div>
-            <p>개인정보 처리방침</p>
-        </div>
-        <div>
-            <p>로그아웃</p>
-        </div>
-        <div>
-            <p>회원탈퇴</p>
+        <div class="lock_set_contents">
+            <a><p>보안 질문 설정</p></a>
         </div>
     </div>
     <div class="footer_box">
@@ -98,5 +78,18 @@
             <p>설정</p>
         </div>
     </div>
+    <script>
+        $(".lock_set_switch label").on("click", function(){
+            setTimeout(function(){
+                if ($(".lock_set_switch input").prop("checked")) {
+                    $(".lock_set_contents a").attr("href", "이동될주소");
+                    $(".lock_set_contents a").css("color", "black");
+                } else {
+                    $(".lock_set_contents a").removeAttr("href", "이동될주소");
+                    $(".lock_set_contents a").css("color", "#aaaaaa");
+                }
+            }, 5)
+        })
+    </script>
 </body>
 </html>

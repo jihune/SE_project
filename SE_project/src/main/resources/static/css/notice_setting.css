@@ -8,7 +8,7 @@
 /* 전체 스타일(반응형) */
 body {
     font-family: 'Nanum Gothic', sans-serif;
-    background: #DDDDDD;
+    background: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,6 +36,7 @@ body {
 /* 세팅 컨텐츠 */
 .setting_contents {
     margin: 10px 0;
+    height: 75%;
 }
 .setting_contents div {
     background: white;
@@ -46,21 +47,7 @@ body {
 .setting_contents div p {
     font-size: 0.875em;
 }
-.setting_nickname {
-    display: flex;
-    justify-content: space-between;
-}
-.setting_nickname div {
-    height: auto;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-.setting_nickname div svg {
-    margin-left: 10px;
-}
-
-/* 푸터 카테고리 */
+  /* 푸터 카테고리 */
 .footer_box {
     display: flex;
     justify-content: space-around;
