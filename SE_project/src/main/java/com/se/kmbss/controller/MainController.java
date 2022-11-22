@@ -56,4 +56,18 @@ public class MainController {
 	public String setting() {
 		return "setting";
 	}
+
+	@GetMapping("security_question")
+	public String security_question(){return "security_question";}
+
+	@GetMapping("password_change")
+	public String password_change(){return "password_change";}
+
+	@GetMapping("notice_setting")
+	public String notice_setting(){return "notice_setting";}
+
+	@GetMapping("lock_setting")
+	public String lock_setting(){return "lock_setting";}
+
+
 }
