@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/setting.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 </head>
 <body>
     <div class='setting_title'>
@@ -33,13 +34,13 @@
             </div>
         </div>
         <div>
-            <p>비밀번호 변경</p>
+            <a href="password_change">비밀번호 변경</a>
         </div>
         <div>
-            <p>잠금설정</p>
+            <a href="lock_setting">잠금설정</a>
         </div>
         <div>
-            <p>알림설정</p>
+            <a href="notice_setting">알림설정</a>
         </div>
         <div>
             <p>다크모드</p>
@@ -98,5 +99,6 @@
             <p>설정</p>
         </div>
     </div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
 </body>
 </html>
