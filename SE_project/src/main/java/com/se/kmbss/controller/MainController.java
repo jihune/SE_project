@@ -51,5 +51,9 @@ public class MainController {
 	public String create_study() {
 		return "create_study";
 	}
-	
+
+	@GetMapping("setting")
+	public String setting() {
+		return "setting";
+	}
 }
