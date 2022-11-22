@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/setting.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 </head>
 <body>
     <div class='setting_title'>
@@ -98,5 +99,7 @@
             <p>설정</p>
         </div>
     </div>
+    <div class="jump"></div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
 </body>
 </html>

@@ -12,7 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    /* height: 100vh; */
+    /* 위에 거 사용하면 페이지가 정적으로 변하기 떄문에 웹 구현하는 사람으로서는 왠만하면 피해야하는 코드임 */
 }
 
 /* 설정 타이틀 */
