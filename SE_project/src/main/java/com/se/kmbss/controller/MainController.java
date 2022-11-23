@@ -73,4 +73,9 @@ public class MainController {
 	public String write_board() {
 		return "write_board";
 	}
+
+	@GetMapping("group_chat")
+	public String group_chat() {
+		return "group_chat";
+	}
 }

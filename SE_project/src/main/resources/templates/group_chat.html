@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>니가 공부하는 그 스터디 | 게시판</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/group_chat.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/group_chat.js"></script>
+</head>
+<body>
+    <div class="chat_wrap">
+        <div class="header">
+            CHAT
+        </div>
+        <div class="chat">
+            <ul>
+                <!-- 동적 생성 -->
+            </ul>
+        </div>
+        <div class="input-div">
+            <textarea placeholder="내용을 입력하세욧!"></textarea>
+        </div>
+     
+        <!-- format -->
+     
+        <div class="chat format">
+            <ul>
+                <li>
+                    <div class="sender">
+                        <span></span>
+                    </div>
+                    <div class="message">
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
