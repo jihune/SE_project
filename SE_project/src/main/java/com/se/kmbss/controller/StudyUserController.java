@@ -13,7 +13,7 @@ import com.se.kmbss.model.StudyUserVO;
 import com.se.kmbss.service.StudyUserService;
 
 /**
- * User와 관련된 페이지를 다루는 Controller.
+ * StudyUser와 관련된 페이지를 다루는 Controller.
  */
 
 @Controller
@@ -22,13 +22,12 @@ public class StudyUserController {
     @Autowired
     StudyUserService su_service;
 
-    
+    // 회원가입 페이지 관련 맵핑 시작
     @GetMapping("sign_up")
     public String sign_up() {
         return "sign_up";
     }
 
-    // 회원가입 페이지 관련 함수 맵핑 시작
     @PostMapping("sign_up")
     public String sign_up(StudyUserVO study_user) {
         su_service.signUp(study_user);
@@ -67,19 +66,26 @@ public class StudyUserController {
         }
         return "FAIL";
     }
-    // 회원가입 페이지 관련 함수 맵핑 끝
+    // 회원가입 페이지 관련 맵핑 끝
 
+    // 로그인 관련 맵핑 시작
     @GetMapping("sign_in")
     public String sign_in() {
         return "sign_in";
     }
 
+    //     
+    // 
+    // 
+
+    // 로그인 관련 맵핑 끝
+
+    // ID 찾기 관련 맵핑 시작
     @GetMapping("find_id")
     public String find_id() {
         return "find_id";
     }
 
-    // ID 찾기 함수 맵핑
     @ResponseBody
     @PostMapping("findMyID")
     public ModelAndView findMyID(StudyUserVO study_user, Model model) {
@@ -92,13 +98,14 @@ public class StudyUserController {
 
         ModelAndView mav = new ModelAndView();
 
-        mav.setViewName("/user/find_id_result");
+        mav.setViewName("find_id_result");
         mav.addObject("result_Id", result_Id);
 
         model.addAttribute("result_Id", result_Id);
 
         return mav;
     }
+    // ID 찾기 관련 맵핑 끝
 
     @GetMapping("find_pw")
     public String find_pw() {
