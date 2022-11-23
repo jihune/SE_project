@@ -69,5 +69,8 @@ public class MainController {
 	@GetMapping("lock_setting")
 	public String lock_setting(){return "lock_setting";}
 
-
+	@GetMapping("write_board")
+	public String write_board() {
+		return "write_board";
+	}
 }

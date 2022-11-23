@@ -1,0 +1,23 @@
+.contents{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+}
+.title{
+    font-size:26px;
+    font-family: 'Noto Sans KR', Dotum, Arial, tahoma, Helvetica, sans-serif;
+    margin:2%;
+
+}
+.board{
+    max-width:640x;
+    width:100%;
+    margin:0 auto;
+}
+.btn{
+    border-radius: 20px;
+    border: 0.5px;
+    background-color: aquamarine;
+    margin:2%;
+    float: right;
+}
