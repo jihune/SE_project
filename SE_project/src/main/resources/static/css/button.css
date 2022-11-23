@@ -13,7 +13,7 @@ button span {position:relative;}
 
 .btns.primary {background:#fff; border:1px solid #b4b4b4; color:#666;}
 
-.btn_st1 {background:#d74242; color:#fff;} /* 레드 */
+.btn_st1 {background:#FF5675; color:#fff;} /* 레드 */
 .btn_st2 {background:#666; color:#fff;} /* 그레이 */
 .btn_st3 {background:#139dc8; color:#fff;} /* 블루 */
 .btn_st4 {background:#00bc8c; color:#fff;} /* 그린 */
