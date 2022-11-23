@@ -1,14 +1,10 @@
-HELP.md
-!gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
 /*/src/main/resources/application.properties
 
 ### STS ###
 .apt_generated
-.classpath
 .factorypath
-.project
 .settings
 .springBeans
 .sts4-cache
@@ -24,22 +20,13 @@ bin/
 out/*
 !**/src/main/**/out/
 !**/src/test/**/out/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+.classpath
+.project
 
 # gradle
 .gradle/
-gradle/
 build/
 */build/
-gradlew*
 */tokens/
 tokens/
 .DS_Store
@@ -57,13 +44,10 @@ DS_Store
 ### VS Code ###
 .vscode/
 
-# Log file
-*.log
-
 # source generated
 /*/src/main/generated/
 /*/src/test/resources/perptest/
 
 # DB Wallet
-/*/src/main/resources/wallet/
+*/src/main/resources/wallet/**
 !*/src/main/resources/wallet/Wallet_studyDB.zip
