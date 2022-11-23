@@ -19,7 +19,7 @@
                 view_cnt
         </sql>
 
-        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest" useGeneratedKeys="false">
+        <insert id="upload" parameterType="com.se.kmbss.mapper.BoardRequest" useGeneratedKeys="false"> 
                 INSERT INTO BOARD(
                         <include refid="BoardColumns" />
                 )VALUES(
@@ -35,6 +35,9 @@
                         0,
                         0
                 )
+                <!-- <selectKey keyProperty="board_idn" resultType="int" order"AFTER">
+                        select board_seq.currval from board
+                </selectKey>  -->
         </insert>
 
         <select id="find_by_id" parameterType="int" resultType="com.se.kmbss.mapper.BoardResponse">

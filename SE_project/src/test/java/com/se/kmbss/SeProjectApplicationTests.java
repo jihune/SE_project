@@ -35,7 +35,7 @@ class SeProjectApplicationTests {
 	}
 	@Test
 	void find_by_id(){
-		BoardResponse post= BoardMapper.find_by_id(3);
+		BoardResponse post= BoardMapper.find_by_id(1);
 		String postJson;
 		try {
 			postJson = new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(post);
@@ -64,8 +64,8 @@ class SeProjectApplicationTests {
 	@Test
 	void uploadBoard(){
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("4번의 제목");
-		params.setBoard_content("4번의 내용");
+		params.setBoard_name("서비스 테스트 제목");
+		params.setBoard_content("서비스 테스트 내용");
 		params.setBoard_location_city(10);
 		params.setBoard_location_sigungu(160);
 		BoardService.uploadBoard(params);

@@ -1,5 +1,6 @@
 package com.se.kmbss.mapper;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
+
 public class BoardRequest {
     private Integer board_idn;
     private Integer user_idn;

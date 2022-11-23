@@ -1,5 +1,6 @@
 package com.se.kmbss.mapper;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Data
+
 public class BoardResponse {
     private Integer board_idn;
     private Integer user_idn;
