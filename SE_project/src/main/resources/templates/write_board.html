@@ -24,7 +24,7 @@
         <div id="summernote" class="board"></div>
         <button class="btn" type="submit">제출하기</button>
     </div>
-    
+    <div th:insert="~{fragment/footer :: footer}"></div>
     <script>
         $(document).ready(function () {
             $('#summernote').summernote({
