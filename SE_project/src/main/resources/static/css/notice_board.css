@@ -87,3 +87,9 @@
     float:right;
 }
 /* 여기까지 게시판 중간 부분..? */
+
+.section_set{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+}
