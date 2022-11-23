@@ -21,8 +21,15 @@
 <body>
     <div class="contents">
         <h2 class="title">게시판 모집 글 쓰기</h2>
-        <div id="summernote" class="board"></div>
-        <button class="btn" type="submit">제출하기</button>
+        <form>
+            <div class="write_title">
+                <h3 class="rmfTMrl">제목</h3>
+                <input type="text" class="input_title">
+                <h3 class="rmfTMrl">내용</h3>
+            </div>
+            <div id="summernote" class="board"></div>
+            <button class="btn" type="submit">제출하기</button>
+        </form>
     </div>
     <div th:insert="~{fragment/footer :: footer}"></div>
     <script>

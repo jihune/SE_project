@@ -9,6 +9,24 @@
     margin:2%;
 
 }
+.write_board{
+    width:100%;
+}
+.rmfTMrl{
+    width:29.5%;
+    /* float:left; */
+    margin:0;
+    padding:1%;
+}
+.input_title{
+    width:70%;
+    border:1px solid #ced4da;
+    border-color:#555;
+    border-radius: 5px;
+    /* float:right; */
+    margin:0;
+    padding:1%;
+}
 .board{
     max-width:640x;
     width:100%;
