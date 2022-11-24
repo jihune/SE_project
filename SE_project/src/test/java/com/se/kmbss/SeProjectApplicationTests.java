@@ -30,35 +30,35 @@ class SeProjectApplicationTests {
 		params.setBoard_location_sigungu(160); 
 		BoardMapper.upload(params);
 		
-		List<BoardResponse> posts = BoardMapper.find_all();
-		System.out.println("전체 게시글 수 : "+posts.size());
+		//List<PostResponse> posts = BoardMapper.find_all();
+		//System.out.println("전체 게시글 수 : "+posts.size());
 	}
 	@Test
 	void find_by_id(){
 		BoardResponse post= BoardMapper.find_by_id(1);
-		String postJson;
-		try {
-			postJson = new ObjectMapper().registerModule(new JavaTimeModule()).writeValueAsString(post);
-			System.out.println(postJson);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}	
+		System.out.println(post);
 	}
 
 	@Test
 	void modify(){
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("3번의 제목 바꿈");
-		params.setBoard_content("3번의 내용 바꿈");
+		params.setBoard_name("1번의 제목 바꿈");
+		params.setBoard_content("1번의 내용 바꿈");
 		params.setBoard_location_city(10);
 		params.setBoard_location_sigungu(160);
-		params.setBoard_idn(3); 
+		params.setBoard_idn(1); 
 		BoardMapper.modify(params);
 	}
 
 	@Test
 	void delete_by_id(){
 		BoardMapper.delete_by_id(3);
+	}
+
+	@Test
+	void find_all(){
+		List<BoardResponse> post= BoardMapper.find_all();
+		System.out.println(post);
 	}
 
 	@Test
