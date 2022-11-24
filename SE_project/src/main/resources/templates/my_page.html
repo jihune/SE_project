@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>니가 공부하는 그 스터디 | 메인화면</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/my_page.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+</head>
+<body>
+    <div class="contents">
+        <h2 class="title">마이페이지</h2>
+        <button class="div_block"><P>가입신청한 스터디 목록</P></button>
+        <button class="div_block"><P>친구요청 및 수학</P></button>
+        <button class="div_block"><P>친구 초대</P></button>
+        <button class="div_block"><P>스터디그룹 탈퇴하기</P></button>
+        <button class="div_block"><P>회원탈퇴</P></button>
+        <button class="div_block"><P>공지사항</P></button>
+    </div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
+</body>

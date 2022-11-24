@@ -78,4 +78,8 @@ public class MainController {
 	public String group_chat() {
 		return "group_chat";
 	}
+	@GetMapping("my_page")
+	public String my_page() {
+		return "my_page";
+	}
 }
