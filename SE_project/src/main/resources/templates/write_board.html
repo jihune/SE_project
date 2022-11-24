@@ -39,14 +39,14 @@
                         <col style="width:35%;" />
                     </colgroup>
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <th scope="row">공지글</th>
                             <td><span class="chkbox"><input type="checkbox" id="isNotice" name="isNotice"
                                         class="chk" /><i></i><label for="isNotice"> 설정</label></span></td>
 
                             <th scope="row">등록일</th>
                             <td colspan="3"><input type="text" id="createdDate" name="createdDate" readonly /></td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th>제목 <span class="es">필수 입력</span></th>
                             <td colspan="3"><input type="text" id="title" name="title" maxlength="50"
@@ -78,19 +78,6 @@
             </p>
         </section>
     </div>
-    <!--/* .content */-->
-    <!-- <div class="contents">
-        <h2 class="title">게시판 모집 글 쓰기</h2>
-        <form>
-            <div class="write_title">
-                <h3 class="rmfTMrl">제목</h3>
-                <input type="text" class="input_title">
-                <h3 class="rmfTMrl">내용</h3>
-            </div>
-            <div id="summernote" class="board"></div>
-            <button class="btn" type="submit">제출하기</button>
-        </form>
-    </div> -->
 
 
     <div th:insert="~{fragment/footer :: footer}"></div>
