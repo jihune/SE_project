@@ -31,7 +31,7 @@
     border-radius: 10px;
     background-color: antiquewhite;
     padding:2% 0;
-    /* display:none; */
+    display:none;
 }
 .try_register{
     width:90%;
@@ -74,3 +74,7 @@
     border: none;
 }
 .margin_bar{margin:2% 5%}
+.input_friend{
+    padding:2%;
+    width:96%;
+}
