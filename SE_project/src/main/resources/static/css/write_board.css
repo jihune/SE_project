@@ -3,12 +3,7 @@
     width:100%;
     margin:0 auto;
 }
-.title{
-    font-size:26px;
-    font-family: 'Noto Sans KR', Dotum, Arial, tahoma, Helvetica, sans-serif;
-    margin:2%;
 
-}
 .write_board{
     width:100%;
 }
@@ -47,4 +42,10 @@
     max-width:640px;
     width:100%;
     margin:0 auto;
+}
+.title{
+    font-size:32px;
+    font-family: 'Noto Sans KR', Dotum, Arial, tahoma, Helvetica, sans-serif;
+    margin:1%;
+    padding-top:5%;
 }
