@@ -1,3 +1,10 @@
+.content{
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+    background: #fff;
+    height:100%;
+}
 .all_notice{
     max-width:640px;
     width:100%;
@@ -92,4 +99,11 @@
     max-width:640px;
     width:100%;
     margin:0 auto;
+}
+.com_title{
+    font-size:32px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin:1%;
+    margin-top: 5%;
 }
