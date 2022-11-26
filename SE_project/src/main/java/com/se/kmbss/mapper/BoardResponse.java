@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class BoardResponse {
     private Integer boardidn;
-    private Integer useridn;
+    private Integer suidn;
     private LocalDateTime boarduploaddate;
     private LocalDateTime boardmodifydate;
     private LocalDateTime boarddeletedate;

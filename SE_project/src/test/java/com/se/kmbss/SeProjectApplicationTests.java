@@ -24,10 +24,10 @@ class SeProjectApplicationTests {
 	@Test
 	void upload() {
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("보드 실험 제목");
-		params.setBoard_content("보드 실험 내용");
-		params.setBoard_location_city(10);
-		params.setBoard_location_sigungu(160); 
+		params.setBoardname("보드 실험 제목");
+		params.setBoardcontent("보드 실험 내용");
+		params.setBoardlocationcity(10);
+		params.setBoardlocationsigungu(160); 
 		BoardMapper.upload(params);
 		
 		//List<PostResponse> posts = BoardMapper.find_all();
@@ -42,11 +42,11 @@ class SeProjectApplicationTests {
 	@Test
 	void modify(){
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("1번의 제목 바꿈");
-		params.setBoard_content("1번의 내용 바꿈");
-		params.setBoard_location_city(10);
-		params.setBoard_location_sigungu(160);
-		params.setBoard_idn(1); 
+		params.setBoardname("1번의 제목 바꿈");
+		params.setBoardcontent("1번의 내용 바꿈");
+		params.setBoardlocationcity(10);
+		params.setBoardlocationsigungu(160);
+		params.setBoardidn(1); 
 		BoardMapper.modify(params);
 	}
 

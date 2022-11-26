@@ -1,5 +1,7 @@
 package com.se.kmbss.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.service.MainService;
+
+import com.se.kmbss.service.BoardService;
+import com.se.kmbss.mapper.BoardResponse;
 
 /**
  * 기본적인 html 페이지를 연결해 주는 곳이다.
@@ -16,6 +21,8 @@ import com.se.kmbss.service.MainService;
 @Controller
 public class MainController {
 
+	@Autowired
+	BoardService BoardService;
 	@Autowired
 	MainService service;
 
@@ -28,8 +35,11 @@ public class MainController {
 	}
 
 	@GetMapping("notice_board")
-	public String notice_board() {
-		return "notice_board";
+	public String notice_board(Model model) {
+		List<BoardResponse> posts=BoardService.findAll();
+        model.addAttribute("posts", posts);
+		System.out.println(posts);
+        return "notice_board";
 	}
 
 	@GetMapping("notice_detailpage")

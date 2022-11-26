@@ -64,13 +64,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:if="${not #lists.isEmpty( posts )}" th:each="row, status : ${posts}">
-                        <td><input type="checkbox" /></td>
-                        <td th:text="${row.noticeYn == false ? (status.size - status.index) : '공지'}"></td>
-                        <td class="tl"><a th:href="@{/post/view.do( id=${row.id} )}" th:text="${row.title}"></a></td>
-                        <td th:text="${row.writer}"></td>
-                        <td th:text="${#temporals.format( row.createdDate, 'yyyy-MM-dd HH:mm' )}"></td>
-                        <td th:text="${row.viewCnt}"></td>
+                    <tr th:if="${not #lists.isEmpty( posts )}" th:each="row : ${posts}">
+                        <!-- <td><input type="checkbox" /></td> -->
+                        <!-- <td class="tl"><a th:href="@{/post/view.do( id=${row.boardidn} )}"-->
+                        <td th:text="${row.boardidn}"></td> 
+                        <td th:text="${row.boardname}"></td> 
+                        <td th:text="${row.suidn}"></td>
+                        <td th:text="${#temporals.format( row.boarduploaddate, 'yyyy-MM-dd')}"></td> 
+                        <td th:text="${row.viewcnt}"></td>  
                     </tr>
 
                     <tr th:unless="${not #lists.isEmpty( posts )}">
