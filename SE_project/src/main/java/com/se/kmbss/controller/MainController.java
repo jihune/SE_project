@@ -108,4 +108,9 @@ public class MainController {
 	public String my_page() {
 		return "my_page";
 	}
+
+	@GetMapping("persenal_location_set")
+	public String persenal_location_set() {
+		return "persenal_location_set";
+	}
 }
