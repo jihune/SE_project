@@ -1,38 +1,3 @@
-// window.initMap = function () {
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         center: { lat: 35.8306426, lng: 128.7545109 },
-//         zoom: 10,
-//     });
-
-
-//     const malls = [
-//         { label: "C", name: "중앙도서관", lat: 35.8330014, lng: 128.75831 },
-//     ];
-
-//     const bounds = new google.maps.LatLngBounds();
-//     const infowindow = new google.maps.InfoWindow();
-
-//     malls.forEach(({ label, name, lat, lng }) => {
-//         const marker = new google.maps.Marker({
-//             position: { lat, lng },
-//             label,
-//             map: map,
-//         });
-//         bounds.extend(marker.position);
-
-//         marker.addListener("click", () => {
-//             map.panTo(marker.position);
-//             infowindow.setContent(name);
-//             infowindow.open({
-//                 anchor: marker,
-//                 map,
-//             });
-//         });
-//     });
-
-//     map.fitBounds(bounds);
-// };
-
 let map, infoWindow;
 
 function initMap() {
@@ -44,7 +9,7 @@ function initMap() {
 
     const locationButton = document.createElement("button");
 
-    locationButton.textContent = "Pan to Current Location";
+    locationButton.textContent = "위치인증";
     locationButton.classList.add("custom-map-control-button");
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
     locationButton.addEventListener("click", () => {
@@ -55,10 +20,11 @@ function initMap() {
                     const pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude,
+                        // 위치 x,y축 값..?임 알아서 사용하셈.
                     };
 
                     infoWindow.setPosition(pos);
-                    infoWindow.setContent("Location found.");
+                    infoWindow.setContent("위치를 호출하였습니다.");
                     infoWindow.open(map);
                     map.setCenter(pos);
                 },
@@ -77,8 +43,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
     infoWindow.setContent(
         browserHasGeolocation
-            ? "Error: The Geolocation service failed."
-            : "Error: Your browser doesn't support geolocation."
+            ? "Error: 위치인증에 실패 하였습니다."
+            : "Error: 연결상태를 확인해 주세요."
     );
     infoWindow.open(map);
 }
