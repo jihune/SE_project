@@ -18,36 +18,38 @@
 
 <body>
 	<div class="container">
-		<form>
+		<form method="post">
 			<h2 class="title">게시글 상세 화면</h2>
 			<div class="other_thing">
 				<div class="mb-3 row">
 					<label for="board_num" class="col-sm-2 col-form-label">글 번호</label>
 					<div class="col-sm-10">
-						<input type="text" readonly class="form-control-plaintext" id="num_write" value="db는 여기에다 넣어라">
+						<td th:text="${post.boardidn}"></td>	
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="how_many_see" class="col-sm-2 col-form-label">조회수</label>
 					<div class="col-sm-10">
-						<input type="text" readonly class="form-control-plaintext" id="see_num" value="db는 여기에다 넣어라">
+						<td th:text="${post.viewcnt}"></td>
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="writer" class="col-sm-2 col-form-label">작성자</label>
 					<div class="col-sm-10">
-						<input type="text" readonly class="form-control-plaintext" id="writer" value="db는 여기에다 넣어라">
+						<td th:text="${post.suidn}"></td>
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label for="write_date" class="col-sm-2 col-form-label">작성일</label>
 					<div class="col-sm-10">
-						<input type="text" readonly class="form-control-plaintext" id="wrtie_date" value="db는 여기에다 넣어라">
+						<td th:text="${#temporals.format( post.boarduploaddate, 'yyyy-MM-dd')}"></td> 
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="textarea" class="form-label">내용</label>
-					<textarea class="form-control" id="textarea" rows="3" readonly></textarea>
+					<div class="col-sm-10">
+						<td th:text="${post.boardcontent}"></td> 
+					</div>
 				</div>
 			</div>
 			<div style="width:100%">
