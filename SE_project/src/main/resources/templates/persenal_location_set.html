@@ -5,6 +5,7 @@
  Copyright 2019 Google LLC. All Rights Reserved.
  SPDX-License-Identifier: Apache-2.0
 -->
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
@@ -20,9 +21,64 @@
     <script src="js/jquery-3.6.1.min.js"></script>
     <script type="module" src="js/google_map.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&region=ko&language=ko&callback=initMap"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&region=ko&language=ko&callback=initMap&region=kr"
         defer></script>
 </head>
+
 <body>
-    
+    <div class="contents">
+        <h2 class="title">개인별 설정</h2>
+        <button type="button" class="div_block location_check" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
+            위치인증 장소 설정
+        </button>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">위치인증 장소 설정</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body map_css" id="map" style="width: 100%;height: 600px;">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-primary" id="check_my_location">등록하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="div_block" type="button" data-bs-toggle="modal" data-bs-target="#invite_friend">
+            <P>패널티 설정</P>
+        </button>
+        <div class="modal fade" id="invite_friend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="invite_friendLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="invite_friendLabel">패널티 입력</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="display:inline-flex">
+                        <input class="input_friend" placeholder="패널티를 숫자로 입력해주세요">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+                        <button type="button" class="btn btn-primary">등록하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
 </body>
