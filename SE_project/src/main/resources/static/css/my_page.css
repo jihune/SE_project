@@ -25,3 +25,52 @@
     left:5%;
     width:100%;
 }
+.shadow_div{
+    width:100%;
+    border:1px solid gray;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    padding:2% 0;
+    /* display:none; */
+
+}
+.try_register{
+    width:90%;
+    border:1px solid gainsboro;
+    border-radius: 10px;
+    background-color: #fff;
+    padding:0;
+    margin:1.5% 5%;
+}
+.try_register p{
+    font-size:22px;
+    padding:2%;
+    margin:0;
+    margin-left: 5%;
+}
+.try_register p i{
+    font-weight: bold;
+}
+.try_friend{
+    width:90%;
+    border:1px solid gainsboro;
+    border-radius: 10px;
+    background-color: #fff;
+    padding:0;
+    margin:1.5% 5%;
+    display:inline-flex;
+}
+.shadow_div .try_friend p{
+    font-size:22px;
+    padding:2%;
+    margin:0;
+}
+.try_friend p i{
+    font-weight: bold;
+}
+.check_btn{
+    width:5%;
+    height: 5%;
+    border: none;
+}
+.margin_bar{margin:2% 5%}
