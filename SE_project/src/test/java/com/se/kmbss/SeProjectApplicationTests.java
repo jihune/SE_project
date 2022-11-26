@@ -64,10 +64,10 @@ class SeProjectApplicationTests {
 	@Test
 	void uploadBoard(){
 		BoardRequest params = new BoardRequest();
-		params.setBoard_name("서비스 테스트 제목");
-		params.setBoard_content("서비스 테스트 내용");
-		params.setBoard_location_city(10);
-		params.setBoard_location_sigungu(160);
+		params.setBoardname("서비스 테스트 제목");
+		params.setBoardcontent("서비스 테스트 내용");
+		params.setBoardlocationcity(10);
+		params.setBoardlocationsigungu(160);
 		BoardService.uploadBoard(params);
 	}
 }

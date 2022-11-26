@@ -1,6 +1,8 @@
 package com.se.kmbss.service;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.se.kmbss.mapper.BoardMapper;
 import com.se.kmbss.mapper.BoardRequest;
@@ -16,12 +18,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoardService {
-    private final BoardMapper BoardMapper;
+     @Autowired
+     private final BoardMapper BoardMapper;
     
    @Transactional
-   public int uploadBoard(final BoardRequest params){
+   public void uploadBoard(final BoardRequest params){
         BoardMapper.upload(params);
-        return params.getBoardidn();
    }
 
    public BoardResponse find_by_id(final int board_idn){

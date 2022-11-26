@@ -26,12 +26,10 @@
     <div class="content">
         <h2 class="title">모집글 작성하기</h2>
         <section>
-            <form id="saveForm" method="post" autocomplete="off">
+            <form id="saveForm" method="post" autocomplete="off" action="write_board">
                 <!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
-                <input type="hidden" id="id" name="id" th:if="${post != null}" th:value="${post.id}" />
+                <input type="hidden" id="id" name="boardidn" th:if="${post != null}" th:value="${post.boardidn}" />
 
-                <!--/* 서버로 전달할 공지글 여부 */-->
-                <input type="hidden" id="noticeYn" name="noticeYn" />
                 <table class="tb tb_row">
                     <colgroup>
                         <col style="width:15%;" />
@@ -42,28 +40,30 @@
                     <tbody>
                         <tr>
                             <th>제목 <span class="es">필수 입력</span></th>
-                            <td colspan="3"><input type="text" id="title" name="title" maxlength="50"
+                            <td colspan="3"><input type="text" id="title" name="boardname" maxlength="50"
                                     placeholder="제목을 입력해 주세요." /></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>지역 <span class="es">필수 입력</span></th>
                             <td colspan="3"><select name="sido1" id="sido1" style="width:49.5%"></select>
                                 <select name="gugun1" id="gugun1" style="width:49.5%"></select>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th>내용 <span class="es">필수 입력</span></th>
                             <td colspan="3">
-                                <div id="summernote" class="board"></div></textarea>
+                                <textarea id="content" name="boardcontent" class="board" rows="10"></textarea>
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> 
+                <input type="submit" id="submit" value="저장" class="btn">
+                <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a>
             </form>
-            <p class="btn_set">
+            <!-- <p class="btn_set">
                 <button type="button" id="saveBtn" onclick="savePost();" class="btns btn_st3 btn_mid">저장</button>
                 <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a>
-            </p>
+            </p> -->
         </section>
     </div>
 
@@ -98,21 +98,20 @@
         }
         // 등록일 초기화
         function initCreatedDate() {
-            document.getElementById('createdDate').value = dayjs().format('YYYY-MM-DD');
+            document.getElementById('boardmodifydate').value = dayjs().format('YYYY-MM-DD');
         }
         // 게시글 저장(수정)
         function savePost() {
             const form = document.getElementById('saveForm');
-            const fields = [form.title, form.writer, form.content];
-            const fieldNames = ['제목', '이름', '내용'];
+            const fields = [form.title, form.content];
+            const fieldNames = ['제목','내용'];
 
             for (let i = 0, len = fields.length; i < len; i++) {
                 isValid(fields[i], fieldNames[i]);
             }
-            // document.getElementById('saveBtn').disabled = true;
-            // form.noticeYn.value = form.isNotice.checked;
-            // form.action = [[ ${post == null} ]] ? '/post/save.do' : '/post/update.do';
-            // form.submit();
+            document.getElementById('saveBtn').disabled = true;
+            form.action = 'write_board';
+            form.submit();
         }
         $('document').ready(function () {
             var area0 = ["시/도 선택", "서울특별시", "인천광역시", "대전광역시", "광주광역시", "대구광역시", "울산광역시", "부산광역시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];

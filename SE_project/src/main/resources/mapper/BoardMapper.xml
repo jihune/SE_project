@@ -28,10 +28,10 @@
                         sysdate,
                         null,
                         null,
-                        #{board_content},
-                        #{board_location_city},
-                        #{board_location_sigungu},
-                        #{board_name},
+                        #{boardcontent},
+                        #{boardlocationcity},
+                        #{boardlocationsigungu},
+                        #{boardname},
                         0,
                         0
                 )
@@ -54,12 +54,12 @@
                 update  board 
                 set
                         boardmodifydate = sysdate,
-                        boardname = #{board_name},
-                        boardcontent = #{board_content},
-                        boardlocationcity = #{board_location_city},
-                        boardlocationsigungu = #{board_location_sigungu}
+                        boardname = #{boardname},
+                        boardcontent = #{boardcontent},
+                        boardlocationcity = #{boardlocationcity},
+                        boardlocationsigungu = #{boardlocationsigungu}
                 where
-                        boardidn=#{board_idn}
+                        boardidn=#{boardidn}
         </update>
 
         <delete id="delete_by_id" parameterType="com.se.kmbss.mapper.BoardRequest">
@@ -67,7 +67,7 @@
                 set
                         boarddeletedate = sysdate
                 where
-                        boardidn=#{board_idn}
+                        boardidn=#{boardidn}
         </delete>
 
         <select id="find_all" resultType="com.se.kmbss.mapper.BoardResponse">

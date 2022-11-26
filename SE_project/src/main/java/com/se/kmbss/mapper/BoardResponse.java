@@ -15,8 +15,8 @@ public class BoardResponse {
     private LocalDateTime boardmodifydate;
     private LocalDateTime boarddeletedate;
     private String boardcontent;
-    private Integer boardlocationcity;
-    private Integer boardlocationsigungu;
+    private String boardlocationcity;
+    private String boardlocationsigungu;
     private String boardname;
     private Integer boardcategory;
     private Integer viewcnt;

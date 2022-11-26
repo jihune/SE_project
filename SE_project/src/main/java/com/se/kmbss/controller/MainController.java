@@ -6,11 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.service.MainService;
 
 import com.se.kmbss.service.BoardService;
+import com.se.kmbss.mapper.BoardRequest;
 import com.se.kmbss.mapper.BoardResponse;
 
 /**
@@ -25,6 +28,8 @@ public class MainController {
 	BoardService BoardService;
 	@Autowired
 	MainService service;
+	// @Autowired
+	// BoardRequest BoardRequest;
 
 	@Autowired
 	MainMapper mapper;
@@ -40,6 +45,20 @@ public class MainController {
         model.addAttribute("posts", posts);
 		System.out.println(posts);
         return "notice_board";
+	}
+
+	@GetMapping("write_board")
+	public String write_board() {
+		return "write_board";
+	}
+
+	@PostMapping("write_board")
+	public String uploadBoard(final BoardRequest params){
+		params.setBoardlocationcity("대구광역시");
+		params.setBoardlocationsigungu("수성구"); 
+		//System.out.println(params);
+		BoardService.uploadBoard(params);
+		return "redirect:notice_board";
 	}
 
 	@GetMapping("notice_detailpage")
@@ -79,10 +98,7 @@ public class MainController {
 	@GetMapping("lock_setting")
 	public String lock_setting(){return "lock_setting";}
 
-	@GetMapping("write_board")
-	public String write_board() {
-		return "write_board";
-	}
+	
 
 	@GetMapping("group_chat")
 	public String group_chat() {
