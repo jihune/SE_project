@@ -104,7 +104,7 @@ body {
 }
 
 /* 푸터 박스 */
-.footer_box {
+/* .footer_box {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -121,4 +121,4 @@ body {
 .footer_box p {
     margin-top: 8px;
     font-size: 0.75em;
-}
+} */

@@ -8,15 +8,15 @@
 /* 전체 스타일(반응형) */
 body {
     font-family: 'Nanum Gothic', sans-serif;
-    background: white;
+    background: #DDDDDD;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
 }
 
-/* 설정 타이틀 */
-.setting_title {
+/* 타이틀 */
+.nickname_title {
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,30 +24,59 @@ body {
     background: white;
     height: 46px;
 }
-.setting_title svg {
+.nickname_title svg {
     position: absolute;
     top: 15px;
     left: 20px;
 }
-.setting_title p {
+.nickname_title p {
     font-size: 1.25em;
 }
 
-/* 세팅 컨텐츠 */
-.setting_contents {
-    margin: 10px 0;
-    height: 75%;
+/* 닉네임 변경 컨텐츠 박스 */
+.nickname_box {
+    height: 65%;
 }
-.setting_contents div {
+/* 닉네임 변경 컨텐츠 */
+.nickname_contents {
+    display: flex;
+    flex-direction: column;
     background: white;
-    height: 46px;
-    padding: 14px 20px;
-    margin-bottom: 1px;
+    margin-bottom: 20px;
+    padding: 20px;
 }
-.setting_contents div p {
+.nickname_contents p {
     font-size: 0.875em;
+    margin-bottom: 20px;
 }
-  /* 푸터 카테고리 */
+.nickname_contents p span {
+    margin-left: 10px;
+    color: #aaaaaa;
+    font-size: 12px;
+}
+.nickname_contents input {
+    border: 0;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+/* 닉네임 변경 버튼 */
+.nickname_button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nickname_button input {
+    border: 0;
+    border-radius: 8px;
+    width: 90%;
+    height: 46px;
+    text-align: center;
+    color: white;
+    background: #E74C3C;
+}
+
+/* 푸터 박스 */
 /* .footer_box {
     display: flex;
     justify-content: space-around;

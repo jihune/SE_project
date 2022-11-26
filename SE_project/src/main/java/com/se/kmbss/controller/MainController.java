@@ -63,6 +63,9 @@ public class MainController {
 	@GetMapping("password_change")
 	public String password_change(){return "password_change";}
 
+	@GetMapping("nickname_change")
+	public String nickname_change(){return "nickname_change";}
+
 	@GetMapping("notice_setting")
 	public String notice_setting(){return "notice_setting";}
 

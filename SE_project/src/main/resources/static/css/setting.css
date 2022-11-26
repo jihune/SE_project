@@ -15,6 +15,10 @@ body {
     /* height: 100vh; */
     /* 위에 거 사용하면 페이지가 정적으로 변하기 떄문에 웹 구현하는 사람으로서는 왠만하면 피해야하는 코드임 */
 }
+a {
+    text-decoration: none; /* 링크의 밑줄 제거 */
+    color: inherit; /* 링크의 색상 제거 */
+}
 
 /* 설정 타이틀 */
 .setting_title {
@@ -62,7 +66,7 @@ body {
 }
 
 /* 푸터 카테고리 */
-.footer_box {
+/* .footer_box {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -79,4 +83,4 @@ body {
 .footer_box p {
     margin-top: 8px;
     font-size: 0.75em;
-}
+} */
