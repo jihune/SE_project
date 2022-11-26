@@ -59,7 +59,9 @@ public class MainController {
 	}
 
 	@GetMapping("notice_detailpage")
-	public String notice_detailpage() {
+	public String notice_detailpage(int boardidn, Model model) {
+		BoardResponse post = BoardService.find_by_id(boardidn);
+		model.addAttribute("post", post);
 		return "notice_detailpage";
 	}
 

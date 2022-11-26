@@ -68,7 +68,9 @@
                         <!-- <td><input type="checkbox" /></td> -->
                         <!-- <td class="tl"><a th:href="@{/post/view.do( id=${row.boardidn} )}"-->
                         <td th:text="${row.boardidn}"></td> 
-                        <td th:text="${row.boardname}"></td> 
+                        <td class="tl">
+                            <a th:href="@{notice_detailpage(boardidn=${row.boardidn})}" th:text="${row.boardname}"></a>
+                        </td> 
                         <td th:text="${row.suidn}"></td>
                         <td th:text="${#temporals.format( row.boarduploaddate, 'yyyy-MM-dd')}"></td> 
                         <td th:text="${row.viewcnt}"></td>  
