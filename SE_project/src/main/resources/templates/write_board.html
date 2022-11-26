@@ -163,8 +163,8 @@
                 alert("유형을 선택하세요");
                 return false;
             }
-            if(f.boardname == ""){
-                alert("제목을 입력하세요");
+            if(f.boardname.value.length <2){
+                alert("제목은 2글자 이상 입력하세요");
                 return false;
             }
             if(f.boardcontent.value.length <10){
