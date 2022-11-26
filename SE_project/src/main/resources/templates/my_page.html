@@ -67,7 +67,7 @@
         </button>
         <div class="modal fade" id="invite_friend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="invite_friendLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="invite_friendLabel">친구 초대</h1>
@@ -83,52 +83,10 @@
                 </div>
             </div>
         </div>
-        <!-- checkbox에 check한 것을 탈퇴한다 -->
-        <button class="div_block" type="button" data-bs-toggle="modal" data-bs-target="#escape_fucking_study">
+        <button class="div_block">
             <P>스터디그룹 탈퇴하기</P>
         </button>
-        <div class="modal fade" id="escape_fucking_study" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="escape_fucking_studyLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="escape_fucking_studyLabel">스터티그룹 탈퇴하기</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <table class="quit_study_table">
-                            <colgroup>
-                                <col style="width:auto;" />
-                                <col style="width:15%;" />
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th scope="col">스터디 목록</th>
-                                    <th scope="col">탈퇴 체크 여부</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:if="${not #lists.isEmpty( posts )}" th:each="row, status : ${posts}">
-                                    <td th:text="${row.noticeYn == false ? (status.size - status.index) : '공지'}"></td>
-                                    <td class="tl"><a th:href="@{/post/view.do( id=${row.id} )}" th:text="${row.title}"></a></td>
-                                    <td><input type="checkbox" /></td>
-                                </tr>
-            
-                                <tr th:unless="${not #lists.isEmpty( posts )}">
-                                    <td colspan="5">
-                                        <div class="no_data_msg">검색된 결과가 없습니다.</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
-                        <button type="button" class="btn btn-primary">탈퇴</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <button class="div_block" type="button" id="areyoureal">
             <P>회원탈퇴</P>
         </button>
