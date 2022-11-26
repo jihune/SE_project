@@ -54,9 +54,6 @@ public class MainController {
 
 	@PostMapping("write_board")
 	public String uploadBoard(final BoardRequest params){
-		params.setBoardlocationcity("대구광역시");
-		params.setBoardlocationsigungu("수성구"); 
-		//System.out.println(params);
 		BoardService.uploadBoard(params);
 		return "redirect:notice_board";
 	}

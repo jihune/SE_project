@@ -30,7 +30,7 @@
         </div>
         
         <section>
-            <form id="saveForm" method="post" autocomplete="off" action="write_board">
+            <form id="saveForm" method="post" autocomplete="off" action="write_board" name="uploadform" onsubmit="return checkForm()">
                 <!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
                 <input type="hidden" id="id" name="boardidn" th:if="${post != null}" th:value="${post.boardidn}" />
 
@@ -47,29 +47,48 @@
                             <td colspan="3"><input type="text" id="title" name="boardname" maxlength="50"
                                     placeholder="제목을 입력해 주세요." /></td>
                         </tr>
-                        <!-- <tr>
-                            <th>지역 <span class="es">필수 입력</span></th>
-                            <td colspan="3"><select name="sido1" id="sido1" style="width:49.5%"></select>
-                                <select name="gugun1" id="gugun1" style="width:49.5%"></select>
+                        <tr>
+                            <th>지역</th>
+                            <td colspan="3">
+                                <select id="addresskindu" name="boardlocationcity" style="width:49.5%" onchange="addressKindChange(this)">
+                                    <option>시/도 선택</option>
+                                    <option value='서울특별시'>서울특별시</option>
+                                    <option value='인천광역시'>인천광역시</option>
+                                    <option value='대전광역시'>대전광역시</option>
+                                    <option value='광주광역시'>광주광역시</option>
+                                    <option value='대구광역시'>대구광역시</option>
+                                    <option value='부산광역시'>부산광역시</option>
+                                    <option value='경기도'>경기도</option>
+                                    <option value='강원도'>강원도</option>
+                                    <option value='충청북도'>충청북도</option>
+                                    <option value='충청남도'>충청남도</option>
+                                    <option value='전라북도'>전라북도</option>
+                                    <option value='전라남도'>전라남도</option>
+                                    <option value='경상북도'>경상북도</option>
+                                    <option value='경상남도'>경상남도</option>
+                                    <option value='제주도'>제주도</option>
+                                </select>
+                                <select name="boardlocationsigungu"style="width:49.5%" id="addresskindd">
+                                    <option>구/군 선택</option>
+                                </select>
                             </td>
-                        </tr> -->
+                        </tr>
                         <tr>
                             <th>카테고리</th>
                             <td colspan="3">
-                                <!-- <input type="text" id="title" name="boardname" maxlength="50" placeholder="제목을 입력해 주세요." /> -->
-                                <select>
-                                    <option value='1'>전체</option>
-                                    <option value='2'>출석</option>
-                                    <option value='3'>어학</option>
-                                    <option value='4'>고시/공무원</option>
-                                    <option value='5'>취업</option>
+                                <select name="boardcategory">
+                                    <option value='0'>유형 선택</option>
+                                    <option value='1'>출석</option>
+                                    <option value='2'>어학</option>
+                                    <option value='3'>고시/공무원</option>
+                                    <option value='4'>취업</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <th>내용</th>
                             <td colspan="3">
-                                <textarea id="content" name="boardcontent" class="board" rows="10"></textarea>
+                                <textarea id="content" name="boardcontent" rows="10"></textarea>
                             </td>
                         </tr>
                     </tbody>
@@ -87,51 +106,7 @@
 
     <div th:insert="~{fragment/footer :: footer}"></div>
     <script>
-        $(document).ready(function () {
-            $('#summernote').summernote({
-                margin: 0,
-                height: 200,
-                minHeight: 200,
-                maxHeight: 200,
-                lang: "ko-KR",
-                focus: true,
-                toolbar:[]
-                // toolbar: [
-                //     // ['fontname', ['fontname']],
-                //     ['fontsize', ['fontsize']],
-                //     ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
-                //     ['color', ['forecolor', 'color']],
-                //     ['para', ['ul', 'ol', 'paragraph']],
-                //     ['height', ['height']],
-                //     ['insert', ['picture', 'link', 'video']],
-                // ],
-                // fontNames: ['맑은 고딕', '궁서', '굴림체', '굴림', '돋음체', '바탕체', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                // fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '30', '36', '50', '72']
-            });
-        });
-
-        window.onload = () => {
-            initCreatedDate();
-        }
-        // 등록일 초기화
-        function initCreatedDate() {
-            document.getElementById('boardmodifydate').value = dayjs().format('YYYY-MM-DD');
-        }
-        // 게시글 저장(수정)
-        function savePost() {
-            const form = document.getElementById('saveForm');
-            const fields = [form.title, form.content];
-            const fieldNames = ['제목','내용'];
-
-            for (let i = 0, len = fields.length; i < len; i++) {
-                isValid(fields[i], fieldNames[i]);
-            }
-            document.getElementById('saveBtn').disabled = true;
-            form.action = 'write_board';
-            form.submit();
-        }
-        $('document').ready(function () {
-            var area0 = ["시/도 선택", "서울특별시", "인천광역시", "대전광역시", "광주광역시", "대구광역시", "울산광역시", "부산광역시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도", "경상남도", "제주도"];
+        function addressKindChange(e){
             var area1 = ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"];
             var area2 = ["계양구", "남구", "남동구", "동구", "부평구", "서구", "연수구", "중구", "강화군", "옹진군"];
             var area3 = ["대덕구", "동구", "서구", "유성구", "중구"];
@@ -148,27 +123,56 @@
             var area14 = ["경산시", "경주시", "구미시", "김천시", "문경시", "상주시", "안동시", "영주시", "영천시", "포항시", "고령군", "군위군", "봉화군", "성주군", "영덕군", "영양군", "예천군", "울릉군", "울진군", "의성군", "청도군", "청송군", "칠곡군"];
             var area15 = ["거제시", "김해시", "마산시", "밀양시", "사천시", "양산시", "진주시", "진해시", "창원시", "통영시", "거창군", "고성군", "남해군", "산청군", "의령군", "창녕군", "하동군", "함안군", "함양군", "합천군"];
             var area16 = ["서귀포시", "제주시", "남제주군", "북제주군"];
+            var target = document.getElementById("addresskindd");
+            
+            if(e.value=="서울특별시") var d = area1;
+            else if(e.value=="인천광역시") var d = area2;
+            else if(e.value=="대전광역시") var d = area3;
+            else if(e.value=="광주광역시") var d = area4;
+            else if(e.value=="대구광역시") var d = area5;
+            else if(e.value=="울산광역시") var d = area6;
+            else if(e.value=="부산광역시") var d = area7;
+            else if(e.value=="경기도") var d = area8;
+            else if(e.value=="강원도") var d = area9;
+            else if(e.value=="충청북도") var d = area10;
+            else if(e.value=="충청남도") var d = area11;
+            else if(e.value=="전라북도") var d = area12;
+            else if(e.value=="전라남도") var d = area13;
+            else if(e.value=="경상북도") var d = area14;
+            else if(e.value=="경상남도") var d = area15;
+            else if(e.value=="제주도") var d = area16;
 
-            $("select[name^=sido]").each(function () {
-                $selsido = $(this);
-                $.each(eval(area0), function () {
-                    $selsido.append("<option value='" + this + "'>" + this + "</option>");
-                });
-                $selsido.next().append("<option value=''>구/군 선택</option>");
-            });
-            $("select[name^=sido]").change(function () {
-                var area = "area" + $("option", $(this)).index($("option:selected", $(this))); // 선택지역의 구군 Array
-                var $gugun = $(this).next(); // 선택영역 군구 객체
-                $("option", $gugun).remove(); // 구군 초기화
+            target.options.length=0;
 
-                if (area == "area0")
-                    $gugun.append("<option value=''>구/군 선택</option>");
-                else {
-                    $.each(eval(area), function () {
-                        $gugun.append("<option value='" + this + "'>" + this + "</option>");
-                    });
-                }
-            });
-        });
+            for(x in d){
+                var opt = document.createElement("option");
+                opt.value = d[x];
+                opt.innerHTML = d[x];
+                target.appendChild(opt);
+            }
+        }
+        
+        function checkForm(){
+            let f = document.uploadform;
+
+            if(f.boardlocationcity[0].selected){
+                alert("시/도를 선택하세요");
+                return false;
+            }
+            if(f.boardcategory[0].selected){
+                alert("유형을 선택하세요");
+                return false;
+            }
+            if(f.boardname == ""){
+                alert("제목을 입력하세요");
+                return false;
+            }
+            if(f.boardcontent.value.length <10){
+                alert("내용은 10글자 이상 입력하세요");
+                return false;
+            }
+
+            return true;
+        }
     </script>
 </body>

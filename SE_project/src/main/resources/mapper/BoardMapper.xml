@@ -32,7 +32,7 @@
                         #{boardlocationcity},
                         #{boardlocationsigungu},
                         #{boardname},
-                        0,
+                        #{boardcategory},
                         0
                 )
                 <!-- <selectKey keyProperty="board_idn" resultType="int" order"AFTER">
