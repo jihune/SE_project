@@ -34,12 +34,12 @@ public class BoardController {
     //     return "notice_detailpage";
     // }
 
-    // @GetMapping("notice_board.do")
-    // public String openBoardList(Model model){
-    //     List<BoardResponse> posts=BoardService.findAll();
-    //     model.addAttribute("posts", posts);
-    //     return "notice_board";
-    // }
+    @GetMapping("notice_board.do")
+    public String openBoardList(Model model){
+        List<BoardResponse> posts=BoardService.findAll();
+        model.addAttribute("posts", posts);
+        return "notice_board";
+    }
     
 }
 

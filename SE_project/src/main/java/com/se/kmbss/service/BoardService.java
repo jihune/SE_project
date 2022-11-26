@@ -21,7 +21,7 @@ public class BoardService {
    @Transactional
    public int uploadBoard(final BoardRequest params){
         BoardMapper.upload(params);
-        return params.getBoard_idn();
+        return params.getBoardidn();
    }
 
    public BoardResponse find_by_id(final int board_idn){
@@ -31,7 +31,7 @@ public class BoardService {
    @Transactional
    public int modifyBoard(final BoardRequest params){
         BoardMapper.modify(params);
-        return params.getBoard_idn();
+        return params.getBoardidn();
    }
 
    public int deleteBoard(final int idn){
