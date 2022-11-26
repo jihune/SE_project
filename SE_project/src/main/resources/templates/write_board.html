@@ -43,7 +43,7 @@
                     </colgroup>
                     <tbody>
                         <tr>
-                            <th>제목 <span class="es">필수 입력</span></th>
+                            <th>제목</th>
                             <td colspan="3"><input type="text" id="title" name="boardname" maxlength="50"
                                     placeholder="제목을 입력해 주세요." /></td>
                         </tr>
@@ -54,7 +54,20 @@
                             </td>
                         </tr> -->
                         <tr>
-                            <th>내용 <span class="es">필수 입력</span></th>
+                            <th>카테고리</th>
+                            <td colspan="3">
+                                <!-- <input type="text" id="title" name="boardname" maxlength="50" placeholder="제목을 입력해 주세요." /> -->
+                                <select>
+                                    <option value='1'>전체</option>
+                                    <option value='2'>출석</option>
+                                    <option value='3'>어학</option>
+                                    <option value='4'>고시/공무원</option>
+                                    <option value='5'>취업</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>내용</th>
                             <td colspan="3">
                                 <textarea id="content" name="boardcontent" class="board" rows="10"></textarea>
                             </td>
