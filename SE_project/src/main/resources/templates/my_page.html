@@ -63,18 +63,18 @@
             </div>
         </div>
         <button class="div_block" type="button" data-bs-toggle="modal" data-bs-target="#invite_friend">
-            <P>친구 초대</P>
+            <P>친구 추가</P>
         </button>
         <div class="modal fade" id="invite_friend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="invite_friendLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="invite_friendLabel">친구 초대</h1>
+                        <h1 class="modal-title fs-5" id="invite_friendLabel">친구 추가</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="display:inline-flex">
-                        <input class="input_friend">
+                        <input class="input_friend" placeholder="추가하고 싶은 사람의 닉네임을 입력헤 주세요">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
@@ -116,7 +116,7 @@
             
                                 <tr th:unless="${not #lists.isEmpty( posts )}">
                                     <td colspan="5">
-                                        <div class="no_data_msg">검색된 결과가 없습니다.</div>
+                                        <div class="no_data_msg">아직 가입한 스터디가 없는 것 같아요...</div>
                                     </td>
                                 </tr>
                             </tbody>
