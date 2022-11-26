@@ -7,7 +7,7 @@
     margin-top: 5%;
     width: 100%;
     float:left;
-    font-size:20px;
+    font-size:32px;
     font-family:"굴림";
 }
 .board_detail{
@@ -35,4 +35,11 @@
     float:left;
     width:100%;
     margin:0;
+}
+.comment_title{
+    padding:3%;
+}
+.input_comment{
+    padding:2%;
+    width:96%;
 }
