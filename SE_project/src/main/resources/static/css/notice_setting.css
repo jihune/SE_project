@@ -48,7 +48,7 @@ body {
     font-size: 0.875em;
 }
   /* 푸터 카테고리 */
-/* .footer_box {
+.footer_box {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -65,4 +65,4 @@ body {
 .footer_box p {
     margin-top: 8px;
     font-size: 0.75em;
-} */
+}
