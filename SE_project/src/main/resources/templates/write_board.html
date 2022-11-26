@@ -24,6 +24,7 @@
 
 <body>
     <div class="content">
+        <h2 class="title">모집글 작성하기</h2>
         <section>
             <form id="saveForm" method="post" autocomplete="off">
                 <!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
@@ -39,14 +40,6 @@
                         <col style="width:35%;" />
                     </colgroup>
                     <tbody>
-                        <!-- <tr>
-                            <th scope="row">공지글</th>
-                            <td><span class="chkbox"><input type="checkbox" id="isNotice" name="isNotice"
-                                        class="chk" /><i></i><label for="isNotice"> 설정</label></span></td>
-
-                            <th scope="row">등록일</th>
-                            <td colspan="3"><input type="text" id="createdDate" name="createdDate" readonly /></td>
-                        </tr> -->
                         <tr>
                             <th>제목 <span class="es">필수 입력</span></th>
                             <td colspan="3"><input type="text" id="title" name="title" maxlength="50"
@@ -59,11 +52,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>이름 <span class="es">필수 입력</span></th>
-                            <td colspan="3"><input type="text" id="writer" name="writer" maxlength="10"
-                                    placeholder="이름을 입력해 주세요." /></td>
-                        </tr>
-                        <tr>
                             <th>내용 <span class="es">필수 입력</span></th>
                             <td colspan="3">
                                 <div id="summernote" class="board"></div></textarea>
@@ -74,7 +62,7 @@
             </form>
             <p class="btn_set">
                 <button type="button" id="saveBtn" onclick="savePost();" class="btns btn_st3 btn_mid">저장</button>
-                <a th:href="@{/post/list.do}" class="btns btn_bdr3 btn_mid">뒤로</a>
+                <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a>
             </p>
         </section>
     </div>
@@ -90,17 +78,18 @@
                 maxHeight: 200,
                 lang: "ko-KR",
                 focus: true,
-                toolbar: [
-                    ['fontname', ['fontname']],
-                    ['fontsize', ['fontsize']],
-                    ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
-                    ['color', ['forecolor', 'color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],
-                    ['insert', ['picture', 'link', 'video']],
-                ],
-                fontNames: ['맑은 고딕', '궁서', '굴림체', '굴림', '돋음체', '바탕체', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '30', '36', '50', '72']
+                toolbar:[]
+                // toolbar: [
+                //     // ['fontname', ['fontname']],
+                //     ['fontsize', ['fontsize']],
+                //     ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+                //     ['color', ['forecolor', 'color']],
+                //     ['para', ['ul', 'ol', 'paragraph']],
+                //     ['height', ['height']],
+                //     ['insert', ['picture', 'link', 'video']],
+                // ],
+                // fontNames: ['맑은 고딕', '궁서', '굴림체', '굴림', '돋음체', '바탕체', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                // fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '30', '36', '50', '72']
             });
         });
 
