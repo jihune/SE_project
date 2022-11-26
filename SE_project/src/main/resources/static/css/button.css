@@ -39,3 +39,6 @@ button span {position:relative;}
 .btnW50 {min-width:50px;}
 .btnW60 {min-width:60px;}
 .btnW70 {min-width:70px;}
+
+.btn_right{float:right;}
+.btn_margin_up_down{margin:2% 0;}

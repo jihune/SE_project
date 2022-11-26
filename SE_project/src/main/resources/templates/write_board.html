@@ -24,7 +24,11 @@
 
 <body>
     <div class="content">
-        <h2 class="title">모집글 작성하기</h2>
+        <div >
+            <h2 class="title">모집글 작성하기</h2>
+            <a href="notice_board" class="btns btn_bdr3 btn_mid btn_right">뒤로</a>
+        </div>
+        
         <section>
             <form id="saveForm" method="post" autocomplete="off" action="write_board">
                 <!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
@@ -57,8 +61,8 @@
                         </tr>
                     </tbody>
                 </table> 
-                <input type="submit" id="submit" value="저장" class="btn">
-                <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a>
+                <input type="submit" id="submit" value="저장" class="btns btn_st3 btn_mid btn_margin_up_down">
+                <!-- <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a> -->
             </form>
             <!-- <p class="btn_set">
                 <button type="button" id="saveBtn" onclick="savePost();" class="btns btn_st3 btn_mid">저장</button>
