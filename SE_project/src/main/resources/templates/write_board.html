@@ -155,18 +155,21 @@
         function checkForm(){
             let f = document.uploadform;
 
+             if(f.boardname.value.length <2){
+                alert("제목은 2글자 이상 입력하세요");
+                return false;
+            }
+
             if(f.boardlocationcity[0].selected){
                 alert("시/도를 선택하세요");
                 return false;
             }
+            
             if(f.boardcategory[0].selected){
                 alert("유형을 선택하세요");
                 return false;
             }
-            if(f.boardname.value.length <2){
-                alert("제목은 2글자 이상 입력하세요");
-                return false;
-            }
+           
             if(f.boardcontent.value.length <10){
                 alert("내용은 10글자 이상 입력하세요");
                 return false;
