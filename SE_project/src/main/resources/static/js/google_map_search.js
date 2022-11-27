@@ -1,67 +1,124 @@
-let map, infoWindow;
-
 function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    const map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 35.8306426, lng: 128.7545109 },
         zoom: 17,
+        mapTypeControl: false,
     });
-    infoWindow = new google.maps.InfoWindow();
-
-    const searchBox = new google.maps.places.SearchBox(input);
-
-    searchBox.addListener("places_changed", () => {
-        //이벤트 발생 시 getPlaces()를 통해 place객체 배열을 가져온다
-        const places = searchBox.getPlaces();
-        //검색 결과가 없는 경우이다
-        if (places.length == 0) {
-            return;
-        }
-        //첫 번째 값을 가져와 사용한다
-        const place = places[0];
-        //input에 해당 장소의 이름을 출력해준다
-        input.value = place.name;
-        //해당 장소가 위치 정보가 없는 경우이다
-        if (!place.geometry || !place.geometry.location) {
-            console.log("Returned place contains no geometry");
-            return;
-        }
-        //검색한 장소로 지도를 이동시킨다
-        if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-        } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17);
-        }
-    });
+    const card = document.getElementById("pac-card");
+    const input = document.getElementById("pac-input");
+    const biasInputElement = document.getElementById("use-location-bias");
+    const strictBoundsInputElement = document.getElementById("use-strict-bounds");
+    const options = {
+        fields: ["formatted_address", "geometry", "name"],
+        strictBounds: false,
+        types: ["establishment"],
+    };
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
+    const autocomplete = new google.maps.places.Autocomplete(input, options);
+    // Bind the map's bounds (viewport) property to the autocomplete object,
+    // so that the autocomplete requests use the current map bounds for the
+    // bounds option in the request.
+    autocomplete.bindTo("bounds", map);
     const infowindow = new google.maps.InfoWindow();
     const infowindowContent = document.getElementById("infowindow-content");
-
     infowindow.setContent(infowindowContent);
     const marker = new google.maps.Marker({
         map,
         anchorPoint: new google.maps.Point(0, -29),
     });
-
-    searchBox.addListener("places_changed", () => {
-        //위 코드 생략
-
-        marker.setPosition(place.geometry.location);
+    autocomplete.addListener("place_changed", () => {
+        infowindow.close();
         marker.setVisible(false);
-        map.setZoom(15);
+        const place = autocomplete.getPlace();
+        if (!place.geometry || !place.geometry.location) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+        }
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        }
+        else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);
+        }
+        marker.setPosition(place.geometry.location);
+        marker.setVisible(true);
         infowindowContent.children["place-name"].textContent = place.name;
-        infowindowContent.children["place-address"].textContent = place.formatted_address;
+        infowindowContent.children["place-address"].textContent =
+            place.formatted_address;
         infowindow.open(map, marker);
     });
+    // Sets a listener on a radio button to change the filter type on Places
+    // Autocomplete.
+    function setupClickListener(id, types) {
+        const radioButton = document.getElementById(id);
+        radioButton.addEventListener("click", () => {
+            autocomplete.setTypes(types);
+            input.value = "";
+        });
+    }
+    setupClickListener("changetype-all", []);
+    setupClickListener("changetype-address", ["address"]);
+    setupClickListener("changetype-establishment", ["establishment"]);
+    setupClickListener("changetype-geocode", ["geocode"]);
+    setupClickListener("changetype-cities", ["(cities)"]);
+    setupClickListener("changetype-regions", ["(regions)"]);
+    biasInputElement.addEventListener("change", () => {
+        if (biasInputElement.checked) {
+            autocomplete.bindTo("bounds", map);
+        }
+        else {
+            // User wants to turn off location bias, so three things need to happen:
+            // 1. Unbind from map
+            // 2. Reset the bounds to whole world
+            // 3. Uncheck the strict bounds checkbox UI (which also disables strict bounds)
+            autocomplete.unbind("bounds");
+            autocomplete.setBounds({ east: 180, west: -180, north: 90, south: -90 });
+            strictBoundsInputElement.checked = biasInputElement.checked;
+        }
+        input.value = "";
+    });
+    strictBoundsInputElement.addEventListener("change", () => {
+        autocomplete.setOptions({
+            strictBounds: strictBoundsInputElement.checked,
+        });
+        if (strictBoundsInputElement.checked) {
+            biasInputElement.checked = strictBoundsInputElement.checked;
+            autocomplete.bindTo("bounds", map);
+        }
+        input.value = "";
+    });
 }
+window.initMap = initMap;
+export { };
 
-// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//     infoWindow.setPosition(pos);
-//     infoWindow.setContent(
-//         browserHasGeolocation
-//             ? "Error: 위치인증에 실패 하였습니다."
-//             : "Error: 연결상태를 확인해 주세요."
-//     );
-//     infoWindow.open(map);
+// let autocomplete;
+// function initAutocomplete() {
+//     autocomplete = new google.maps.places.autocomplete(
+//         document.getElementById('autocomplete'),
+//         {
+//             types: ['establishment'],
+//             componentRestrictions: { 'country': ['KR'] },
+//             fields: ['place_id', 'geometry', 'name']
+//         });
+//     autocomplete.addListener('place_changed', onPlaceChanged);
 // }
 
-window.initMap = initMap;
+// function onPlaceChanged() {
+//     var place = autocomplete.getPlace();
+//     var service = new google.maps.places.autocompleteService();
+
+//     if (!place.geometry) {
+//         document.getElementById('autocomplete').placeholder = '입력하시오1';
+//     } else {
+//         document.getElementById('details').innerHTML = place.name;
+//     }
+
+//     service.getQueryPredictions(
+//         { input: 'test' },
+//         displaySuggestions
+//     );
+// }
