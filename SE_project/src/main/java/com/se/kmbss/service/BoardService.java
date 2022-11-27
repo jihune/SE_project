@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.se.kmbss.mapper.BoardMapper;
+import com.se.kmbss.mapper.BoardPaging;
 import com.se.kmbss.mapper.BoardRequest;
 import com.se.kmbss.mapper.BoardResponse;
 
@@ -45,7 +46,11 @@ public class BoardService {
         return idn;
    }
 
-   public List<BoardResponse> findAll(){
-        return BoardMapper.find_all();
+   public List<BoardResponse> find_all(final BoardPaging params){
+        return BoardMapper.find_all(params);
+   }
+
+   public int count(final BoardPaging params){
+          return BoardMapper.count(params);
    }
 }

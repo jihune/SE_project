@@ -31,9 +31,6 @@
         
         <section>
             <form id="saveForm" method="post" autocomplete="off" action="write_board" name="uploadform" onsubmit="return checkForm()">
-                <!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
-                <input type="hidden" id="id" name="boardidn" th:if="${post != null}" th:value="${post.boardidn}" />
-
                 <table class="tb tb_row">
                     <colgroup>
                         <col style="width:15%;" />
@@ -94,12 +91,7 @@
                     </tbody>
                 </table> 
                 <input type="submit" id="submit" value="저장" class="btns btn_st3 btn_mid btn_margin_up_down">
-                <!-- <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a> -->
             </form>
-            <!-- <p class="btn_set">
-                <button type="button" id="saveBtn" onclick="savePost();" class="btns btn_st3 btn_mid">저장</button>
-                <a href="notice_board" class="btns btn_bdr3 btn_mid">뒤로</a>
-            </p> -->
         </section>
     </div>
 

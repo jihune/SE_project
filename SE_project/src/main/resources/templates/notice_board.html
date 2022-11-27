@@ -65,8 +65,6 @@
                 </thead>
                 <tbody>
                     <tr th:if="${not #lists.isEmpty( posts )}" th:each="row : ${posts}">
-                        <!-- <td><input type="checkbox" /></td> -->
-                        <!-- <td class="tl"><a th:href="@{/post/view.do( id=${row.boardidn} )}"-->
                         <td th:text="${row.boardidn}"></td> 
                         <td class="tl">
                             <a th:href="@{notice_detailpage(boardidn=${row.boardidn})}" th:text="${row.boardname}"></a>
@@ -86,9 +84,20 @@
 
             <!--/* 페이지네이션 */-->
             <div class="paging">
-                <a href="#" class="page_bt first">첫 페이지</a><a href="#" class="page_bt prev">이전 페이지 그룹</a>
-                <p><span class="on">1</span><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a
-                        href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a></p>
+                <a href="#" class="page_bt first">첫 페이지</a>
+                <a href="#" class="page_bt prev">이전 페이지 그룹</a>
+                <p>
+                    <a href="notice_board?page=1">1</a>
+                    <a href="notice_board?page=2">2</a>
+                    <a href="notice_board?page=3">3</a>
+                    <a href="notice_board?page=4">4</a>
+                    <a href="notice_board?page=5">5</a>
+                    <a href="notice_board?page=6">6</a>
+                    <a href="notice_board?page=7">7</a>
+                    <a href="notice_board?page=8">8</a>
+                    <a href="notice_board?page=9">9</a>
+                    <a href="notice_board?page=10">10</a>
+                </p>
                 <a href="#" class="page_bt next">다음 페이지 그룹</a><a href="#" class="page_bt last">마지막 페이지</a>
             </div>
 
@@ -146,5 +155,4 @@
 
         });
     </script>
-
 </body>

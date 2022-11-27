@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,8 +14,12 @@ import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.service.MainService;
 
 import com.se.kmbss.service.BoardService;
+import com.se.kmbss.service.CommentService;
+import com.se.kmbss.mapper.BoardPaging;
 import com.se.kmbss.mapper.BoardRequest;
 import com.se.kmbss.mapper.BoardResponse;
+import com.se.kmbss.mapper.CommentRequest;
+import com.se.kmbss.mapper.CommentResponse;
 
 /**
  * 기본적인 html 페이지를 연결해 주는 곳이다.
@@ -34,16 +39,18 @@ public class MainController {
 	@Autowired
 	MainMapper mapper;
 
+	@Autowired
+	CommentService commentService;
+
 	@GetMapping
 	public String index(Model model) {
 		return "index";
 	}
 
 	@GetMapping("notice_board")
-	public String notice_board(Model model) {
-		List<BoardResponse> posts=BoardService.findAll();
+	public String notice_board(@ModelAttribute("params")final BoardPaging params, Model model) {
+		List<BoardResponse> posts=BoardService.find_all(params);
         model.addAttribute("posts", posts);
-		System.out.println(posts);
         return "notice_board";
 	}
 
@@ -61,9 +68,17 @@ public class MainController {
 	@GetMapping("notice_detailpage")
 	public String notice_detailpage(int boardidn, Model model) {
 		BoardResponse post = BoardService.find_by_id(boardidn);
+		List<CommentResponse> comment = commentService.find_by_boardidn(boardidn);
 		BoardService.uploadviewcnt(boardidn);
 		model.addAttribute("post", post);
+		model.addAttribute("comment", comment);
 		return "notice_detailpage";
+	}
+
+	@PostMapping("uploadcomment")
+	public String uploadcomment(final CommentRequest params){
+		commentService.uploadcomment(params);
+		return "redirect:notice_detailpage?boardidn="+params.getBoardidn();
 	}
 
 	@GetMapping("my_boards")

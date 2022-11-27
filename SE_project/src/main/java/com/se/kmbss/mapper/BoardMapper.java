@@ -22,9 +22,9 @@ public interface BoardMapper {
 
   void delete_by_id(int user_idn);
 
-  List<BoardResponse>find_all();
+  List<BoardResponse>find_all(BoardPaging params);
 
   void uploadviewcnt(int boardidn);
 
-  int count();
+  int count(BoardPaging params);
 }
