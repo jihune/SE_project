@@ -151,4 +151,6 @@
   #target {
     width: 345px;
   }
-  
+  .pac-container{
+    z-index: 1500 !important;
+  }

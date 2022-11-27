@@ -22,7 +22,7 @@
     <!-- <script type="module" src="js/google_map.js"></script> -->
     <script type="module" src="js/google_map_search.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&region=ko&language=ko&callback=initMap&region=kr"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&libraries=places&language=ko&callback=initMap&region=kr"
         defer></script>
 </head>
 
@@ -40,10 +40,46 @@
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">위치인증 장소 설정</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <input id="pac-input" class="controls" type="text" placeholder="Search Box" />
-                    <div class="modal-body map_css" id="map" style="width: 100%;height: 600px;">
-                        <input id="pac-input" class="controls" type="text" placeholder="Search Box"
-                            style="z-index:1000">
+                    <div class="pac-card" id="pac-card">
+                        <div>
+                            <div id="title">지도 검색</div>
+                            <div id="type-selector" class="pac-controls">
+                                <input type="radio" name="type" id="changetype-all" checked="checked" />
+                                <label for="changetype-all">All</label>
+
+                                <input type="radio" name="type" id="changetype-establishment" />
+                                <label for="changetype-establishment">establishment</label>
+
+                                <input type="radio" name="type" id="changetype-address" />
+                                <label for="changetype-address">주소</label>
+
+                                <input type="radio" name="type" id="changetype-geocode" />
+                                <label for="changetype-geocode">geocode</label>
+
+                                <input type="radio" name="type" id="changetype-cities" />
+                                <label for="changetype-cities">도시(cities)</label>
+
+                                <input type="radio" name="type" id="changetype-regions" />
+                                <label for="changetype-regions">지역(regions)</label>
+                            </div>
+                            <br />
+                            <div id="strict-bounds-selector" class="pac-controls">
+                                <input type="checkbox" id="use-location-bias" value="" checked />
+                                <label for="use-location-bias">Bias to map viewport</label>
+
+                                <input type="checkbox" id="use-strict-bounds" value="" />
+                                <label for="use-strict-bounds">Strict bounds</label>
+                            </div>
+                        </div>
+                        <div id="pac-container">
+                            <input id="pac-input" type="text" placeholder="Enter a location" />
+                        </div>
+                    </div>
+                    <!-- <input id="autocomplete" palceholder="장소를 입력해주세요" type="text" /> -->
+                    <div class="modal-body map_css" id="map" style="width: 100%;height: 600px;"></div>
+                    <div id="infowindow-content">
+                        <span id="place-name" class="title"></span><br />
+                        <span id="place-address"></span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
