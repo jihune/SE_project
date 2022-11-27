@@ -26,6 +26,10 @@ public class BoardService {
         BoardMapper.upload(params);
    }
 
+   public void uploadviewcnt(int boardidn){
+          BoardMapper.uploadviewcnt(boardidn);
+   }
+
    public BoardResponse find_by_id(final int board_idn){
         return BoardMapper.find_by_id(board_idn);
    }

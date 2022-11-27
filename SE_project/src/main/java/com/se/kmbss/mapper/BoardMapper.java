@@ -24,5 +24,7 @@ public interface BoardMapper {
 
   List<BoardResponse>find_all();
 
+  void uploadviewcnt(int boardidn);
+
   int count();
 }

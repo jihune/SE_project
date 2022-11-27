@@ -40,6 +40,14 @@
                 </selectKey>  -->
         </insert>
 
+        <update id="uploadviewcnt" parameterType="com.se.kmbss.mapper.BoardResponse">
+                update board
+                set
+                        viewcnt=viewcnt+1
+                where
+                        boardidn=#{boardidn}
+        </update>
+
         <select id="find_by_id" parameterType="int" resultType="com.se.kmbss.mapper.BoardResponse">
                 select
                         *
