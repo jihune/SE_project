@@ -1,5 +1,8 @@
 package com.se.kmbss.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,10 +77,12 @@ public class StudyUserController {
         return "sign_in";
     }
 
-    //     
-    // 
-    // 
-
+    @PostMapping("sign_in")
+	public String sign_in(StudyUserVO study_user, HttpServletRequest request){
+		HttpSession sessoin = request.getSession();
+		sessoin.setAttribute("study_user", su_service.signIn(study_user));
+		return "redirect:/notice_board";
+	}
     // 로그인 관련 맵핑 끝
 
     // ID 찾기 관련 맵핑 시작
