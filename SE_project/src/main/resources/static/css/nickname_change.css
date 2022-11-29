@@ -16,7 +16,7 @@ body {
 }
 
 /* 타이틀 */
-.password_title {
+.nickname_title {
     position: relative;
     display: flex;
     justify-content: center;
@@ -24,49 +24,49 @@ body {
     background: white;
     height: 46px;
 }
-.password_title svg {
+.nickname_title svg {
     position: absolute;
     top: 15px;
     left: 20px;
 }
-.password_title p {
+.nickname_title p {
     font-size: 1.25em;
 }
 
-/* 비밀번호 변경 컨텐츠 박스 */
-.password_box {
+/* 닉네임 변경 컨텐츠 박스 */
+.nickname_box {
     height: 65%;
 }
-/* 비밀번호 변경 컨텐츠 */
-.password_contents {
+/* 닉네임 변경 컨텐츠 */
+.nickname_contents {
     display: flex;
     flex-direction: column;
     background: white;
     margin-bottom: 20px;
     padding: 20px;
 }
-.password_contents p {
+.nickname_contents p {
     font-size: 0.875em;
     margin-bottom: 20px;
 }
-.password_contents p span {
+.nickname_contents p span {
     margin-left: 10px;
     color: #aaaaaa;
     font-size: 12px;
 }
-.password_contents input {
+.nickname_contents input {
     border: 0;
     margin-bottom: 5px;
     height: 30px;
 }
 
-/* 비밀번호 변경 버튼 */
-.password_button {
+/* 닉네임 변경 버튼 */
+.nickname_button {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.password_button input {
+.nickname_button input {
     border: 0;
     border-radius: 8px;
     width: 90%;

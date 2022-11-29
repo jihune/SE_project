@@ -47,6 +47,11 @@ public class MainController {
 		return "index";
 	}
 
+	@GetMapping("index")
+	public String index() {
+		return "index";
+	}
+
 	@GetMapping("notice_board")
 	public String notice_board(@ModelAttribute("params")final BoardPaging params, Model model) {
 		//params.setCount(BoardService.count());
@@ -121,6 +126,11 @@ public class MainController {
 	@GetMapping("lock_setting")
 	public String lock_setting(){return "lock_setting";}
 
+	@GetMapping("nickname_change")
+	public String nickname_change(){return "nickname_change";}
+
+	@GetMapping("stopwatch")
+	public String stopwatch(){return "stopwatch";}
 	
 
 	@GetMapping("group_chat")
