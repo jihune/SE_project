@@ -6,8 +6,8 @@ plugins {
 }
 
 bootWar {
-    archiveBaseName = 'SE_project' // <--war 패키징 시 이름 설정 
-    archiveFileName = 'SE_project.war' //<--war 패키징 시 이름 설정 
+    archiveBaseName = 'ROOT' // <--war 패키징 시 이름 설정 
+    archiveFileName = 'ROOT.war' //<--war 패키징 시 이름 설정 
     archiveVersion = "0.0.0"
 }
 

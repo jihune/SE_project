@@ -52,7 +52,3 @@ DS_Store
 # source generated
 /*/src/main/generated/
 /*/src/test/resources/perptest/
-
-# DB Wallet
-*/src/main/resources/wallet/**
-!*/src/main/resources/wallet/Wallet_studyDB.zip
