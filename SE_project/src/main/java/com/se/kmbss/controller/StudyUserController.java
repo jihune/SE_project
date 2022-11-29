@@ -92,8 +92,8 @@ public class StudyUserController {
     }
 
     @ResponseBody
-    @PostMapping("findMyID")
-    public ModelAndView findMyID(StudyUserVO study_user, Model model) {
+    @PostMapping("findMyId")
+    public ModelAndView findMyId(StudyUserVO study_user, Model model) {
         System.out.println("id find..");
         String result_Id = su_service.findMyId(study_user);
 
@@ -112,9 +112,19 @@ public class StudyUserController {
     }
     // ID 찾기 관련 맵핑 끝
 
+    // PW 찾기 관련 맵핑 시작
     @GetMapping("find_pw")
     public String find_pw() {
         return "find_pw";
     }
+
+    @ResponseBody
+    @PostMapping("findMyPw")
+    public String findMyPw(StudyUserVO study_user) {
+        su_service.findMyPw(study_user);
+        System.out.println("update pw..");
+        return "redirect:/sign_in";
+    }
+    // PW 찾기 관련 맵핑 끝
 
 }

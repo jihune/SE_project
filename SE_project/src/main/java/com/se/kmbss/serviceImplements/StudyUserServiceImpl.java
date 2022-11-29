@@ -57,6 +57,11 @@ public class StudyUserServiceImpl implements StudyUserService {
     }
 
     @Override
+    public Integer findMyPw(StudyUserVO study_user) {
+        return su_mapper.chageMyPw(study_user);
+    }
+
+    @Override
     public Integer changeMyInfo(StudyUserVO study_user) {
         return su_mapper.changeMyInfo(study_user);
     }
