@@ -23,7 +23,7 @@ public interface StudyUserMapper {
 
     public StudyUserVO findMyId(StudyUserVO study_user);
 
-    public Integer changeMyPassword(StudyUserVO study_user);
+    public Integer chageMyPw(StudyUserVO study_user);
 
     public Integer changeMyInfo(StudyUserVO study_user);
 

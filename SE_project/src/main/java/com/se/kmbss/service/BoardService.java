@@ -50,7 +50,7 @@ public class BoardService {
         return BoardMapper.find_all(params);
    }
 
-   public int count(final BoardPaging params){
-          return BoardMapper.count(params);
-   }
+   public int count(){
+     return BoardMapper.count();
+}
 }

@@ -7,25 +7,13 @@
 <mapper namespace="com.se.kmbss.mapper.StudyUserMapper">
 
     <insert id="signUp" parameterType="com.se.kmbss.model.StudyUserVO">
-        INSERT INTO StudyUser (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth)
-        VALUES(su_seq.nextval, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email}, #{su_birth})
+        INSERT INTO StudyUser (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email)
+        VALUES(su_seq.nextval, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email})
     </insert>
 
     <select id="signIn" resultType="com.se.kmbss.model.StudyUserVO">
         SELECT su_idn, su_sign_type, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth FROM StudyUser WHERE su_id = #{su_id} and su_pw = #{su_pw}
     </select>
-
-    <!-- 사용자가 바꿀 수 있는 정보만 SET 아래 입력하여 반영 -->
-    <update id="chageMyInfo" parameterType="com.se.kmbss.model.StudyUserVO">
-        UPDATE StudyUser
-        SET
-        su_pw = #{su_pw},
-        su_nick = #{su_nick},
-        su_phone_number = #{su_phone_number},
-        su_email = #{su_email},
-        su_birth = #{su_birth},
-        WHERE su_idn = #{su_idn}
-    </update>
 
     <!-- ID 중복 확인 -->
     <select id="checkId" parameterType="com.se.kmbss.model.StudyUserVO" resultType="String">
@@ -43,13 +31,25 @@
     </select>
 
     <!-- ID 찾기 -->
-    <select id="findMyID" parameterType="com.se.kmbss.model.StudyUserVO" resultType="com.se.kmbss.model.StudyUserVO">
+    <select id="findMyId" parameterType="com.se.kmbss.model.StudyUserVO" resultType="com.se.kmbss.model.StudyUserVO">
         SELECT su_id FROM StudyUser WHERE su_name = #{su_name} and su_phone_number = #{su_phone_number}
     </select>
 
     <!-- 비밀번호 변경 -->
-    <update id="chageMyPassword" parameterType="com.se.kmbss.model.StudyUserVO">
+    <update id="chageMyPw" parameterType="com.se.kmbss.model.StudyUserVO">
         UPDATE StudyUser set su_pw = #{su_pw} WHERE su_id = #{su_id} and su_name = #{su_name} and su_phone_number = #{su_phone_number}
+    </update>
+
+    <!-- 사용자가 바꿀 수 있는 정보만 SET 아래 입력하여 반영 -->
+    <update id="chageMyInfo" parameterType="com.se.kmbss.model.StudyUserVO">
+        UPDATE StudyUser
+        SET
+        su_pw = #{su_pw},
+        su_nick = #{su_nick},
+        su_phone_number = #{su_phone_number},
+        su_email = #{su_email},
+        su_birth = #{su_birth},
+        WHERE su_idn = #{su_idn}
     </update>
 
 </mapper>
