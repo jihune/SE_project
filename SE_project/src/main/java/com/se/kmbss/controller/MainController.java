@@ -146,4 +146,15 @@ public class MainController {
 	public String persenal_location_set() {
 		return "persenal_location_set";
 	}
+
+	@GetMapping("group_info")
+	public String group_info() {
+		return "group_info";
+	}
+
+	@GetMapping("group_name_change")
+	public String group_name_change() {
+		return "group_name_change";
+	}
+
 }
