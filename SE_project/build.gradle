@@ -2,6 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.7.5'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'java'
+	id 'war'
+}
+
+bootWar {
+    archiveBaseName = 'SE_project' // <--war 패키징 시 이름 설정 
+    archiveFileName = 'SE_project.war' //<--war 패키징 시 이름 설정 
+    archiveVersion = "0.0.0"
 }
 
 group = 'com.study'

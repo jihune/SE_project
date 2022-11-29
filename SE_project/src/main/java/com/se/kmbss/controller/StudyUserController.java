@@ -122,7 +122,6 @@ public class StudyUserController {
         return "find_id";
     }
 
-    @ResponseBody
     @PostMapping("find_id")
     public ModelAndView findMyId(StudyUserVO study_user, Model model) {
 
@@ -150,7 +149,6 @@ public class StudyUserController {
         return "find_pw";
     }
 
-    @ResponseBody
     @PostMapping("find_pw")
     public String findMyPw(StudyUserVO study_user) {
 

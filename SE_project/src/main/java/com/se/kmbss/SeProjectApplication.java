@@ -2,6 +2,8 @@ package com.se.kmbss;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 // 프로그램을 시작하면 가장먼저 시작하게 된다.
 // 건드릴 일은 거의 없다.
@@ -17,10 +19,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 // 수정 방법은 해당 파일의 주석 참고
 
 @SpringBootApplication
-public class SeProjectApplication {
+public class SeProjectApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SeProjectApplication.class, args);
 	}
+
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return super.configure(builder);
+    }
 
 }
