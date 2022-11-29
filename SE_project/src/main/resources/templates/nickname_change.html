@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>니가 공부하는 그 스터디 | 설정</title>
+    <title>니가 공부하는 그 스터디 | 닉네임 변경</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/notice_setting.css">
+    <link rel="stylesheet" href="/css/nickname_change.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="  crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class='setting_title'>
+    <div class='nickname_title'>
         <a href="setting">
             <svg width="20" height="15" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 54 54" style="enable-background:new 0 0 54 54;" xml:space="preserve">
                 <g>
@@ -21,28 +23,21 @@
                 </g>
             </svg>
         </a>
-        <p>알림설정</p>
+        <p>닉네임 변경</p>
     </div>
-
-    <div class="setting_contents">
-        <div>
-            <p>전체알림</p>
+    <div class="nickname_box">
+        <div class="nickname_contents">
+            <p>새 닉네임</p>
+            <input class="new_nickname" name="new_nickname" type="text" placeholder="변경하실 닉네임을 입력해주세요" />
+            <!-- <div class="pw_err">닉네임 양식이 틀렸습니다.</div> -->
         </div>
-        <div>
-            <p>친구요청</p>
+        <div class="nickname_contents">
+            <p>현재 닉네임</p>
+            <input class="cur_nickname" name="current_nickname" type="text" placeholder="현재 닉네임" />
         </div>
-        <div>
-            <p>친구수락</p>
-        </div>
-        <div>
-            <p>어플공지</p>
-        </div>
-        <div>
-            <p>스터디공지</p>
-        </div>
-        <div>
-            <p>댓글</p>
-        </div>
+    </div>
+    <div class="nickname_button">
+        <input type="submit" value="닉네임 변경" />
     </div>
     <div th:insert="~{fragment/footer :: footer}"></div>
 </body>
