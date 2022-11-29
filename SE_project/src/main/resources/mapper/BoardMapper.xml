@@ -79,22 +79,28 @@
         <select id="find_all" parameterType="com.se.kmbss.mapper.BoardPaging" resultType="com.se.kmbss.mapper.BoardResponse">
                 select *
                 from(
-                        select row_number() over(order by boarduploaddate) as num, <include refid="BoardColumns" />
+                        select row_number() over(order by boarduploaddate desc) as num, <include refid="BoardColumns" />
                         from board
                         where boarddeletedate is null
+                        <if test="keyWord != null">
+                                and boardname LIKE '%' || #{keyWord} || '%'
+                                and boardlocationcity = #{boardlocationcity}
+                                and boardlocationsigungu = #{boardlocationsigungu}
+                                and boardcategory = #{boardcategory}
+                        </if>
                         order by boarduploaddate desc
                 )
                 WHERE num BETWEEN #{offset} AND #{offsetEnd}
-              
-
+                
         </select>
-        
-        <select id="count" parameterType="com.se.kmbss.mapper.BoardPaging" resultType="int">
+
+
+        <select id="count" resultType="int">
                 SELECT
                         COUNT(*)
                 FROM
                         board
                 WHERE
                         boarddeletedate is null
-    </select>
+        </select>
 </mapper>

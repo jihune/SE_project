@@ -26,5 +26,5 @@ public interface BoardMapper {
 
   void uploadviewcnt(int boardidn);
 
-  int count(BoardPaging params);
+  int count();
 }

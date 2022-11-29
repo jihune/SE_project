@@ -49,6 +49,7 @@ public class MainController {
 
 	@GetMapping("notice_board")
 	public String notice_board(@ModelAttribute("params")final BoardPaging params, Model model) {
+		//params.setCount(BoardService.count());
 		List<BoardResponse> posts=BoardService.find_all(params);
         model.addAttribute("posts", posts);
         return "notice_board";
@@ -80,6 +81,13 @@ public class MainController {
 		commentService.uploadcomment(params);
 		return "redirect:notice_detailpage?boardidn="+params.getBoardidn();
 	}
+
+	// @GetMapping("search_board")
+	// public String searcboard(final BoardSearch params, Model model) {
+	// 	List<BoardResponse> posts=BoardService.find_all(params);
+	// 	model.addAttribute("posts", posts);
+	// 	return "redirect:notice_board";
+	// }
 
 	@GetMapping("my_boards")
 	public String my_boards() {
