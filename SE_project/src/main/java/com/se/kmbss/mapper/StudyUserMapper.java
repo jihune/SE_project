@@ -13,6 +13,8 @@ public interface StudyUserMapper {
 
     public Integer signUp(StudyUserVO study_user);
 
+    public List<StudyUserVO> signInCheck(StudyUserVO study_user);
+
     public StudyUserVO signIn(StudyUserVO study_user);
 
     public List<StudyUserVO> checkId(StudyUserVO study_user);

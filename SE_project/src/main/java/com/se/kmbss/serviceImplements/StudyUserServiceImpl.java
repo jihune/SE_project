@@ -19,6 +19,15 @@ public class StudyUserServiceImpl implements StudyUserService {
     }
 
     @Override
+    public boolean signInCheck(StudyUserVO study_user) {
+        if(su_mapper.signInCheck(study_user).size() == 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
     public StudyUserVO signIn(StudyUserVO study_user){
         return su_mapper.signIn(study_user);
     }

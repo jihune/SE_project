@@ -40,33 +40,42 @@ public class StudyUserController {
     @ResponseBody
     @GetMapping("idOverlapCheck")
     public String idOverlapCheck(@RequestParam("su_id") String su_id) {
+
         StudyUserVO study_user = new StudyUserVO();
         study_user.setSu_id(su_id);
+
         if (su_service.isOverlapId(study_user)) {
             return "SUCCESS";
         }
+
         return "FAIL";
     }
 
     @ResponseBody
     @GetMapping("nickOverlapCheck")
     public String nickOverlapCheck(@RequestParam("su_nick") String su_nick) {
+
         StudyUserVO study_user = new StudyUserVO();
         study_user.setSu_nick(su_nick);
+        
         if (su_service.isOverlapNick(study_user)) {
             return "SUCCESS";
         }
+
         return "FAIL";
     }
 
     @ResponseBody
     @GetMapping("emailOverlapCheck")
     public String emailOverlapCheck(@RequestParam("su_email") String su_email) {
+
         StudyUserVO study_user = new StudyUserVO();
         study_user.setSu_email(su_email);
+
         if (su_service.isOverlapEmail(study_user)) {
             return "SUCCESS";
         }
+
         return "FAIL";
     }
     // 회원가입 페이지 관련 맵핑 끝
@@ -78,11 +87,19 @@ public class StudyUserController {
     }
 
     @PostMapping("sign_in")
-	public String sign_in(StudyUserVO study_user, HttpServletRequest request){
-		HttpSession sessoin = request.getSession();
-		sessoin.setAttribute("study_user", su_service.signIn(study_user));
-		return "redirect:/notice_board";
-	}
+    public String sign_in(StudyUserVO study_user, HttpServletRequest request) {
+
+        if (su_service.signInCheck(study_user)) {
+            HttpSession sessoin = request.getSession();
+            sessoin.setAttribute("study_user", su_service.signIn(study_user));
+            return "redirect:/notice_board";
+        }
+
+        else {
+            return "redirect:/sign_in";
+        }
+
+    }
     // 로그인 관련 맵핑 끝
 
     // ID 찾기 관련 맵핑 시작
@@ -94,6 +111,7 @@ public class StudyUserController {
     @ResponseBody
     @PostMapping("findMyId")
     public ModelAndView findMyId(StudyUserVO study_user, Model model) {
+
         System.out.println("id find..");
         String result_Id = su_service.findMyId(study_user);
 

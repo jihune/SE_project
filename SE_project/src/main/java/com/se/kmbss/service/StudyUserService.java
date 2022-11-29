@@ -15,6 +15,14 @@ public interface StudyUserService {
     public Integer signUp(StudyUserVO study_user);
 
      /**
+     * signInCheck(StudyUserVO)
+     * 로그인 유효성 검사
+     * @param study_user 사용자가 입력한 id, password 정보입니다.
+     * @return 등록된 계정정보면 True, 등록되지 않은 정보면 False 반환.
+     */
+    public boolean signInCheck(StudyUserVO study_user);
+
+     /**
      * signIn(StudyUserVO)
      * 로그인
      * @param study_user 사용자가 입력한 id, password 정보입니다.

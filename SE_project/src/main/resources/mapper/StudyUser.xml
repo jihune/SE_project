@@ -6,13 +6,21 @@
 <!-- 회원 계정 기능 -->
 <mapper namespace="com.se.kmbss.mapper.StudyUserMapper">
 
+    <!-- 회원가입 -->
     <insert id="signUp" parameterType="com.se.kmbss.model.StudyUserVO">
         INSERT INTO StudyUser (su_idn, su_id, su_pw, su_nick, su_name, su_phone_number, su_email)
         VALUES(su_seq.nextval, #{su_id}, #{su_pw}, #{su_nick}, #{su_name}, #{su_phone_number}, #{su_email})
     </insert>
 
+
+    <!-- 로그인 유효성 검사 -->
+    <select id="signInCheck" parameterType="com.se.kmbss.model.StudyUserVO" resultType="String">
+        SELECT su_idn FROM StudyUser WHERE su_id = #{su_id} AND su_pw = #{su_pw}
+    </select>
+
+    <!-- 로그인 진행 -->
     <select id="signIn" resultType="com.se.kmbss.model.StudyUserVO">
-        SELECT su_idn, su_sign_type, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth FROM StudyUser WHERE su_id = #{su_id} and su_pw = #{su_pw}
+        SELECT su_idn, su_sign_type, su_id, su_pw, su_nick, su_name, su_phone_number, su_email, su_birth FROM StudyUser WHERE su_id = #{su_id} AND su_pw = #{su_pw}
     </select>
 
     <!-- ID 중복 확인 -->
