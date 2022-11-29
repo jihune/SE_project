@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <!--
  @license
  Copyright 2019 Google LLC. All Rights Reserved.
@@ -11,83 +11,85 @@
 	<meta charset="UTF-8">
 	<title>니가 공부하는 그 스터디 | 메인화면</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		  integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-		crossorigin="anonymous"></script>
+			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+			crossorigin="anonymous"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 	<link rel="stylesheet" type="text/css" href="/css/private_board.css">
 	<link rel="stylesheet" type="text/css" href="/css/footer.css">
 	<script src="js/jquery-3.6.1.min.js"></script>
 	<script type="module" src="js/google_map.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&region=ko&language=ko&callback=initMap&region=kr" defer></script>
-	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFu1WLuAsm9q7CykxB4G19VvDJ8NRIeNo&region=ko&language=ko&callback=initMap" defer></script>
+
 </head>
 
 <body>
-	<div class="contents">
-		<h2 class="title">그룹명</h2>
-		<div class="form-check form-check-reverse check_thing">
-			<input class="form-check-input" type="checkbox" value="" id="reverseCheck1" style="margin-top:3%;">
-			<label class="form-check-label text_thing" for="reverseCheck1">공지사항</label>
-		</div>
-		<div class="form-check form-check-reverse check_thing">
-			<input class="form-check-input" type="checkbox" value="" id="reverseCheck2" style="margin-top:3%;">
-			<label class="form-check-label text_thing" for="reverseCheck2">개인별 설정</label>
-		</div>
-		<div class="form-check form-check-reverse check_thing">
-			<input class="form-check-input " type="checkbox" value="" id="reverseCheck3" style="margin-top:3%;">
-			<label class="form-check-label text_thing" for="reverseCheck3">그룹정보/설정</label>
-		</div>
+<div class="contents">
+	<h2 class="title">그룹명</h2>
+	<div class="form-check form-check-reverse check_thing">
+		<input class="form-check-input" type="checkbox" value="" id="reverseCheck1" style="margin-top:3%;">
+		<label class="form-check-label text_thing" for="reverseCheck1">공지사항</label>
+	</div>
+	<div class="form-check form-check-reverse check_thing">
+		<input class="form-check-input" type="checkbox" value="" id="reverseCheck2" style="margin-top:3%;">
+		<label class="form-check-label text_thing" for="reverseCheck2">개인별 벌금 설정</label>
+	</div>
+	<div class="form-check form-check-reverse check_thing">
+		<input class="form-check-input " type="checkbox" value="" id="reverseCheck3" style="margin-top:3%;">
+		<label class="form-check-label text_thing" for="reverseCheck3">그룹정보/설정</label>
+	</div>
 
-		<div class="important_notice" id="notice">
-			<h3 class="notice_title">공지사항</h3>
-			<div class="card" style="width: 100%;">
-				<div class="card-body">
-					 <textarea class="form-control summary_area" placeholder="공지사항을 입력하세요"
-							   id="study_summary"></textarea>
-					<button type="button" class="write_button">입력완료</button>
-				</div>
-			</div>
+	<div class="important_notice" id="notice">
+		<h3 class="notice_title">공지사항</h3>
+		<div class="card" style="width: 100%;">
+			<form action="saveForm" method="post" >
+				<input type="hidden" id="id" name="id" th:if="${post != null}" th:value="${post.id}" />
+				<!--/* 게시글 수정인 경우, 서버로 전달할 게시글 번호 (PK) */-->
+				<textarea name= "es" class="form-control summary_area" placeholder="공지사항을 입력하세요"
+						  id="study_summar"></textarea>
+				<button type="submit" id="saveBtn" onclick="savePost();" class="btns btn_st3 btn_mid">저장</button>
+			</form>
 		</div>
-		<div class="persenal_penalty" id="penalty">
-			<h4 class="penalty_title">개인별 설정</h4>
-			<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
-			<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
-			<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
-		</div>
-		<div class="group_set" id="group_set">
-			<h5 class="group_title">그룹 설정</h5>
-			<button class="asdf">asdlkvnads</button>
-		</div>
-		<div class="btn_thng">
-			<button class="group_chatting" onclick="location.href = 'group_chat'">그룹채팅</button>
-			<button type="button" class="btn btn-primary location_check" data-bs-toggle="modal"
+	</div>
+	<div class="persenal_penalty" id="penalty">
+		<h4 class="penalty_title">개인별 벌금설정</h4>
+		<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+		<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+		<button class="persenal_click" onclick="location.href = 'persenal_location_set'"><i>#</i>번 설정</button>
+	</div>
+	<div class="group_set" id="group_set">
+		<h5 class="group_title">그룹 설정</h5>
+		<button class="asdf">asdlkvnads</button>
+	</div>
+	<div class="btn_thng">
+		<button class="group_chatting" onclick="location.href = 'group_chat'">그룹채팅</button>
+		<button type="button" class="btn btn-primary location_check" data-bs-toggle="modal"
 				data-bs-target="#staticBackdrop">
-				위치인증
-			</button>
-			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-				aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="staticBackdropLabel">위치인증</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body map_css" id="map" style="width: 100%;height: 600px;">
+			위치인증
+		</button>
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+			 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="staticBackdropLabel">위치인증</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body map_css" id="map" style="width: 100%;height: 600px;">
 
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-							<!-- <button type="button" class="btn btn-primary" id="check_my_location">인증하기</button> -->
-						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary" id="check_my_location">진행하기</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div th:insert="~{fragment/footer :: footer}"></div>
-	<script>
+</div>
+<div th:insert="~{fragment/footer :: footer}"></div>
+<script>
 		$(document).ready(function () {
 			$("#reverseCheck1").change(function () {
 				if ($("#reverseCheck1").is(":checked")) {
@@ -114,7 +116,23 @@
 
 		const myModal = document.getElementById('myModal')
 		const myInput = document.getElementById('myInput')
+	</script>
+<script>
+		 // 게시글 저장(수정)
+				function savePost() {
+					const form = document.getElementById('saveForm');
+					const fields = [form.title, form.writer, form.content];
+					const fieldNames = ['제목', '이름', '내용'];
 
+					for (let i = 0, len = fields.length; i < len; i++) {
+						isValid(fields[i], fieldNames[i]);
+					}
+
+					document.getElementById('saveBtn').disabled = true;
+					form.noticeYn.value = form.isNotice.checked;
+					form.action = [[ ${post == null} ]] ? '/post/save.do' : '/post/update.do';
+					form.submit();
+				}
 	</script>
 
 </body>
