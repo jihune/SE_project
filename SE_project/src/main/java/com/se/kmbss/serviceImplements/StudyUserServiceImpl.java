@@ -20,9 +20,12 @@ public class StudyUserServiceImpl implements StudyUserService {
 
     @Override
     public boolean signInCheck(StudyUserVO study_user) {
+
         if(su_mapper.signInCheck(study_user).size() == 0){
             return false;
-        } else {
+        }
+        
+        else {
             return true;
         }
     }
@@ -34,27 +37,48 @@ public class StudyUserServiceImpl implements StudyUserService {
 
     @Override
     public boolean isOverlapId(StudyUserVO study_user) {
+
         if(su_mapper.checkId(study_user).size() == 0){
             return true;
-        } else {
+        }
+        
+        else {
             return false;
         }
     }
 
     @Override
     public boolean isOverlapNick(StudyUserVO study_user) {
+
         if(su_mapper.checkNick(study_user).size() == 0){
             return true;
-        } else {
+        }
+        
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean isOverlapPhoneNumber(StudyUserVO study_user) {
+
+        if(su_mapper.checkPhoneNumber(study_user).size() == 0){
+            return true;
+        }
+        
+        else {
             return false;
         }
     }
 
     @Override
     public boolean isOverlapEmail(StudyUserVO study_user) {
+
         if(su_mapper.checkEmail(study_user).size() == 0){
             return true;
-        } else {
+        }
+        
+        else {
             return false;
         }
     }
@@ -66,7 +90,19 @@ public class StudyUserServiceImpl implements StudyUserService {
     }
 
     @Override
-    public Integer findMyPw(StudyUserVO study_user) {
+    public boolean findMyPw(StudyUserVO study_user) {
+
+        if(su_mapper.findMyPw(study_user).size() == 0) {
+            return false;
+        }
+        
+        else {
+            return true;
+        }
+    }
+
+    @Override
+    public Integer chageMypw(StudyUserVO study_user) {
         return su_mapper.chageMyPw(study_user);
     }
 

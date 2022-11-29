@@ -25,7 +25,7 @@
                         <th class="frist"><label for="su_id">ID *</label></th>
                         <td><input type="text" id="su_id" name="su_id" class="textform"
                                 placeholder="4~16자 이하 영어 대소문자 숫자 조합" required autofocus>
-                            <button type="button" class="btn" onclick="idCheck()">ID중복확인</button>
+                            <button type="button" class="btn" onclick="idCheck()">ID 중복검사</button>
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +43,7 @@
                     <tr>
                         <th><label for="su_nick">별명 *</label></th>
                         <td><input type="text" id="su_nick" name="su_nick" class="textform" required>
-                            <button type="button" onclick="nickCheck()" class="btn">별명중복확인</button>
+                            <button type="button" onclick="nickCheck()" class="btn">별명 중복검사</button>
                         </td>
                     </tr>
                     <tr>
@@ -63,6 +63,7 @@
                             </select>
                             <input type="text" id="su_phone_number_second" class="callform " maxlength="4" required>
                             <input type="text" id="su_phone_number_third" class="callform " maxlength="4" required>
+                            <button type="button" onclick="phoneNumberCheck()" class="btn">휴대전화 중복검사</button>
                         </td>
                         <input type="hidden" name="su_phone_number" id="su_phone_number">
                     </tr>
@@ -81,8 +82,8 @@
             </fieldset>
             <br>
             <div class="btn_area">
-                <button type="reset" class="reset">초기화하기</button>
-                <input type="submit" class="btn_join" id="submit" value="회원가입">
+                <button type="reset" class="reset">초기화</button>
+                <input type="submit" class="btn_sign_up" id="submit" value="회원가입">
             </div>
         </form>
     </div>
@@ -223,9 +224,9 @@
 
         function idCheck() {
             if ($('#su_id').val() == "") {
-                alert("입력하시고 중복검사를 진행해주세요.")
+                alert("ID를 입력하시고 중복검사를 진행해주세요.")
             } else if (blank_pattern.test($('#su_id').val()) == true) {
-                alert("id에 띄어쓰기를 입력하지 말아주세요.")
+                alert("ID에 띄어쓰기를 입력하지 말아주세요.")
             } else {
                 $.ajax("idOverlapCheck/?su_id=" + $("#su_id").val(), {
                     type: 'GET',
@@ -244,7 +245,7 @@
 
         function nickCheck() {
             if ($('#su_nick').val() == "") {
-                alert("입력하시고 중복검사를 진행해주세요.")
+                alert("별명을 입력하시고 중복검사를 진행해주세요.")
             } else if (blank_pattern.test($('#su_nick').val()) == true) {
                 alert("별명에 띄어쓰기를 입력하지 말아주세요.")
             } else {
@@ -263,11 +264,32 @@
             }
         }
 
+        function phoneNumberCheck() {
+            if ($('#su_phone_number').val() == "") {
+                alert("정상적인 휴대폰 번호를 입력하시고 중복검사를 진행해주세요.")
+            } else if (blank_pattern.test($('#su_phone_number').val()) == true) {
+                alert("휴대폰 번호에 띄어쓰기 입력하지 말아주세요.")
+            } else {
+                $.ajax("phoneNumberOverlapCheck/?su_phone_number=" + $("#su_phone_number").val(), {
+                    type: 'GET',
+                    success: function (data, status, jqXHR) {
+                        if (data === "SUCCESS") {
+                            alert("사용 가능한 휴대폰 번호입니다.")
+                            check2 = 1;
+                        } else if (data === "FAIL") {
+                            alert("사용 불가능한 휴대폰 번호입니다.")
+                            check2 = 0;
+                        }
+                    }
+                })
+            }
+        }
+
         function emailCheck() {
             if ($('#su_email').val() == "") {
-                alert("입력하시고 중복검사를 진행해주세요.")
+                alert("이메일을 입력하시고 중복검사를 진행해주세요.")
             } else if (blank_pattern.test($('#su_email').val()) == true) {
-                alert("별명에 띄어쓰기를 입력하지 말아주세요.")
+                alert("이메일에 띄어쓰기를 입력하지 말아주세요.")
             } else {
                 $.ajax("emailOverlapCheck/?su_email=" + $("#su_email").val(), {
                     type: 'GET',

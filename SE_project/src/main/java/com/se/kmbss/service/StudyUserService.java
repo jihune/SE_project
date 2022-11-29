@@ -47,6 +47,14 @@ public interface StudyUserService {
     public boolean isOverlapNick(StudyUserVO study_user);
 
     /**
+     * isOverlapPhoneNumber(StudyUserVO)
+     * 휴대폰 번호 중복을 확인합니다.
+     * @param study_user 사용자가 입력한 phone_number 정보입니다.
+     * @return 사용 가능한 phone_number면 True, 이미 가입되어 있는 동일 phone_number가 존재하면 False 반환.
+     */
+    public boolean isOverlapPhoneNumber(StudyUserVO study_user);
+
+    /**
      * isOverlapEmail(StudyUserVO)
      * 이메일 중복을 확인합니다.
      * @param study_user 사용자가 입력한 email 정보입니다.
@@ -64,11 +72,19 @@ public interface StudyUserService {
 
     /**
      * findMyPw(StudyUserVO)
-     * 사용자 PW 찾고 PW 변경
+     * 사용자 PW 찾기
      * @param study_user 사용자가 찾을 계정에 대한 입력 정보입니다.
-     * @return 부분적인 study_user 정보와 일치하는 DB 상의 사용자가 있다면 su_pw 찾고 su_pw 변경.
+     * @return 부분적인 study_user 정보와 일치하는 DB 상의 사용자가 있다면 Ture, 없다면 False 반환.
      */
-    public Integer findMyPw(StudyUserVO study_user);
+    public boolean findMyPw(StudyUserVO study_user);
+
+    /**
+     * chageMypw(StudyUserVO)
+     * 사용자 PW 변경
+     * @param study_user 사용자가 변경할 비밀번호에 대한 입력 정보입니다.
+     * @return 부분적인 study_user 정보와 일치하는 DB 상의 사용자가 있다면 su_pw 변경.
+     */
+    public Integer chageMypw(StudyUserVO study_user);
 
      /**
      * changeMyInfo(StudyUserVO)

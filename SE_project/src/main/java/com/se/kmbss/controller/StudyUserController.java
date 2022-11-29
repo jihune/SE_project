@@ -57,8 +57,22 @@ public class StudyUserController {
 
         StudyUserVO study_user = new StudyUserVO();
         study_user.setSu_nick(su_nick);
-        
+
         if (su_service.isOverlapNick(study_user)) {
+            return "SUCCESS";
+        }
+
+        return "FAIL";
+    }
+
+    @ResponseBody
+    @GetMapping("phoneNumberOverlapCheck")
+    public String phoneNumberOverlapCheck(@RequestParam("su_phone_number") String su_phone_number) {
+
+        StudyUserVO study_user = new StudyUserVO();
+        study_user.setSu_phone_number(su_phone_number);
+
+        if (su_service.isOverlapPhoneNumber(study_user)) {
             return "SUCCESS";
         }
 
@@ -109,7 +123,7 @@ public class StudyUserController {
     }
 
     @ResponseBody
-    @PostMapping("findMyId")
+    @PostMapping("find_id")
     public ModelAndView findMyId(StudyUserVO study_user, Model model) {
 
         System.out.println("id find..");
@@ -137,11 +151,19 @@ public class StudyUserController {
     }
 
     @ResponseBody
-    @PostMapping("findMyPw")
+    @PostMapping("find_pw")
     public String findMyPw(StudyUserVO study_user) {
-        su_service.findMyPw(study_user);
-        System.out.println("update pw..");
-        return "redirect:/sign_in";
+
+        if (su_service.findMyPw(study_user)) {
+            // su_service.chageMypw(study_user);
+            // System.out.println("update pw..");
+            return "redirect:/sign_in";
+        }
+
+        else {
+            return "redirect:/find_pw";
+        }
+
     }
     // PW 찾기 관련 맵핑 끝
 

@@ -21,9 +21,13 @@ public interface StudyUserMapper {
 
     public List<StudyUserVO> checkNick(StudyUserVO study_user);
 
+    public List<StudyUserVO> checkPhoneNumber(StudyUserVO study_user);
+
     public List<StudyUserVO> checkEmail(StudyUserVO study_user);
 
     public StudyUserVO findMyId(StudyUserVO study_user);
+
+    public List<StudyUserVO> findMyPw(StudyUserVO study_user);
 
     public Integer chageMyPw(StudyUserVO study_user);
 
