@@ -63,12 +63,11 @@
                             </select>
                             <input type="text" id="su_phone_number_second" class="callform " maxlength="4" required>
                             <input type="text" id="su_phone_number_third" class="callform " maxlength="4" required>
-                            <button type="button" onclick="phoneNumberCheck()" class="btn">휴대전화 중복검사</button>
                         </td>
                         <input type="hidden" name="su_phone_number" id="su_phone_number">
                     </tr>
                     <tr>
-                        <th><label for="su_email">EMail *</label></th>
+                        <th><label for="su_email">이메일 *</label></th>
                         <td>
                             <input type="text" id="su_email" name="su_email" class="textform" required>
                             <button type="button" onclick="emailCheck()" class="btn">이메일 중복검사</button>
@@ -88,24 +87,7 @@
         </form>
     </div>
     <script type="text/javascript">
-        var check1 = 0, check2 = 0, check3 = 0, check4 = 0; check5=0;
-        // $(function () {
-        //     $("#submit").attr("disabled", "disabled");
-        //     $(check4).keyup(function () {
-        //         if (check1 == 1 && check2 == 1 && check3 == 1 && check4 == 1) {
-        //             $("#submit").removeAttr("disabled");
-        //         }
-        //         else {
-        //             $("#submit").attr("disabled", "disabled");
-        //         }
-        //     });
-        // });
-        // if (check1 == 1 && check2 == 1 && check3 == 1 && check4 == 1) {
-        //     $("#submit").removeAttr("disabled");
-        // }
-        // else {
-        //     $("#submit").attr("disabled", "disabled");
-        // }
+        var check1 = 0, check2 = 0, check3 = 0, check4 = 0;
 
         function checkAll() {
             if ($("#cboxAll").is(':checked')) {
@@ -142,6 +124,7 @@
         var getCheck = RegExp(/^[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]{8,14}$/);
         var getName = RegExp(/^[가-힣]+$/);
         var getNick = RegExp(/^[가-힣a-zA-Z0-9]{2,16}$/);
+        var getPhoneCheck = RegExp(/^[0-9]{11}$/);
 
         document.getElementById("sign_up").addEventListener("change", () => {
             document.getElementById("su_phone_number").value =
@@ -154,6 +137,7 @@
             var number = $("#su_pw").val().search(/[0-9]/g);
             var english = $("#su_pw").val().search(/[a-z]/ig);
             var spece = $("#su_pw").val().search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
             //아이디의 유효성 검사
             if (!getidCheck.test($("#su_id").val())) {
                 alert("형식에 맞게 ID를 입력해주세요");
@@ -189,6 +173,14 @@
                 return false;
             }
 
+            //휴대폰 번호 유효성 검사
+            if (!getPhoneCheck.test($("#su_phone_number").val())) {
+                alert("형식에 맞춰서 휴대폰 번호를 입력해주세요");
+                $("#su_phone_number").val("");
+                $("#su_phone_number").focus();
+                return false;
+            }
+
             //이메일 유효성 검사
             if (!getMail.test($("#su_email").val())) {
                 alert("이메일 형식에 맞게 입력해주세요")
@@ -204,24 +196,24 @@
                 $("#su_name").focus();
                 return false;
             }
+
             if(check1==0){
-                alert("아이디 중복확인을 진행해주세요.")
+                alert("ID 중복검사를 진행해주세요.")
                 return false;
             }
-            if(check1==2){
-                alert("별명 중복확인을 진행해주세요.")
+
+            if(check2==0){
+                alert("별명 중복검사를 진행해주세요.")
                 return false;
             }
-            if(check1==3){
-                alert("아이디 중복확인을 진행해주세요.")
+
+            if(check3==0){
+                alert("이메일 중복검사를 진행해주세요.")
                 return false;
             }
-            if(check1==4){
+
+            if(check4==0){
                 alert("비밀번호와 비밀번호 확인란이 동일하지 않습니다.")
-                return false;
-            }
-            if(check1==5){
-                alert("휴대전화 중복확인을 진행해주세요.")
                 return false;
             }
         }
@@ -288,27 +280,6 @@
                         } else if (data === "FAIL") {
                             alert("사용 불가능한 별명입니다.")
                             check2 = 0;
-                        }
-                    }
-                })
-            }
-        }
-
-        function phoneNumberCheck() {
-            if ($('#su_phone_number').val() == "") {
-                alert("정상적인 휴대폰 번호를 입력하시고 중복검사를 진행해주세요.")
-            } else if (blank_pattern.test($('#su_phone_number').val()) == true) {
-                alert("휴대폰 번호에 띄어쓰기 입력하지 말아주세요.")
-            } else {
-                $.ajax("phoneNumberOverlapCheck/?su_phone_number=" + $("#su_phone_number").val(), {
-                    type: 'GET',
-                    success: function (data, status, jqXHR) {
-                        if (data === "SUCCESS") {
-                            alert("사용 가능한 휴대폰 번호입니다.")
-                            check5=1;
-                        } else if (data === "FAIL") {
-                            alert("사용 불가능한 휴대폰 번호입니다.")
-                            check5=0;
                         }
                     }
                 })
