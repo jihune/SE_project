@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/setting.css">
     <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="/css/group_reader_change.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
-
 <body>
-<div class='setting_title'>
-    <a href="private_board">
+<div class='group_reader_title'>
+    <a href="group_info">
         <svg width="20" height="15" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 54 54"
              style="enable-background:new 0 0 54 54;" xml:space="preserve">
@@ -29,40 +29,35 @@
                 </g>
             </svg>
     </a>
-    <p>그룹정보/설정</p>
+    <p>그룹장 변경</p>
 </div>
-<div class="setting_contents">
-        <div class="setting_nickname">
-            <p>그룹장:김철수</p>
-        </div>
-
-    <a href="group_reader_change">
-        <div>
-            <p>그룹장변경</p>
-        </div>
-    </a>
-    <a href="group_name_change">
-        <div>
-            <p>그룹명변경</p>
-        </div>
-    </a>
-    <a href="recruits_number_change">
-        <div>
-            <p>모집인원변경</p>
-        </div>
-    </a>
-    <a href="groupmember_drop">
-    <div>
-        <p>그룹원 강퇴</p>
+<div>
+    <div class="profile">
+        <img src="images/group_icon1.png">
+        <p>그룹장</p>
     </div>
-    </a>
-    <a href="group_blockuser">
-        <div>
-            <p>가입차단 사용자 관리</p>
-        </div>
-    </a>
+    <div class="profile">
+        <img src="images/group_icon2.png">
+        <p>그룹원2</p>
+    </div>
+    <div class="profile">
+        <img src="images/group_icon3.png">
+        <p>그룹원3</p>
+    </div>
+    <div class="profile">
+        <img src="images/group_icon4.png">
+        <p>그룹원4</p>
+    </div>
+    <div class="profile">
+        <img src="images/group_icon5.png">
+        <p>그룹원5</p>
+    </div>
+    <div class="profile">
+        <img src="images/group_icon6.png">
+        <p>그룹원6</p>
+    </div>
 </div>
 <div th:insert="~{fragment/footer :: footer}"></div>
-</body>
 
+</body>
 </html>
