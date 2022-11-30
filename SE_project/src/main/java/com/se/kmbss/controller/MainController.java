@@ -152,9 +152,28 @@ public class MainController {
 		return "group_info";
 	}
 
+	@GetMapping("group_reader_change")
+	public String group_reader_change() {
+		return "group_reader_change";
+	}
+
 	@GetMapping("group_name_change")
 	public String group_name_change() {
 		return "group_name_change";
 	}
 
+	@GetMapping("recruits_number_change")
+	public String recruits_number_change() {
+		return "recruits_number_change";
+	}
+
+	@GetMapping("groupmember_drop")
+	public String groupmember_drop() {
+		return "groupmember_drop";
+	}
+
+	@GetMapping("group_blockuser")
+	public String group_blockuser() {
+		return "group_blockuser";
+	}
 }
