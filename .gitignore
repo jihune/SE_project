@@ -1,7 +1,6 @@
 !**/src/main/**/build/
 !**/src/test/**/build/
-/*/src/main/resources/application.properties
-/*/out/**
+/*/out/
 MANIFEST.MF
 
 # STS
@@ -53,6 +52,5 @@ DS_Store
 /*/src/main/generated/
 /*/src/test/resources/perptest/
 
-# Wallet
-/*/src/main/resources/wallet/ssh-key-2022-11-29.key
-/*/src/main/resources/wallet/ssh-key-2022-11-29.ppk
+# etc
+etc
