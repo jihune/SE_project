@@ -3,9 +3,6 @@
 #### 2022-11-30 소프트웨어공학 과제 최종 제출 이후
 #### 배포 유지보수 겸 개인 작업 포크
 
-#### Oracle Cloud Instance 호스팅 주소
-#### http://146.56.98.161
-
 #### 소스코드 작업환경은 VScode + Java + Gradle + SpringBoot + Oracle Cloud DB 입니다.
 #### jre, jdk 버전은 1.8.0_261 이지만 그 이상의 버전이면 정상적으로 실행됩니다.
 #### Oracle Cloud DB를 활용하기 때문에 전자지갑 형태로 연결되어 있습니다.
