@@ -1,6 +1,6 @@
 !**/src/main/**/build/
 !**/src/test/**/build/
-/*/out/
+/out/
 MANIFEST.MF
 
 # STS
@@ -53,4 +53,4 @@ DS_Store
 /*/src/test/resources/perptest/
 
 # etc
-etc
+/etc/
