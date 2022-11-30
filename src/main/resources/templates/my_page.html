@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>니가 공부하는 그 스터디 | 메인화면</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/my_page.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <script src="js/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div class="contents">
+        <h2 class="title">마이페이지</h2>
+        <button class="div_block" id="try_study">
+            <P>가입신청한 스터디 목록</P>
+        </button>
+        <div class="shadow_div" id="try_study_shadow">
+            <div class="try_register">
+                <p>' <i>xxx</i> '으로 가입신청 하였습니다.</p>
+                <button class="btn btn-secondary margin_bar">가입신청 취소</button>
+            </div>
+            <div class="try_register">
+                <p>' <i>xxx</i> '으로 가입신청 하였습니다.</p>
+                <button class="btn btn-secondary margin_bar">가입신청 취소</button>
+            </div>
+        </div>
+        <button class="div_block" id="add_friend">
+            <P>친구요청 및 수락</P>
+        </button>
+        <div class="shadow_div" id="add_friend_shadow">
+            <div class="try_friend">
+                <p>친구요청 : ' <i>xxx</i> ' 수락하겠습니까?</p>
+                <button type="submit" class="btn btn-secondary margin_bar"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                    </svg></button>
+                <button type="submit" class="btn btn-secondary margin_bar"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                    </svg></button>
+            </div>
+            <div class="try_friend">
+                <p>친구요청 : ' <i>xxx</i> ' 수락하겠습니까?</p>
+                <button type="submit" class="btn btn-secondary margin_bar"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                        <path
+                            d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+                    </svg></button>
+                <button type="submit" class="btn btn-secondary margin_bar"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                    </svg></button>
+            </div>
+        </div>
+        <button class="div_block" type="button" data-bs-toggle="modal" data-bs-target="#invite_friend">
+            <P>친구 추가</P>
+        </button>
+        <div class="modal fade" id="invite_friend" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="invite_friendLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="invite_friendLabel">친구 추가</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="display:inline-flex">
+                        <input class="input_friend" placeholder="추가하고 싶은 사람의 닉네임을 입력헤 주세요">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+                        <button type="button" class="btn btn-primary">친구요청 보내기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- checkbox에 check한 것을 탈퇴한다 -->
+        <button class="div_block" type="button" data-bs-toggle="modal" data-bs-target="#escape_fucking_study">
+            <P>스터디그룹 탈퇴하기</P>
+        </button>
+        <div class="modal fade" id="escape_fucking_study" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="escape_fucking_studyLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="escape_fucking_studyLabel">스터티그룹 탈퇴하기</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="quit_study_table">
+                            <colgroup>
+                                <col style="width:auto;" />
+                                <col style="width:15%;" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">스터디 목록</th>
+                                    <th scope="col">탈퇴 체크 여부</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:if="${not #lists.isEmpty( posts )}" th:each="row, status : ${posts}">
+                                    <td th:text="${row.noticeYn == false ? (status.size - status.index) : '공지'}"></td>
+                                    <td class="tl"><a th:href="@{/post/view.do( id=${row.id} )}" th:text="${row.title}"></a></td>
+                                    <td><input type="checkbox" /></td>
+                                </tr>
+            
+                                <tr th:unless="${not #lists.isEmpty( posts )}">
+                                    <td colspan="5">
+                                        <div class="no_data_msg">아직 가입한 스터디가 없는 것 같아요...</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+                        <button type="button" class="btn btn-primary">탈퇴</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="div_block" type="button" id="areyoureal">
+            <P>회원탈퇴</P>
+        </button>
+
+        <button class="div_block">
+            <P>공지사항</P>
+        </button>
+    </div>
+    <div th:insert="~{fragment/footer :: footer}"></div>
+    <script>
+        // jquery 보였다 말았다~~
+        $(document).ready(function () {
+            $("#try_study").click(function () {
+                if ($("#try_study_shadow").css("display") == "none") {
+                    $("#try_study_shadow").show();
+                } else {
+                    $("#try_study_shadow").hide();
+                }
+            });
+            $("#add_friend").click(function () {
+                if ($("#add_friend_shadow").css("display") == "none") {
+                    $("#add_friend_shadow").show();
+                }
+                else {
+                    $("#add_friend_shadow").hide();
+                }
+            });
+        })
+        // 회원 탈퇴 묻는 창
+        $(document).ready(function () {
+            $("#areyoureal").click(function () {
+                var result = confirm("정말로 탈퇴를 진행하실건가요?");
+                if (result) {
+                    var result1 = confirm("마지막으로 확인합니다. 정말로 탈퇴하시겠습니까?")
+                    if (result1) {
+                        alert("탈퇴가 완료되었습니다. 지금까지 이용해주셔서 감사합니다.")
+                        // db에서 회원정보 삭제하는거 여기에 입력
+                        location.href = '/'
+                    }
+                }
+                else { }
+            });
+        });
+
+        // 스터디 탈퇴 스크립트
+
+
+
+
+        // modal창 실행 스크립트
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
+</body>

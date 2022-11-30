@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.se.kmbss.mapper.CommentMapper">
+    <sql id="CommentColumns">
+                commentidn,
+                suidn,
+                boardidn,
+                commentuploaddate,
+                commentmodifydate,
+                commentdeletedate,
+                commentcontent
+    </sql>
+    
+    <insert id="uploadcomment" parameterType="com.se.kmbss.mapper.CommentRequest"> 
+                INSERT INTO boardcomment(
+                        <include refid="CommentColumns" />
+                )VALUES(
+                        comment_seq.nextval,
+                        null,
+                        #{boardidn},
+                        sysdate,
+                        null,
+                        null,
+                        #{commentcontent}
+                )
+    </insert>
+
+    <select id="find_by_boardidn" parameterType="int" resultType="com.se.kmbss.mapper.CommentResponse">
+                select
+                        <include refid="CommentColumns" />
+                from
+                        BOARDCOMMENT
+                where
+                        BOARDIDN=#{value}
+                and
+                        COMMENTDELETEDATE is null
+                order by commentuploaddate desc
+    </select>
+
+</mapper>

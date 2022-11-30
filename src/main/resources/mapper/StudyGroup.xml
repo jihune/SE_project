@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 스터디 그룹 기능 -->
+<!-- 커뮤니티 기능 만들 때 작성 -->
+<mapper namespace="com.se.kmbss.mapper.StudyGroupMapper">
+
+</mapper>
