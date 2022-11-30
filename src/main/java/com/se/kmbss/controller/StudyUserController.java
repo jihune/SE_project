@@ -33,9 +33,14 @@ public class StudyUserController {
     }
 
     @PostMapping("sign_up")
-    public String sign_up(StudyUserVO study_user) {
-        su_service.signUp(study_user);
-        return "redirect:/sign_in";
+    public ModelAndView sign_up(StudyUserVO study_user, Model model) {
+
+        ModelAndView mav = new ModelAndView();
+
+        mav.addObject("data", new Message("회원가입이 완료되었습니다.", "sign_in"));
+	    mav.setViewName("message");
+        
+        return mav;
     }
 
     @ResponseBody
