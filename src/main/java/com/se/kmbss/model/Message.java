@@ -1,12 +1,8 @@
-package com.se.kmbss.etc;
+package com.se.kmbss.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class Message {
 	String message = "";
 	String href = "";
