@@ -4,7 +4,7 @@
 /*/out/**
 MANIFEST.MF
 
-### STS ###
+# STS
 .apt_generated
 .factorypath
 .settings
@@ -39,16 +39,20 @@ tokens/
 # Mac OSX
 DS_Store
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+# VS Code
 .vscode/
 
 # source generated
 /*/src/main/generated/
 /*/src/test/resources/perptest/
+
+# Wallet
+/*/src/main/resources/wallet/ssh-key-2022-11-29.key
+/*/src/main/resources/wallet/ssh-key-2022-11-29.ppk
