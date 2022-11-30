@@ -21,15 +21,19 @@ public class StudyUserVO {
     private String su_email;           // 이메일
     private Date su_birth;             // 생년월일
     
-    // 추가할 지 고민되는 것
-    
-    // private Date joinDate; 가입날짜
-
-    // 생년월일은 별도의 함수로 Set
+    /**
+     * 추가할 지 고민되는 것
+     * 
+     * private Date joinDate; 가입날짜
+     * 
+    // 
     
     /**
-     * 추후 사용할 수도 있는 setBirth 함수
-     * @param date
+     * su_birth 생년월일은 별도의 함수로 Set 할 예정
+     * 
+     * 아래는 추후 사용할 수도 있는 setBirth 함수
+     * 
+    //
     public void setBirth(String date) {
 
         if (date.equals("")) {

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.se.kmbss.mapper.MainMapper;
 import com.se.kmbss.service.MainService;
-
 import com.se.kmbss.service.BoardService;
 import com.se.kmbss.service.CommentService;
 import com.se.kmbss.mapper.BoardPaging;
@@ -131,7 +130,6 @@ public class MainController {
 	@GetMapping("stopwatch")
 	public String stopwatch(){return "stopwatch";}
 	
-
 	@GetMapping("group_chat")
 	public String group_chat() {
 		return "group_chat";
