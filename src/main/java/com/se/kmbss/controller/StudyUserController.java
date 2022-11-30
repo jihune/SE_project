@@ -1,5 +1,8 @@
 package com.se.kmbss.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.se.kmbss.etc.Message;
+import com.se.kmbss.model.Message;
 import com.se.kmbss.model.StudyUserVO;
 import com.se.kmbss.service.StudyUserService;
 
@@ -23,7 +26,7 @@ public class StudyUserController {
     @Autowired
     StudyUserService su_service;
 
-    // 회원가입 페이지 관련 맵핑 시작
+    // 회원가입 페이지 코드 Start
     @GetMapping("sign_up")
     public String sign_up() {
         return "sign_up";
@@ -90,43 +93,26 @@ public class StudyUserController {
 
         return "FAIL";
     }
-    // 회원가입 페이지 관련 맵핑 끝
+    // 회원가입 페이지 관련 코드 End
 
-    // 로그인 관련 맵핑 시작
+    // 로그인 관련 코드 Start
     @GetMapping("sign_in")
     public String sign_in() {
         return "sign_in";
     }
 
-    // 세션 구현 미완성
-    // @PostMapping("sign_in")
-    // public ModelAndView sign_in(StudyUserVO study_user, HttpServletRequest request, Model model) {
-
-    //     ModelAndView mav = new ModelAndView();
-
-    //     if (su_service.signInCheck(study_user)) {
-            
-    //         HttpSession sessoin = request.getSession();
-    //         sessoin.setAttribute("study_user", su_service.signIn(study_user));
-
-    //         mav.addObject("data", new Message("로그인 성공", "notice_board"));
-	//         mav.setViewName("Message");
-    //     }
-
-    //     else {
-    //         mav.addObject("data", new Message("로그인 실패", "sign_in"));
-	//         mav.setViewName("Message");
-    //     }
-
-    //     return mav;
-    // }
-
     @PostMapping("sign_in")
-    public ModelAndView sign_in(StudyUserVO study_user, Model model) {
+    public ModelAndView sign_in(StudyUserVO study_user, HttpServletRequest request, Model model) {
 
         ModelAndView mav = new ModelAndView();
 
+        // 입력정보 DB 등록된 계정과 비교
         if (su_service.signInCheck(study_user)) {
+            
+            // 등록된 계정 정보로 세션 생성
+            HttpSession sessoin = request.getSession();
+            sessoin.setAttribute("study_user", su_service.signIn(study_user));
+
             mav.addObject("data", new Message("로그인 성공", "notice_board"));
 	        mav.setViewName("Message");
         }
@@ -138,10 +124,9 @@ public class StudyUserController {
 
         return mav;
     }
+    // 로그인 관련 코드 End
 
-    // 로그인 관련 맵핑 끝
-
-    // ID 찾기 관련 맵핑 시작
+    // ID 찾기 관련 코드 Start
     @GetMapping("find_id")
     public String find_id() {
         return "find_id";
@@ -165,9 +150,9 @@ public class StudyUserController {
 
         return mav;
     }
-    // ID 찾기 관련 맵핑 끝
+    // ID 찾기 관련 코드 End
 
-    // PW 찾기 관련 맵핑 시작
+    // PW 찾기 관련 코드 Start
     @GetMapping("find_pw")
     public String find_pw() {
         return "find_pw";
@@ -191,6 +176,6 @@ public class StudyUserController {
 
         return mav;
     }
-    // PW 찾기 관련 맵핑 끝
+    // PW 찾기 관련 코드 End
 
 }

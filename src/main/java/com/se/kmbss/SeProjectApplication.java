@@ -13,8 +13,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 // static js, css파일을 모으는 폴더
 // template: html파일을 모으는 폴더
 
-// !! 작업 환경이 달라졌을 때 또는 처음 프로젝트 다운로드 받은 경우 !!
-// DB접속 IO오류 발생 시, SE_project/src/main/resources/application.properties 파일 확인
+// DB접속 IO오류 발생 시
+// SE_project/src/main/resources/application.properties 파일 속 Oracle Cloud DB 전자지갑 경로수정
 
 @SpringBootApplication
 public class SeProjectApplication extends SpringBootServletInitializer {

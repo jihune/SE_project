@@ -1,9 +1,6 @@
 package com.se.kmbss.model;
 
 import java.sql.Date;
-// import java.text.ParseException;
-// import java.text.SimpleDateFormat;
-
 import lombok.Data; 
 
 @Data
