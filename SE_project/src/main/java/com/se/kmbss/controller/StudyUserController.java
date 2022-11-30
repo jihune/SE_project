@@ -1,8 +1,5 @@
 package com.se.kmbss.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -101,16 +98,35 @@ public class StudyUserController {
         return "sign_in";
     }
 
+    // 세션 구현 미완성
+    // @PostMapping("sign_in")
+    // public ModelAndView sign_in(StudyUserVO study_user, HttpServletRequest request, Model model) {
+
+    //     ModelAndView mav = new ModelAndView();
+
+    //     if (su_service.signInCheck(study_user)) {
+            
+    //         HttpSession sessoin = request.getSession();
+    //         sessoin.setAttribute("study_user", su_service.signIn(study_user));
+
+    //         mav.addObject("data", new Message("로그인 성공", "notice_board"));
+	//         mav.setViewName("Message");
+    //     }
+
+    //     else {
+    //         mav.addObject("data", new Message("로그인 실패", "sign_in"));
+	//         mav.setViewName("Message");
+    //     }
+
+    //     return mav;
+    // }
+
     @PostMapping("sign_in")
-    public ModelAndView findMyId(StudyUserVO study_user, HttpServletRequest request, Model model) {
+    public ModelAndView sign_in(StudyUserVO study_user, Model model) {
 
         ModelAndView mav = new ModelAndView();
 
         if (su_service.signInCheck(study_user)) {
-            
-            HttpSession sessoin = request.getSession();
-            sessoin.setAttribute("study_user", su_service.signIn(study_user));
-
             mav.addObject("data", new Message("로그인 성공", "notice_board"));
 	        mav.setViewName("Message");
         }
@@ -122,6 +138,7 @@ public class StudyUserController {
 
         return mav;
     }
+
     // 로그인 관련 맵핑 끝
 
     // ID 찾기 관련 맵핑 시작
