@@ -76,7 +76,7 @@ public interface StudyUserService {
      * @param study_user 사용자가 찾을 계정에 대한 입력 정보입니다.
      * @return 부분적인 study_user 정보와 일치하는 DB 상의 사용자가 있다면 Ture, 없다면 False 반환.
      */
-    public boolean findMyPw(StudyUserVO study_user);
+    public String findMyPw(StudyUserVO study_user);
 
     /**
      * chageMypw(StudyUserVO)

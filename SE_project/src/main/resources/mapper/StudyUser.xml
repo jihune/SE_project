@@ -64,7 +64,7 @@
 
     <!-- PW 찾기 -->
     <select id="findMyPw" parameterType="com.se.kmbss.model.StudyUserVO" resultType="String">
-        SELECT su_idn
+        SELECT su_pw
         FROM StudyUser
         WHERE su_id = #{su_id} and su_name = #{su_name} and su_email = #{su_email}
     </select>

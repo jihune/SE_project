@@ -125,13 +125,10 @@ public class StudyUserController {
     @PostMapping("find_id")
     public ModelAndView findMyId(StudyUserVO study_user, Model model) {
 
-        System.out.println("id find..");
         String result_id = su_service.findMyId(study_user);
-        System.out.println(result_id);
 
         if ((result_id == null) || (result_id =="") || (result_id == "0")) {
-            result_id = "존재하지 않는 계정입니다.";
-            System.out.println("존재하지 않는 계정입니다.");
+            result_id = "입력정보와 완벽히 일치하는 계정이 없습니다.";
         }
 
         ModelAndView mav = new ModelAndView();
@@ -152,18 +149,22 @@ public class StudyUserController {
     }
 
     @PostMapping("find_pw")
-    public String findMyPw(StudyUserVO study_user) {
+    public ModelAndView findMyPw(StudyUserVO study_user, Model model) {
 
-        if (su_service.findMyPw(study_user)) {
-            // su_service.chageMypw(study_user);
-            // System.out.println("update pw..");
-            return "redirect:/sign_in";
+        String result_pw = su_service.findMyPw(study_user);
+
+        if ((result_pw == null) || (result_pw =="") || (result_pw == "0")) {
+            result_pw = "입력정보와 완벽히 일치하는 계정이 없습니다.";
         }
 
-        else {
-            return "redirect:/find_pw";
-        }
+        ModelAndView mav = new ModelAndView();
 
+        mav.setViewName("find_pw_result");
+        
+        mav.addObject("result_pw", result_pw);
+        model.addAttribute("result_pw", result_pw);
+
+        return mav;
     }
     // PW 찾기 관련 맵핑 끝
 

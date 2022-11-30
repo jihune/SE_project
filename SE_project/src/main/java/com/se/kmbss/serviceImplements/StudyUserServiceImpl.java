@@ -90,15 +90,9 @@ public class StudyUserServiceImpl implements StudyUserService {
     }
 
     @Override
-    public boolean findMyPw(StudyUserVO study_user) {
-
-        if(su_mapper.findMyPw(study_user).size() == 0) {
-            return false;
-        }
-        
-        else {
-            return true;
-        }
+    public String findMyPw(StudyUserVO study_user) {
+        String result = su_mapper.findMyPw(study_user);
+        return result;
     }
 
     @Override

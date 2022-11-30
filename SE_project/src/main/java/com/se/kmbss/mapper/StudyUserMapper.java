@@ -27,7 +27,7 @@ public interface StudyUserMapper {
 
     public String findMyId(StudyUserVO study_user);
 
-    public List<StudyUserVO> findMyPw(StudyUserVO study_user);
+    public String findMyPw(StudyUserVO study_user);
 
     public Integer chageMyPw(StudyUserVO study_user);
 
