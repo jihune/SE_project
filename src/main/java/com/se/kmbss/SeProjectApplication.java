@@ -16,6 +16,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 // DB접속 IO오류 발생 시
 // SE_project/src/main/resources/application.properties 파일 속 Oracle Cloud DB 전자지갑 경로수정
 
+// localhost 환경에서는 정상이지만
+// 배포환경에서 이미지가 깨지거나, html파일로 이동 못해서 (type=Internal Server Error, status=500) 발생 시
+// 파일명의 대소문자를 배포 환경에서 구분 못하는 경우가 원인일 때가 종종 있다.
+// EX: [(.PNG, .png), (Message.html, message.html)]
+
 @SpringBootApplication
 public class SeProjectApplication extends SpringBootServletInitializer {
 
