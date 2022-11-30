@@ -1,6 +1,5 @@
 package com.se.kmbss.mapper;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data

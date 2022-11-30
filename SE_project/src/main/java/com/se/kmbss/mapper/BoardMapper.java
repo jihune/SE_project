@@ -3,9 +3,6 @@ package com.se.kmbss.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import net.bytebuddy.asm.Advice.Return;
 
 // 데이터베이스에서 가져올 기능을 정의하는 곳이다.
 // src/main/resources/mapper/mapper.xml에서 쿼리문을 작성한다.

@@ -1,13 +1,10 @@
 package com.se.kmbss.mapper;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-
 @Data
-
 public class BoardResponse {
     private Integer boardidn;
     private Integer suidn;
