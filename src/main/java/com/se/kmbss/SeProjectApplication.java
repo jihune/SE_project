@@ -18,7 +18,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 // localhost 환경에서는 정상이지만
 // 배포환경에서 이미지가 깨지거나, html파일로 이동 못해서 (type=Internal Server Error, status=500) 발생 시
-// 파일명의 대소문자를 배포 환경에서 구분 못하는 경우가 원인일 때가 종종 있다.
+// 파일명의 대소문자를 배포 환경에서 엄격하게 구분하기 때문에 오류가 발생하는 경우가 종종 있다.
 // EX: [(.PNG, .png), (Message.html, message.html)]
 
 @SpringBootApplication

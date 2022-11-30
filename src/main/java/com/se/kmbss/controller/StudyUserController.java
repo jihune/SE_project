@@ -114,12 +114,12 @@ public class StudyUserController {
             sessoin.setAttribute("study_user", su_service.signIn(study_user));
 
             mav.addObject("data", new Message("로그인 성공", "notice_board"));
-	        mav.setViewName("Message");
+	        mav.setViewName("message");
         }
 
         else {
             mav.addObject("data", new Message("로그인 실패", "sign_in"));
-	        mav.setViewName("Message");
+	        mav.setViewName("message");
         }
 
         return mav;
