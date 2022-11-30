@@ -1,0 +1,74 @@
+.contents{
+    max-width:640px;
+    width:100%;
+    margin:0 auto;
+    text-align: center;
+}
+.title{
+    padding: 3% 0;
+    margin:0 auto;
+    font-size: 36px;
+}
+.check_thing{
+    text-align:center;
+}
+.text_thing{
+    padding:2% 0;
+    font-size: 22px;
+}
+.notice_title{
+    font-size:32px;
+    margin:0;
+    padding:2%;
+}
+.persenal_penalty{
+    width:100%;
+    margin:0 auto;
+    padding: 2%;
+}
+.penalty_title{
+    font-size:32px;
+    margin:0;
+    padding:2%;
+}
+.persenal_click{
+    border:1px;
+    border-radius:20px;
+    margin:0 auto;
+    width:50%;
+    padding:2% 1%;
+    margin-top:3%;
+}
+#notice{display:none}
+#penalty{display:none}
+#group_set{display:none}
+.btn_thng{
+    margin:3% auto;
+}
+.group_chatting{
+    border:1px;
+    border-radius: 20px;
+    float:left;
+    margin-left:10%;
+    width:30%;
+    padding:1% 0;
+}
+.location_check{
+    float:right;
+    margin-right:10%;
+    width:30%;
+}
+.map_css{width:100%;}
+
+.custom-map-control-button{
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px #0000004d;
+    cursor: pointer;
+    font: 400 18px Roboto,Arial,sans-serif;
+    height: 40px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 0 0.5em;
+}

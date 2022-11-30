@@ -1,0 +1,124 @@
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* 전체 스타일(반응형) */
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+/* 타이틀 */
+.lock_set_title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    height: 46px;
+}
+.lock_set_title svg {
+    position: absolute;
+    top: 15px;  
+    left: 20px;
+}
+.lock_set_title p {
+    font-size: 1.25em;
+}
+
+/* 앱 잠금 */
+.lock_set_box {
+    height: 75%;
+}
+.lock_set_contents, .lock_set_switch {
+    display: flex;
+    padding: 0 20px;
+    height: 46px;
+    margin-bottom: 1px;
+    background: white;
+    align-items: center;
+}
+.lock_set_contents a {
+    color: #aaaaaa;
+    transition: .4s;
+}
+.lock_set_switch {
+    justify-content: space-between;
+}
+/* 스위치 버튼 */
+.switch {
+    display: flex;
+    align-items: center;
+}
+.switch input {
+    display: none;
+}
+.switch input + label .bg_color {
+    position: relative;
+    width: 70px;
+    height: 30px;
+    border-radius: 15px;
+    background: #323232;
+    transition: .4s;
+}
+.switch input + label .bg_color .round {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 22px;
+    height: 22px;
+    border-radius: 13px;
+    background: white;
+    transition: .4s;
+}
+.switch input ~ .switch_text:first-of-type {
+    display: block;
+}
+.switch input ~ .switch_text:last-of-type {
+    display: none;
+}
+.switch input:checked + label .bg_color {
+    background: #848484;
+}
+.switch input:checked + label .round {
+    left: 42px;
+}
+.switch input:checked ~ .switch_text:first-of-type {
+    display: none;
+}
+.switch input:checked ~ .switch_text:last-of-type {
+    display: block;
+}
+.switch .switch_text {
+    width: 29px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* 푸터 박스 */
+/* .footer_box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    background: white;
+    height: 66px;
+    border-radius: 8px 8px 0 0; 
+}
+.footer_box div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer_box p {
+    margin-top: 8px;
+    font-size: 0.75em;
+} */

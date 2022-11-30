@@ -1,0 +1,58 @@
+h3{
+	margin-top:80px;
+	margin: 0 0 20px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 1;
+  }
+  
+  .login{
+	width:100%;
+	max-width:640px;
+	margin:0 auto;
+  }
+  .areaOne{float:left; width:100%;}
+  .store_id{width:50%;}
+  
+  .bottomLink{
+	height:42px;
+	width:100%;
+	border:1px solid gray;
+	border-radius: 10px;
+	background-color: #fff;
+	color:#444;
+	vertical-align: middle;
+	text-decoration: none;
+  }
+  
+  .login ul{
+	width: 100%;
+	text-align: right; 
+	margin-bottom: 60px;
+	padding:0;
+  }
+  .login li{
+	display: inline-block;
+	height: 12px; line-height: 12px;
+  }
+  .login li:last-child{
+	border-left: 1px solid #333;
+	padding-left: 10px; 
+	margin-left: 4px; 
+  }
+  .jump{padding-top:75px;}
+  .hrefText{
+	text-decoration: none;
+	color:#333;
+  }
+  .hrefText:hover{
+	color:#333;
+	cursor:pointer;
+  }
+  .sign_up_btn{
+	width:100%;
+	-webkit-transition: background 0.5s, -webkit-transform 1s;
+	transition: background 0.5s transform 1s;
+	margin-top : 5%;
+  }
