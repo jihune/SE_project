@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.se.kmbss.etc.Message;
 import com.se.kmbss.model.StudyUserVO;
 import com.se.kmbss.service.StudyUserService;
 
@@ -101,18 +102,25 @@ public class StudyUserController {
     }
 
     @PostMapping("sign_in")
-    public String sign_in(StudyUserVO study_user, HttpServletRequest request) {
+    public ModelAndView findMyId(StudyUserVO study_user, HttpServletRequest request, Model model) {
+
+        ModelAndView mav = new ModelAndView();
 
         if (su_service.signInCheck(study_user)) {
+            
             HttpSession sessoin = request.getSession();
             sessoin.setAttribute("study_user", su_service.signIn(study_user));
-            return "redirect:/notice_board";
+
+            mav.addObject("data", new Message("로그인 성공", "notice_board"));
+	        mav.setViewName("Message");
         }
 
         else {
-            return "redirect:/sign_in";
+            mav.addObject("data", new Message("로그인 실패", "sign_in"));
+	        mav.setViewName("Message");
         }
 
+        return mav;
     }
     // 로그인 관련 맵핑 끝
 
