@@ -85,8 +85,8 @@ public class StudyUserServiceImpl implements StudyUserService {
 
     @Override
     public String findMyId(StudyUserVO study_user) {
-        StudyUserVO result = su_mapper.findMyId(study_user);
-        return result.getSu_id();
+        String result = su_mapper.findMyId(study_user);
+        return result;
     }
 
     @Override

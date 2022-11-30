@@ -25,7 +25,7 @@ public interface StudyUserMapper {
 
     public List<StudyUserVO> checkEmail(StudyUserVO study_user);
 
-    public StudyUserVO findMyId(StudyUserVO study_user);
+    public String findMyId(StudyUserVO study_user);
 
     public List<StudyUserVO> findMyPw(StudyUserVO study_user);
 

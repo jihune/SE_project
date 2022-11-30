@@ -1,0 +1,67 @@
+.contents{
+    max-width: 900px;
+    width:100%;
+    margin:auto;
+}
+.title{
+    margin-top:50px;
+    font-family: "맑은 고딕";
+    font-size:25px;
+    color:#333;
+    text-align: center;
+    padding:20px;
+}
+.result{
+    min-height:40px;
+    width:100%;
+    border:1px solid #d5d5d5;
+    text-align:center;
+    border-radius:30px;
+    display:table;
+}
+.say{
+    font-family: "맑은 고딕";
+    font-size:15px;
+    color:#333;
+    vertical-align: middle;
+    display:table-cell;
+}
+.jump{padding-top:100px;}
+.ask{
+    min-height: 40px;
+    line-height: 10%;
+    text-align: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 640px;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    border:1px solid #333;
+    border-radius: 30px;
+}
+.hreftext{
+    text-decoration: none;
+    color:#333;
+    padding:10px;
+    vertical-align: middle;
+}
+.hreftext:hover{
+    color:#333;
+}
+.move{
+    min-height: 40px;
+    line-height: 10%;
+    text-align: center;
+    margin: 30px auto;
+    width: 100%;
+    max-width: 640px;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    border:1px solid #333;
+    border-radius: 30px;
+}
+.move:hover{
+    color:#333;
+}

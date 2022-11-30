@@ -56,7 +56,7 @@
     </select>
 
     <!-- ID 찾기 -->
-    <select id="findMyId" parameterType="com.se.kmbss.model.StudyUserVO" resultType="com.se.kmbss.model.StudyUserVO">
+    <select id="findMyId" parameterType="com.se.kmbss.model.StudyUserVO" resultType="String">
         SELECT su_id
         FROM StudyUser
         WHERE su_name = #{su_name} and su_email = #{su_email}

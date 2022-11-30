@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>니가 공부하는 그 스터디 | ID 찾기</title>
-    <link rel="stylesheet" type="text/css" href="/css/footer.css">
     <link rel="stylesheet" type="text/css" href="/css/find_id.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -28,6 +27,7 @@
                     <font>|</font>
                     <a href="sign_in" class="href_text">로그인 페이지로</a>
                 </div>
+
                 <form action="find_id" method="post">
                     <div class="mb-3 ">
                         <label for="su_name" class="form-label">이름</label><br>
@@ -35,15 +35,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="su_email" class="form-label">이메일</label><br>
-                        <input type="text" name="su_email" class="input_box" id="su_email" placeholder="EMAIL을 입력해주세요">
+                        <input type="text" name="su_email" class="input_box" id="su_email" placeholder="이메일을 입력해주세요">
                     </div>
                     <button type="submit" class="find_id_btn">ID 찾기</button>
-                    
                 </form>
+                
         </fieldset>
     </div>
     <div class="jump"></div>
-    <!-- <div th:insert="~{fragment/footer :: footer}"></div> -->
 </body>
 
 </html>

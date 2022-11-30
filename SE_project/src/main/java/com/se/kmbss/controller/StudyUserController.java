@@ -126,18 +126,20 @@ public class StudyUserController {
     public ModelAndView findMyId(StudyUserVO study_user, Model model) {
 
         System.out.println("id find..");
-        String result_Id = su_service.findMyId(study_user);
+        String result_id = su_service.findMyId(study_user);
+        System.out.println(result_id);
 
-        if (result_Id.equals(null) | result_Id.equals("")) {
-            result_Id = "존재하지 않는 계정입니다.";
+        if ((result_id == null) || (result_id =="") || (result_id == "0")) {
+            result_id = "존재하지 않는 계정입니다.";
+            System.out.println("존재하지 않는 계정입니다.");
         }
 
         ModelAndView mav = new ModelAndView();
 
         mav.setViewName("find_id_result");
-        mav.addObject("result_Id", result_Id);
-
-        model.addAttribute("result_Id", result_Id);
+        
+        mav.addObject("result_id", result_id);
+        model.addAttribute("result_id", result_id);
 
         return mav;
     }
