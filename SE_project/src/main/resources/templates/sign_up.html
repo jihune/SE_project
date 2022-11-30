@@ -88,18 +88,18 @@
         </form>
     </div>
     <script type="text/javascript">
-        var check1 = 0, check2 = 0, check3 = 0, check4 = 0;
-        $(function () {
-            $("#submit").attr("disabled", "disabled");
-            $(check4).keyup(function () {
-                if (check1 == 1 && check2 == 1 && check3 == 1 && check4 == 1) {
-                    $("#submit").removeAttr("disabled");
-                }
-                else {
-                    $("#submit").attr("disabled", "disabled");
-                }
-            });
-        });
+        var check1 = 0, check2 = 0, check3 = 0, check4 = 0; check5=0;
+        // $(function () {
+        //     $("#submit").attr("disabled", "disabled");
+        //     $(check4).keyup(function () {
+        //         if (check1 == 1 && check2 == 1 && check3 == 1 && check4 == 1) {
+        //             $("#submit").removeAttr("disabled");
+        //         }
+        //         else {
+        //             $("#submit").attr("disabled", "disabled");
+        //         }
+        //     });
+        // });
         // if (check1 == 1 && check2 == 1 && check3 == 1 && check4 == 1) {
         //     $("#submit").removeAttr("disabled");
         // }
@@ -204,6 +204,26 @@
                 $("#su_name").focus();
                 return false;
             }
+            if(check1==0){
+                alert("아이디 중복확인을 진행해주세요.")
+                return false;
+            }
+            if(check1==2){
+                alert("별명 중복확인을 진행해주세요.")
+                return false;
+            }
+            if(check1==3){
+                alert("아이디 중복확인을 진행해주세요.")
+                return false;
+            }
+            if(check1==4){
+                alert("비밀번호와 비밀번호 확인란이 동일하지 않습니다.")
+                return false;
+            }
+            if(check1==5){
+                alert("휴대전화 중복확인을 진행해주세요.")
+                return false;
+            }
         }
 
         $(function () {
@@ -285,10 +305,10 @@
                     success: function (data, status, jqXHR) {
                         if (data === "SUCCESS") {
                             alert("사용 가능한 휴대폰 번호입니다.")
-
+                            check5=1;
                         } else if (data === "FAIL") {
                             alert("사용 불가능한 휴대폰 번호입니다.")
-
+                            check5=0;
                         }
                     }
                 })
