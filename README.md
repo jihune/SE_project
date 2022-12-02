@@ -7,10 +7,10 @@
 #### jre, jdk 버전은 1.8.0_261 이지만 그 이상의 버전이면 정상적으로 실행됩니다.
 #### Oracle Cloud DB를 활용하기 때문에 전자지갑 형태로 연결되어 있습니다.
 
-#### 소스코드를 localhost 환경에서 실행방법 (SpringBoot)
-1. VScode Open
-2. 파일 -> 폴더열기-> SE_project 폴더 선택
-3. VScode 확장 설치
+#### 소스코드를 localhost 환경에서 실행방법 [SpringBoot]
+1. SE_project.zip 파일 -> '여기에 풀기' 로 압축해제 (SE_project 폴더가 이중구조가 안되도록)
+2. VScode에서 '폴더열기' -> SE_project 폴더 선택
+3. VScode 마켓플레이스에서 확장 플러그인 설치
  - extension pack for java
  - gradle for java
  - spring boot extension pack
