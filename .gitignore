@@ -52,5 +52,5 @@ DS_Store
 /*/src/main/generated/
 /*/src/test/resources/perptest/
 
-# etc
+# etc (잡동사니 폴더, 필요시 생성)
 /etc/
