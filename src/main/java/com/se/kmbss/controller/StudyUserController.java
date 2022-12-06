@@ -37,6 +37,8 @@ public class StudyUserController {
 
         ModelAndView mav = new ModelAndView();
 
+        su_service.signUp(study_user);
+
         mav.addObject("data", new Message("회원가입이 완료되었습니다.", "sign_in"));
 	    mav.setViewName("message");
         
