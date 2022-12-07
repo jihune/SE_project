@@ -89,11 +89,12 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 2. sudo systemctl start oracle-xe  
 3. sudo systemctl status oracle-xe  
   
-- 톰캣    
+- 톰캣 상태   
 1. sudo service tomcat9 stop  
 2. sudo service tomcat9 start  
 3. sudo systemctl status tomcat9  
 4. sudo chmod -R 777 /var/lib/tomcat9  
+5. cd /var/lib/tomcat9/logs -> tail -f catalina.out -> Ctrl + C  
   
 #  
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjihune%2FSE_project&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
