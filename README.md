@@ -98,14 +98,15 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 7. sudo timedatectl set-timezone Asia/Seoul  
 8. sudo netstat -atn  
 9. sudo iptables -F  
-10. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT  
-11. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT  
-12. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 1521 -m state --state NEW,ESTABLISHED -j ACCEPT  
-13. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT  
-14. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT  
-15. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT  
-16. sudo netfilter-persistent save  
-17. sudo netfilter-persistent start  
+10. sudo iptables -A INPUT -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT  
+11. sudo iptables -A INPUT -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT  
+12. sudo iptables -A INPUT -p tcp --dport 1521 -m state --state NEW,ESTABLISHED -j ACCEPT  
+13. sudo iptables -A INPUT -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT  
+14. sudo iptables -A INPUT -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT  
+15. sudo iptables -A INPUT -p tcp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT  
+16. sudo iptables --list
+17. sudo netfilter-persistent save  
+18. sudo netfilter-persistent start  
   
 #  
 ##### GCP Instance 리눅스 명령어
