@@ -120,7 +120,9 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 2. sudo service tomcat9 start  
 3. sudo systemctl status tomcat9  
 4. sudo chmod -R 777 /var/lib/tomcat9  
-5. cd /var/lib/tomcat9/logs -> tail -f catalina.out -> Ctrl + C  
+5. cd /var/lib/tomcat9/logs  
+6. tail -f catalina.out  
+7. Ctrl + C  
   
 #  
 ##### 부팅 시 스크립트 실행하기  
