@@ -125,17 +125,17 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 7. Ctrl + C  
   
 #  
-##### GCP Instance  유지보수 관련    
+##### GCP Instance  유지보수 관련  
 [rc.local 활성화 해서 재부팅 스크립트 자동실행(우분투)](https://hoing.io/archives/16180)  
-[Linux 자동 재부팅 (cron)](https://chilbaek.tistory.com/108)
-[리눅스 서버 다운 원인 5가지](https://blog.naver.com/erm00/220570757883)
-[t2.micro환경 swap메모리 할당으로 Linux 가상 메모리 늘려주기](https://www.zinnunkebi.com/aws-t2-micro-swap-allocate)
-
+[Linux 자동 재부팅 (cron)](https://chilbaek.tistory.com/108)  
+[리눅스 서버 다운 원인 5가지](https://blog.naver.com/erm00/220570757883)  
+[t2.micro환경 swap메모리 할당으로 Linux 가상 메모리 늘려주기](https://www.zinnunkebi.com/aws-t2-micro-swap-allocate)  
+  
 최소한으로 잡은 리소스 문제인지, 24시간정도 Instance를 구동하면 접속이 안되는 경우가 잦았다.  
 상세원인을 알 수 없어서 임시적으로 새벽 4시에 Linux 재부팅을 하고 오라클과 톰캣 스크립트를  
 다시 자동으로 실행하는 것으로 해결했다.  
-
+  
 혹시 몰라서 가상 메모리를 추가하는 방법도 사용했다.  
-
+  
 #  
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjihune%2FSE_project&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
