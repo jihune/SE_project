@@ -89,17 +89,23 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 3. sudo apt install ufw  
   
 - 리눅스 방화벽 규칙 수정  
-1. sudo netstat -atn  
-2. sudo ufw allow 8080/tcp  
-3. sudo ufw allow 80/tcp  
-4. sudo ufw allow 1521/tcp  
-5. sudo ufw allow 22/tcp  
-6. sudo ufw allow 443/tcp  
-7. sudo ufw allow 3389/tcp  
-8. sudo timedatectl set-timezone Asia/Seoul  
-9. sudo iptables -F
-10. sudo netfilter-persistent save  
-11. sudo netfilter-persistent start 
+1. sudo ufw allow 8080/tcp  
+2. sudo ufw allow 80/tcp  
+3. sudo ufw allow 1521/tcp  
+4. sudo ufw allow 22/tcp  
+5. sudo ufw allow 443/tcp  
+6. sudo ufw allow 3389/tcp  
+7. sudo timedatectl set-timezone Asia/Seoul  
+8. sudo netstat -atn  
+9. sudo iptables -F  
+10. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT  
+11. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT  
+12. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 1521 -m state --state NEW,ESTABLISHED -j ACCEPT  
+13. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT  
+14. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT  
+15. sudo iptables -I INPUT 5 -i ens4 -p tcp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT  
+16. sudo netfilter-persistent save  
+17. sudo netfilter-persistent start  
   
 #  
 ##### GCP Instance 리눅스 명령어
