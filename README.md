@@ -74,26 +74,68 @@ GCP는 무료로 사용가능한 트래픽이 제한되어 있기 때문에 도�
 - [스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술](https://inf.run/Hm59)  
 - [앱 8개를 만들면서 배우는 안드로이드 코틀린(Android Kotlin)](https://inf.run/LLn8)  
   
-#  
-##### GCP Instance 관련 리눅스 명령어
-- 방화벽  
-1. sudo netstat -atn  
-2. sudo ufw allow 8080/tcp  
-3. sudo ufw allow 80/tcp  
-4. sudo ufw allow 1521/tcp  
-5. sudo iptables -F  
-6. sudo timedatectl set-timezone Asia/Seoul  
+#   
+##### Cloud 방화벽 관련 정보  
+- [GCP(Google Cloud) 방화벽 설정](https://kibua20.tistory.com/96)  
+- [방화벽 설정 (http/https 특정 포트 열기)](https://kibua20.tistory.com/124)  
   
+우분투 20.04에서는 iptables 명령어를 실행 후 방화벽을 재실행하거나 재부팅하면 보안 정책이 적용되지 않습니다.  
+방화벽 정책을 재 부팅 시에도 유지하기 위해서는 iptables-persistent (또는 netfilter-persisten) 패키지를 설치하고  
+**netfilter-persistent save** 명령어로 보안 정책을 저장을 해야 합니다.  
+  
+- 패키지 설치  
+1. sudo apt-get install iptables-persistent  
+2. sudo apt-get install netfilter-persistent  
+3. sudo apt install ufw  
+  
+- 리눅스 방화벽 규칙 수정  
+1. sudo ufw allow 8080/tcp  
+2. sudo ufw allow 80/tcp  
+3. sudo ufw allow 1521/tcp  
+4. sudo ufw allow 22/tcp  
+5. sudo ufw allow 443/tcp  
+6. sudo ufw allow 3389/tcp  
+7. sudo timedatectl set-timezone Asia/Seoul  
+8. sudo netstat -atn  
+9. sudo iptables -F  
+10. sudo iptables -A INPUT -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT  
+11. sudo iptables -A INPUT -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT  
+12. sudo iptables -A INPUT -p tcp --dport 1521 -m state --state NEW,ESTABLISHED -j ACCEPT  
+13. sudo iptables -A INPUT -p tcp --dport 22 -m state --state NEW,ESTABLISHED -j ACCEPT  
+14. sudo iptables -A INPUT -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT  
+15. sudo iptables -A INPUT -p tcp --dport 3389 -m state --state NEW,ESTABLISHED -j ACCEPT  
+16. sudo iptables --list
+17. sudo netfilter-persistent save  
+18. sudo netfilter-persistent start  
+  
+#  
+##### GCP Instance 리눅스 명령어
 - 오라클  
 1. sudo systemctl stop oracle-xe  
 2. sudo systemctl start oracle-xe  
 3. sudo systemctl status oracle-xe  
   
-- 톰캣    
+- 톰캣     
 1. sudo service tomcat9 stop  
 2. sudo service tomcat9 start  
 3. sudo systemctl status tomcat9  
 4. sudo chmod -R 777 /var/lib/tomcat9  
+5. cd /var/lib/tomcat9/logs  
+6. tail -f catalina.out  
+7. Ctrl + C  
+  
+#  
+##### GCP Instance  유지보수 관련  
+[rc.local 활성화 해서 재부팅 스크립트 자동실행(우분투)](https://hoing.io/archives/16180)  
+[Linux 자동 재부팅 (cron)](https://chilbaek.tistory.com/108)  
+[리눅스 서버 다운 원인 5가지](https://blog.naver.com/erm00/220570757883)  
+[t2.micro환경 swap메모리 할당으로 Linux 가상 메모리 늘려주기](https://www.zinnunkebi.com/aws-t2-micro-swap-allocate)  
+  
+최소한으로 잡은 리소스 문제인지, 24시간정도 Instance를 구동하면 접속이 안되는 경우가 잦았다.  
+상세원인을 알 수 없어서 임시적으로 새벽 4시에 Linux 재부팅을 하고 오라클과 톰캣 스크립트를  
+다시 자동으로 실행하는 것으로 해결했다.  
+  
+혹시 몰라서 가상 메모리를 추가하는 방법도 사용했다.  
   
 #  
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjihune%2FSE_project&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
